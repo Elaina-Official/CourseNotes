@@ -8,7 +8,7 @@
 
 $z = x + iy,\ i = \sqrt{-1}$
 
-实部：$\text{Re}z$，虚部：$\text{Im}z$
+实部: $\text{Re}z$，虚部: $\text{Im}z$
 
 $z_1 = z_2$ 满足 $x_1 = x_2,\ y_1 = y_2$
 
@@ -41,6 +41,7 @@ $z\cdot\overline{z} = x^2+y^2,\ \displaystyle x = \frac{z+\overline{z}}{2},\ y =
 对于 $\displaystyle \tan\theta = \frac{y}{x}$，应该有 $\displaystyle \theta = \arctan{\frac{y}{x}}$
 
 但是 $\arctan{x}$ 具有范围 $\displaystyle \left(-\frac{\pi}{2}, \frac{\pi}{2}\right)$，因此 $\arg{z}$ 满足
+
 $$
 \arg{z} = 
 \begin{cases}
@@ -52,9 +53,9 @@ $$
 
 #### 复数的三角表示及指数表示
 
-三角表示：$z = x+iy = r\cos\theta+ir\sin\theta = r(\cos\theta+i\sin\theta)$
+三角表示: $z = x+iy = r\cos\theta+ir\sin\theta = r(\cos\theta+i\sin\theta)$
 
-指数形式：$z = re^{i\theta}$
+指数形式: $z = re^{i\theta}$
 
 其中 $r = \vert z\vert,\ \theta = \arg{z}$
 
@@ -82,7 +83,7 @@ $z^n = r^n(\cos\theta+i\sin\theta)^n = r^n(\cos{n\theta}+i\sin{n\theta})$
 
 $\displaystyle z^{-n} = \frac{1}{z^n}$
 
-其中 $(\cos\theta+i\sin\theta)^n = (\cos{n\theta}+i\sin{n\theta})$ 可以用指数形式证明：
+其中 $(\cos\theta+i\sin\theta)^n = (\cos{n\theta}+i\sin{n\theta})$ 可以用指数形式证明: 
 
 $(\cos\theta+i\sin\theta)^n = (e^{i\theta})^n = e^{i(n\theta)} = (\cos{n\theta}+i\sin{n\theta})$
 
