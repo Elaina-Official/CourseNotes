@@ -195,3 +195,63 @@ $$
   $$
   
 
+## 信号的自变量变换
+
+对于任意离散信号 $x[n]$，均满足
+$$
+x[n] = \sum_{k=-\infty}^{+\infty}x[k]\delta[n-k]
+$$
+
+## 典型的系统
+
+### 线性系统
+
+对于某一系统 $x(t)\overset{System}{\longrightarrow}y(t)$，若同时满足
+
+- 齐次性
+
+  假设 $\forall x(t)\overset{System}{\longrightarrow}y(t)$
+
+  有
+  $$
+  kx(t)\overset{System}{\longrightarrow}ky(t)\ (\forall k\in\mathbb{R})
+  $$
+
+- 叠加性
+
+  假设 $\forall x_1(t)\overset{System}{\longrightarrow}y_1(t),\ x_2(t)\overset{System}{\longrightarrow}y_2(t)$
+
+  有
+  $$
+  x_1(t)+x_2(t)\overset{System}{\longrightarrow}y_1(t)+y_2(t)
+  $$
+
+则称该系统为线性系统，否则为非线性系统
+
+**e.g. 判断系统 $y(t) = tx(t)$ 是否是线性系统**
+
+- 齐次性成立
+  $$
+  x(t)\to y(t)=tx(t) \\
+  f(t) = kx(t)\to tf(t) = tkx(t) = ky(t)
+  $$
+
+- 叠加性成立
+  $$
+  x_1(t)\to y_1(t) = tx_1(t) \\
+  x_2(t)\to y_2(t) = tx_2(t) \\
+  f(t) = x_1(t)+x_2(t)\to tf(t) = t(x_1(t)+x_2(t)) = y_1(t)+y_2(t)
+  $$
+
+所以该系统是线性系统。
+
+### 时不变系统
+
+### 因果系统
+
+### 稳定系统
+
+### 记忆系统
+
+### 可逆系统
+
