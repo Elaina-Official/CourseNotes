@@ -591,3 +591,31 @@ x(t)\ast h(t) =
 \end{cases}
 = \frac{e^{-at}-e^{-bt}}{b-a}u(t)
 $$
+
+#### 直观分析
+
+### 卷积的性质
+
+#### 交换律
+
+$x(t)\ast h(t) = h(t)\ast s(t)$
+
+证明如下
+
+设 $\tau' = t-\tau$，则
+$$
+\begin{aligned}
+x(t)\ast h(t) 
+&= \int_{-\infty}^{+\infty}x(\tau)h(t-\tau)\text{d}\tau \\
+&= \int_{+\infty}^{-\infty}x(t-\tau')h(\tau)\text{d}\tau \\
+&= \int_{-\infty}^{+\infty}x(t-\tau')h(\tau)\text{d}\tau' \\
+&= h(t)\ast x(t)
+\end{aligned}
+$$
+
+#### 结合律
+
+$[x(t)\ast h_1(t)]\ast h_2(t) = [x(t)\ast h_2(t)]\ast h_1(t)$
+
+证明如下
+
