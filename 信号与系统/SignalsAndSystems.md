@@ -2,7 +2,11 @@
 
 ## 前言
 
-感谢浙江大学胡浩基老师的信号与系统课程，使得笔者完成此份笔记，课程链接：[2022浙江大学信号与系统（含配套课件和代码） - 胡浩基老师](https://www.bilibili.com/video/BV1g94y1Q76G?p=6)。
+感谢浙江大学胡浩基老师的信号与系统课程，使得笔者完成此份笔记。
+
+课程链接：[2022浙江大学信号与系统（含配套课件和代码） - 胡浩基老师](https://www.bilibili.com/video/BV1g94y1Q76G?p=6)
+
+老师主页：[胡浩基的个人主页-浙江大学个人主页 (zju.edu.cn)](https://person.zju.edu.cn/huhaoji)
 
 ## 信号与系统
 
@@ -355,7 +359,12 @@ $\displaystyle x(t) = \int_{-\infty}^{t}y(\tau)\text{d}\tau+C$，由于 $C$ 是�
 
 若一个系统的输入有界，且输出必有界，则称该系统为稳定系统，否则为非稳定系统。
 
-有界的定义是: $\exists M$，对 $\forall t$，有 $\vert x(t) \vert < M$。
+有界的定义是：若 $\vert x(t)\vert<M$，则有 $\vert y_m(t)\vert<N$。
+
+从冲激响应 $h(t)$ 的角度来看，稳定系统的充要条件为 
+$$
+\int_{-\infty}^{+\infty}\vert h(t)\vert\text{d}t\leqslant M
+$$
 
 > e.g. 判断系统 $y(t) = e^{x(t)}$ 是否是稳定系统
 
@@ -487,4 +496,98 @@ x(t) = \lim_{\Delta\to 0}x_{\Delta}(t) = \lim_{\Delta\to 0}\sum_{k=-\infty}^{+\i
 =& \lim_{\Delta\to 0}\sum_{k=-\infty}^{+\infty}x(k\Delta)h(t-k\Delta)\Delta \\
 =& \int_{-\infty}^{+\infty}x(\tau)h(t-\tau)\text{d}\tau
 \end{aligned}
+$$
+
+### 冲激函数的性质
+
+- $\displaystyle \int_{-\infty}^{+\infty}\delta(t)\text{d}t = 1$
+- $\displaystyle \int_{-\infty}^{+\infty}x(t)\delta(t-t_0)\text{d}t = x(t_0),\ \displaystyle \int_{-\infty}^{+\infty}x(t)\delta(0)\text{d}t = x(0)$
+- $x(t)\delta(t) = x(0)\delta(t)$
+- $\displaystyle \delta(at) = \frac{1}{\vert a\vert}\delta(t)$
+- $\displaystyle \delta(f(t)) = \sum_{for\ all\ f(t_0)=0}{\frac{1}{\vert f'(t_0)\vert}}\delta(t-t_0)$
+
+根据上述公式，可以得到
+$$
+\delta(\cos{t}) =  \sum_{k=-\infty}^{+\infty}\delta(t-k\pi-\frac{\pi}{2}) \\
+\delta(\sin{t}) =  \sum_{k=-\infty}^{+\infty}\delta(t-k\pi) \\
+$$
+
+> e.g. 求 $\displaystyle \int_{-2\pi}^{2\pi}(1+t)\delta(\cos{t})\text{d}t$
+
+$$
+\begin{aligned}
+& \int_{-2\pi}^{2\pi}(1+t)\delta(\cos{t})\text{d}t  \\
+=& \int_{-2\pi}^{2\pi}(1+t)[\delta(t+\frac{3}{2}\pi)+\delta(t+\frac{1}{2}\pi)+\delta(t-\frac{1}{2}\pi)+\delta(t-\frac{3}{2}\pi)]\text{d}t \\
+=& \int_{-2\pi}^{2\pi}(1+t)\delta(t+\frac{3}{2}\pi)\text{d}t + \int_{-2\pi}^{2\pi}(1+t)\delta(t+\frac{1}{2}\pi)\text{d}t + \int_{-2\pi}^{2\pi}(1+t)\delta(t-\frac{1}{2}\pi)\text{d}t + \int_{-2\pi}^{2\pi}(1+t)\delta(t-\frac{3}{2}\pi)\text{d}t \\
+=& (1-\frac{3}{2}\pi) + (1-\frac{1}{2}\pi) + (1+\frac{1}{2}\pi) + (1+ \frac{3}{2}\pi) \\
+=& 4
+\end{aligned}
+$$
+
+#### 引理
+
+**若 $x(t)$ 不是无限振荡的函数，则**
+$$
+\lim_{\omega\to +\infty}\int_{-\infty}^{+\infty}x(t)\cos(\omega t)\text{d}t = 0 \\
+\lim_{\omega\to +\infty}\int_{-\infty}^{+\infty}x(t)\sin(\omega t)\text{d}t = 0 \\
+$$
+对于冲激函数，还有定义
+$$
+\lim_{\omega\to+\infty}\frac{\sin(\omega t)}{\pi t} = \delta(t)
+$$
+证明如下
+
+由于上式等价于下式，因此只需证明
+$$
+\int_{-\infty}^{+\infty}\left[\lim_{\omega \to+\infty}\frac{\sin(\omega t)}{\pi t}\right]y(t)\text{d}t = y (0)
+$$
+对于式子左边，有
+$$
+\begin{aligned}
+左边 &= \lim_{\omega\to +\infty}\int_{-\infty}^{+\infty}\left[\frac{y(t)}{\pi t}\right]\sin(\omega t)\text{d}t \\
+&= \lim_{\omega\to +\infty}\int_{-\infty}^{+\infty}\left[\frac{y(t)-y(0)}{\pi t}\right]\sin(\omega t)\text{d}t + y(0)\lim_{\omega\to +\infty}\int_{-\infty}^{+\infty}\frac{\sin(\omega t)}{\pi t}\text{d}t \\
+&= 0+y(0)\cdot 1 \\
+&= y(0)
+\end{aligned}
+$$
+原式得证。
+
+对于上面的 $\displaystyle \lim_{\omega\to +\infty}\int_{-\infty}^{+\infty}\left[\frac{y(t)-y(0)}{\pi t}\right]\sin(\omega t)\text{d}t$，且因为 $\displaystyle \frac{y(0)-y(0)}{\pi t} = \lim_{t\to 0}\frac{y(t)-y(0)}{\pi t} = \frac{y'(0)}{\pi}$，我们设 
+$$
+x(t) = \frac{y(t)-y(0)}{\pi t} = 
+\begin{cases}
+\displaystyle \frac{y'(0)}{\pi}\quad t = 0 \\
+\displaystyle \frac{y(t)-y(0)}{\pi t}\quad t\neq0
+\end{cases}
+$$
+所以 $x(t)$ 不是无限振荡的函数，那么根据引理，有
+$$
+\lim_{\omega\to +\infty}\int_{-\infty}^{+\infty}x(t)\sin(\omega t)\text{d}t = 0 \\
+$$
+
+### 连续信号卷积的计算
+
+#### 公式法
+
+> e.g. 对于 $x(t) = e^{-bt}u(t),\ h(t) = e^{-at}u(t)$，求卷积和
+
+$$
+\begin{aligned}
+x(t)\ast h(t) 
+&= \int_{-\infty}^{+\infty}x(\tau)h(t-\tau)\text{d}\tau \\
+&= \int_{-\infty}^{+\infty}e^{-b\tau}u(\tau)e^{-a(t-\tau)}u(t-\tau)\text{d}\tau \\
+&= \int_0^t e^{-b\tau}e^{-a(t-\tau)}\text{d}\tau \\
+&= e^{-at}\int_0^t e^{-(b-a)\tau}\text{d}\tau \\
+&= \frac{e^{-at}-e^{-bt}}{b-a}
+\end{aligned}
+$$
+
+上式是在 $0<\tau<t$ 时取得。因此答案为
+$$
+x(t)\ast h(t) = 
+\begin{cases}
+0\quad t<0 \\
+\displaystyle \frac{e^{-at}-e^{-bt}}{b-a}\quad t>0 \\
+\end{cases}
+= \frac{e^{-at}-e^{-bt}}{b-a}u(t)
 $$
