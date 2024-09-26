@@ -214,24 +214,24 @@ $$
 
 #### 线性系统
 
-对于某一系统 $x(t)\overset{System}{\longrightarrow}y(t)$，若同时满足
+对于某一系统 $x(t)\xrightarrow{System}y(t)$，若同时满足
 
 - 齐次性
 
-  假设 $\forall x(t)\overset{System}{\longrightarrow}y(t)$
+  假设 $\forall x(t)\xrightarrow{System}y(t)$
 
   有
   $$
-  kx(t)\overset{System}{\longrightarrow}ky(t)\ (\forall k\in\mathbb{R})
+  kx(t)\xrightarrow{System}ky(t)\ (\forall k\in\mathbb{R})
   $$
 
 - 叠加性
 
-  假设 $\forall x_1(t)\overset{System}{\longrightarrow}y_1(t),\ x_2(t)\overset{System}{\longrightarrow}y_2(t)$
+  假设 $\forall x_1(t)\xrightarrow{System}y_1(t),\ x_2(t)\xrightarrow{System}y_2(t)$
 
   有
   $$
-  x_1(t)+x_2(t)\overset{System}{\longrightarrow}y_1(t)+y_2(t)
+  x_1(t)+x_2(t)\xrightarrow{System}y_1(t)+y_2(t)
   $$
 
 则称该系统为线性系统，否则为非线性系统。
@@ -276,9 +276,9 @@ $$
 
 #### 时不变系统
 
-若 $\forall x(t)\overset{System}{\longrightarrow} y(t)$，则 $\forall t_0 \in \mathbb{R}$，满足
+若 $\forall x(t)\xrightarrow{System} y(t)$，则 $\forall t_0 \in \mathbb{R}$，满足
 $$
-x(t-t_0)\overset{System}{\longrightarrow} y(t-t_0)
+x(t-t_0)\xrightarrow{System} y(t-t_0)
 $$
 则称该系统为时不变系统，否则为时变系统。
 
@@ -307,6 +307,10 @@ $$
 
 如果一个系统在任何时刻的输出只决定于现在和过去的输入，就称该系统为因果系统，否则称为非因果系统。
 
+若一个系统是 **LTI 系统**，则其是因果系统的充要条件为 
+$$
+h(t) = 0\ when\ t < 0
+$$
 对于系统 $y(f(t)) = x(g(t))$，若在 $t\in\mathbb{R}$ 上均满足 $f(t)>g(t)$，则该系统是因果系统。
 
 > e.g. 判断系统 $y(t) = x(t)\cos(t+1)$ 是否是因果系统
@@ -361,9 +365,9 @@ $\displaystyle x(t) = \int_{-\infty}^{t}y(\tau)\text{d}\tau+C$，由于 $C$ 是�
 
 有界的定义是：若 $\vert x(t)\vert<M$，则有 $\vert y_m(t)\vert<N$。
 
-从冲激响应 $h(t)$ 的角度来看，稳定系统的充要条件为 
+从冲激响应 $h(t)$ 的角度来看，若一个系统是 **LTI 系统**，则其是稳定系统的充要条件为 
 $$
-\int_{-\infty}^{+\infty}\vert h(t)\vert\text{d}t\leqslant M
+\int_{-\infty}^{+\infty}\vert h(t)\vert\text{d}t < +\infty
 $$
 
 > e.g. 判断系统 $y(t) = e^{x(t)}$ 是否是稳定系统
@@ -464,12 +468,12 @@ y[n] = x[n]\ast h[n] = \sum_{k=-\infty}^{+\infty}{x[k]h[n-k]} = \sum_{k=-\infty}
 $$
 证明如下
 $$
-\delta[n]\overset{LTI}{\longrightarrow}h[n] \\
-\delta[n-k]\overset{LTI}{\longrightarrow}h[n-k] \\
-x[k]\delta[n-k]\overset{LTI}{\longrightarrow}x[k]h[n-k] \\
-\sum_{k=-\infty}^{+\infty}x[k]\delta[n-k]\overset{LTI}{\longrightarrow}\sum_{k=-\infty}^{+\infty}x[k]h[n-k]
+\delta[n]\overset{LTI}h[n] \\
+\delta[n-k]\overset{LTI}h[n-k] \\
+x[k]\delta[n-k]\overset{LTI}x[k]h[n-k] \\
+\sum_{k=-\infty}^{+\infty}x[k]\delta[n-k]\overset{LTI}\sum_{k=-\infty}^{+\infty}x[k]h[n-k]
 $$
-又因为 $\displaystyle x[n] = \sum_{k=-\infty}^{+\infty}x[k]\delta[n-k]$，所以 $\displaystyle x[n] \overset{LTI}{\longrightarrow}\sum_{k=-\infty}^{+\infty}x[k]h[n-k]$，也就是卷积公式的定义。
+又因为 $\displaystyle x[n] = \sum_{k=-\infty}^{+\infty}x[k]\delta[n-k]$，所以 $\displaystyle x[n] \overset{LTI}\sum_{k=-\infty}^{+\infty}x[k]h[n-k]$，也就是卷积公式的定义。
 
 ### 连续线性时不变系统的卷积公式
 
@@ -479,19 +483,19 @@ $$
 $$
 y(t) = x(t)\ast h(t) = \int_{-\infty}^{+\infty}x(\tau)h(t-\tau)\text{d}\tau
 $$
-我们定义在 $t=0$ 到 $t=\Delta$ 上，且高度为 $\displaystyle \frac{1}{\Delta}$ 的方波 $\delta_{\Delta}(t)$，假设其经过某连续 LTI 系统后的输出为 $h_{\Delta}(t)$，那么假设极限存在，就有 $\displaystyle \delta(t) = \lim_{\Delta\to 0}\delta_{\Delta}(t)\overset{LTI}{\longrightarrow}h(t) = \lim_{\Delta\to 0}h_{\Delta}(t)$
+我们定义在 $t=0$ 到 $t=\Delta$ 上，且高度为 $\displaystyle \frac{1}{\Delta}$ 的方波 $\delta_{\Delta}(t)$，假设其经过某连续 LTI 系统后的输出为 $h_{\Delta}(t)$，那么假设极限存在，就有 $\displaystyle \delta(t) = \lim_{\Delta\to 0}\delta_{\Delta}(t)\overset{LTI}h(t) = \lim_{\Delta\to 0}h_{\Delta}(t)$
 
 接下来证明连续 LTI 系统的卷积公式
 $$
-\delta_{\Delta}(t)\overset{LTI}{\longrightarrow}h_{\Delta}(t) \\
-\delta_{\Delta}(t-k\Delta)\overset{LTI}{\longrightarrow}h_{\Delta}(t-k\Delta) \\
-x(k\Delta)\delta_{\Delta}(t-k\Delta)\Delta\overset{LTI}{\longrightarrow}x(k\Delta)h_{\Delta}(t-k\Delta)\Delta \\
-x_{\Delta}(t) = \sum_{k=-\infty}^{+\infty}x(k\Delta)\delta_{\Delta}(t-k\Delta)\Delta\overset{LTI}{\longrightarrow}\sum_{k=-\infty}^{+\infty}x(k\Delta)h_{\Delta}(t-k\Delta)\Delta \\
+\delta_{\Delta}(t)\overset{LTI}h_{\Delta}(t) \\
+\delta_{\Delta}(t-k\Delta)\overset{LTI}h_{\Delta}(t-k\Delta) \\
+x(k\Delta)\delta_{\Delta}(t-k\Delta)\Delta\overset{LTI}x(k\Delta)h_{\Delta}(t-k\Delta)\Delta \\
+x_{\Delta}(t) = \sum_{k=-\infty}^{+\infty}x(k\Delta)\delta_{\Delta}(t-k\Delta)\Delta\overset{LTI}\sum_{k=-\infty}^{+\infty}x(k\Delta)h_{\Delta}(t-k\Delta)\Delta \\
 $$
 此时有 
 $$
 \begin{aligned}
-x(t) = \lim_{\Delta\to 0}x_{\Delta}(t) = \lim_{\Delta\to 0}\sum_{k=-\infty}^{+\infty}x(k\Delta)\delta_{\Delta}(t-k\Delta)\Delta\overset{LTI}{\longrightarrow}
+x(t) = \lim_{\Delta\to 0}x_{\Delta}(t) = \lim_{\Delta\to 0}\sum_{k=-\infty}^{+\infty}x(k\Delta)\delta_{\Delta}(t-k\Delta)\Delta\xrightarrow{LTI}
 & \lim_{\Delta\to 0}\sum_{k=-\infty}^{+\infty}x(k\Delta)h_{\Delta}(t-k\Delta)\Delta \\
 =& \lim_{\Delta\to 0}\sum_{k=-\infty}^{+\infty}x(k\Delta)h(t-k\Delta)\Delta \\
 =& \int_{-\infty}^{+\infty}x(\tau)h(t-\tau)\text{d}\tau
@@ -524,7 +528,7 @@ $$
 \end{aligned}
 $$
 
-#### 引理
+#### <a name="lemma1">引理1</a>
 
 **若 $x(t)$ 不是无限振荡的函数，则**
 $$
@@ -560,7 +564,7 @@ x(t) = \frac{y(t)-y(0)}{\pi t} =
 \displaystyle \frac{y(t)-y(0)}{\pi t}\quad t\neq0
 \end{cases}
 $$
-所以 $x(t)$ 不是无限振荡的函数，那么根据引理，有
+所以 $x(t)$ 不是无限振荡的函数，那么根据[引理1](#lemma1)，有
 $$
 \lim_{\omega\to +\infty}\int_{-\infty}^{+\infty}x(t)\sin(\omega t)\text{d}t = 0 \\
 $$
@@ -596,6 +600,10 @@ $$
 
 ### 卷积的性质
 
+#### <a name="lemma2">引理2</a>
+
+两个 LTI 系统串联或并联仍为 LTI 系统。
+
 #### 交换律
 
 $x(t)\ast h(t) = h(t)\ast s(t)$
@@ -619,3 +627,34 @@ $[x(t)\ast h_1(t)]\ast h_2(t) = [x(t)\ast h_2(t)]\ast h_1(t)$
 
 证明如下
 
+假设存在[两个 LTI 系统](#lemma2)分别经 $h_1(t),\ h_2(t)$ 符合而成
+$$
+x(t)\xrightarrow{h_1(t),\ h_2(t)}[x(t)\ast h_1(t)]\ast h_2(t) \\
+x(t)\xrightarrow{h_2(t),\ h_1(t)}[x(t)\ast h_2(t)]\ast h_1(t) \\
+$$
+若要证明两个系统等价，只需证明当 $x(t)=\delta(t)$ 时系统的输出相同。
+
+对于 $\delta(t)$ 分别作为以上两个系统的输入，有
+$$
+\delta(t)\xrightarrow{h_1(t),\ h_2(t)}[\delta(t)\ast h_1(t)]\ast h_2(t) = h_1(t)\ast h_2(t)\\
+\delta(t)\xrightarrow{h_2(t),\ h_1(t)}[\delta(t)\ast h_2(t)]\ast h_1(t) = h_2(t)\ast h_1(t)\\
+$$
+根据卷积的交换律，可知这两个系统等价，因而结合律得证。
+
+#### 分配律
+
+$x(t)\ast[h_1(t)+h_2(t)] = x(t)\ast h_1(t)+x(t)\ast h_2(t)$
+
+此处不给出证明，因为积分和求和具有分配律。
+
+#### 特殊函数的卷积与性质
+
+- $\displaystyle x(t)\ast u(t) = \int_{-\infty}^{t}x(\tau)\text{d}\tau$
+
+- #### $\displaystyle x[n]\ast u[n] = \sum_{k=-\infty}^{n}x[k]$
+
+- 对于冲击偶函数 $\displaystyle \delta'(t) = \frac{\text{d}\delta(t)}{\text{d}t}$，有 $\displaystyle \int_{-\infty}^{+\infty}\delta'(t)\text{d}t=0$ 和 $\displaystyle \frac{\text{d}x(t)}{\text{d}t} = x(t)\ast \delta'(t)$
+
+- $\displaystyle \frac{\text{d}[x(t)\ast h(t)]}{\text{d}t} = \frac{\text{d}x(t)}{\text{d}t}\ast h(t) = \frac{\text{d}h(t)}{\text{d}t}\ast x(t)$
+
+- $x(t+t_0)\ast h(t-t_0) = x(t)\ast h(t)$
