@@ -658,3 +658,61 @@ $x(t)\ast[h_1(t)+h_2(t)] = x(t)\ast h_1(t)+x(t)\ast h_2(t)$
 - $\displaystyle \frac{\text{d}[x(t)\ast h(t)]}{\text{d}t} = \frac{\text{d}x(t)}{\text{d}t}\ast h(t) = \frac{\text{d}h(t)}{\text{d}t}\ast x(t)$
 
 - $x(t+t_0)\ast h(t-t_0) = x(t)\ast h(t)$
+
+## 连续时间傅里叶变换
+
+### 傅里叶级数
+
+#### 傅里叶级数的定义
+
+若 
+$$
+f(t)=B_0+\sum_{k=1}^{+\infty}B_k\cos(k\omega_0t)+\sum_{k=1}^{+\infty}C_k\sin(k\omega_0t)\ (T_0=\frac{2\pi}{\omega_0})
+$$
+则有
+$$
+\begin{aligned}
+B_0 &= \frac{1}{T_0}\int_{0}^{T_0}f(t)\mathrm{d}t \\
+B_k &= \frac{2}{T_0}\int_{0}^{T_0}f(t)\cos(k\omega_0{t})\mathrm{d}t \\
+C_k &= \frac{2}{T_0}\int_{0}^{T_0}f(t)\sin(k\omega_0{t})\mathrm{d}t \\
+\end{aligned}
+$$
+
+其中 $\omega_0$ 叫做基波频率，$k\omega_0$ 叫做 $k$ 次谐波频率，$T_0=\frac{2\pi}{\omega_0}$ 叫做基波周期，$B_0$ 叫做直流分量。
+
+#### 傅里叶级数的证明
+
+此处略。
+
+#### 傅里叶级数的复数形式
+
+$$
+\begin{aligned}
+x(t) &= \sum_{k=-\infty}^{+\infty}a_ke^{jk\omega_0t}\ (\omega_0 = \frac{2\pi}{T_0}) \\
+a_k &= \frac{1}{T_0}\int_0^{T_0}x(t)e^{-jk\omega_0t}\text{d}t \\
+\end{aligned}
+$$
+
+其中
+
+$$
+\begin{aligned}
+B_0 &= a_0\ (k=0) \\
+B_k &= a_{-k}+a_k\ (k\neq 0) \\
+C_k &= j(a_k-a_{-k})\ (k\neq 0) \\
+\end{aligned}
+$$
+
+我们很容易通过下面的步骤证明该表达式与傅里叶级数的原定义等价。
+
+$$
+\begin{aligned}
+x(t) &= \sum_{k=-\infty}^{+\infty}a_ke^{jk\omega_0t} \\
+&= a_0 + \sum_{k=1}^{+\infty}(a_ke^{jk\omega_0t}+a_{-k}e^{-jk\omega_0t}) \\ 
+&= a_0 + \sum_{k=1}^{+\infty}((a_k+a_{-k})\cos(\omega_0t)+j(a_k-a_{-k})\sin(\omega_0t)) \\ 
+\end{aligned}
+$$
+
+
+
+## 离散时间傅里叶变换
