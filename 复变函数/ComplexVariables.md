@@ -236,20 +236,24 @@ $f(z) = 0$ 时不解析，所以使得 $z^3+27=0$ 的点是奇点，$z = -3,\ z 
 #### 复变函数在一点可导的充要条件
 
 复变函数 $f(z)$ 在复平面上一点 $z_0$ 可导的条件是
+
 $$
 \lim_{\Delta{z}\to0}\frac{f(z_0+\Delta{z})-f(z_0)}{\Delta{z}}
 $$
+
 存在且在各个方向上相等。
 
 #### 复变函数在区域内解析的充要条件(柯西-黎曼方程)
 
 对于函数 $f(z) = u+vi$ 在 $\mathbb{D}$ 内有定义，那么若 $u, v$ 可微，且满足
+
 $$
 \begin{cases}
 \displaystyle \frac{\partial u}{\partial x} = \frac{\partial v}{\partial y} \\
 \displaystyle \frac{\partial u}{\partial y} = -\frac{\partial v}{\partial x}
 \end{cases}
 $$
+
 则该函数在 $\mathbb{D}$ 上是解析的。
 
 上述方程组叫做柯西-黎曼方程(Cauchy-Riemann Equations, C-R Equations)。
@@ -257,24 +261,31 @@ $$
 证明如下
 
 若 $\displaystyle f'(z)=\lim_{\Delta{z}\to0}\frac{f(z+\Delta{z})-f(z)}{\Delta{z}}$ 存在，则有
+
 $$
 f(z+\Delta{z})-f(z) = f'(z_0)\Delta{z}+o(\vert\Delta{z}\vert) \\
 \Delta{u}+i\Delta{v} = (a+ib)(\Delta{x}+i\Delta{y})+o(\vert\Delta{z}\vert) \\
 \Delta{u}+i\Delta{v} = (a\Delta{x}-b\Delta{y})+i(b\Delta{x}+a\Delta{y})+o(\vert\Delta{z}\vert) \\
 $$
+
 通过 $u, v$ 可微，我们可以得到
+
 $$
 \Delta{u} = a\Delta{x}-b\Delta{y}+o(\vert\Delta{z}\vert) \\
 \Delta{v} = b\Delta{x}+a\Delta{y}+o(\vert\Delta{z}\vert) \\
 $$
+
 所以得到
+
 $$
 a = \frac{\partial u}{\partial x}\quad -b = \frac{\partial u}{\partial y} \\
 b = \frac{\partial v}{\partial x}\quad a = \frac{\partial v}{\partial y} \\
 $$
+
 整理之后可得 C-R 方程。
 
 对于一个解析函数，我们可以得到其导数为
+
 $$
 f'(z)=\frac{\partial u}{\partial x}+i\frac{\partial v}{\partial x}
 $$
@@ -296,11 +307,13 @@ $\displaystyle \frac{\partial u}{\partial x}=2x,\frac{\partial v}{\partial y}=0,
 ### 指数函数
 
 - 定义
+  
   $$
   \exp(z)=e^x(\cos{y}+i\sin{y}) = e^{x+iy} = e^z
   $$
   
 - 导数
+  
   $$
   \exp'(z)=\exp(z)
   $$
@@ -314,12 +327,15 @@ $\displaystyle \frac{\partial u}{\partial x}=2x,\frac{\partial v}{\partial y}=0,
 ### 对数函数
 
 - 定义
+  
   $$
   \text{Ln}z = \ln{z}+2k\pi i = (\ln{r}+i\theta)+2k\pi i = (\ln{\vert z\vert}+i\arg{z})+2k\pi i
   $$
+  
   其中 $\ln{z}$ 称为对数主值。
 
 - 导数
+  
   $$
   (\ln{z})'=\frac{1}{z}
   $$
@@ -335,6 +351,7 @@ $\displaystyle \frac{\partial u}{\partial x}=2x,\frac{\partial v}{\partial y}=0,
 ### 幂函数
 
 - 定义
+  
   $$
   z^n = e^{n\text{Ln}z} \\
   z^{\frac{1}{n}} = e^{\frac{1}{n}\text{Ln}z} = e^{\frac{1}{n}(\ln{z}+2k\pi i)} \\
@@ -342,6 +359,7 @@ $\displaystyle \frac{\partial u}{\partial x}=2x,\frac{\partial v}{\partial y}=0,
   $$
 
 - 导数
+  
   $$
   (z^n)' = nz^{n-1} \\
   (z^\alpha)' = (e^{\alpha\text{Ln}z})' = \alpha z^{\alpha-1}(在正实轴上)
@@ -350,12 +368,14 @@ $\displaystyle \frac{\partial u}{\partial x}=2x,\frac{\partial v}{\partial y}=0,
 ### 三角函数
 
 - 定义
+  
   $$
   \cos{z} = \frac{e^{iz}+e^{-iz}}{2} \\
   \sin{z} = \frac{e^{iz}-e^{-iz}}{2i} \\
   $$
   
 - 导数
+  
   $$
   (\sin{z})' = \cos{z} \\
   (\cos{z})' = -\sin{z} \\
@@ -370,10 +390,12 @@ $\displaystyle \frac{\partial u}{\partial x}=2x,\frac{\partial v}{\partial y}=0,
 ### 反三角函数
 
 - 定义
+  
   $$
   \text{Arcsin}z = -i\text{Ln}(iz+\sqrt{1-z^2}) \\
   \text{Arcsin}z = -i\text{Ln}(z+\sqrt{z^2-1}) \\
   $$
+  
   **注意：上式中根号有正负两个值。**
 
 ## 积分
@@ -391,21 +413,25 @@ $\displaystyle \frac{\partial u}{\partial x}=2x,\frac{\partial v}{\partial y}=0,
 - 性质
 
   - 线性
+    
     $$
     \int_C[f(z)+g(z)]\text{d}z = \int_Cf(z)\text{d}z+\int_{C}g(z)\text{d}z
     $$
 
   - 可加性
+    
     $$
     \int_{C} = \int_{C_1}+\int_{C_2}
     $$
 
   - 最大值
+    
     $$
     \left| \int_Cf(z)\text{d}z \right|\leqslant\int_C\vert f(z)\vert\text{d}S\leqslant M\int_C{1\text{d}S} = M\cdot L
     $$
 
   - 方向性
+    
     $$
     \int_{C^-}f(z)\text{d}z = -\int_C f(z)\text{d}z
     $$
@@ -422,6 +448,7 @@ $\displaystyle \frac{\partial u}{\partial x}=2x,\frac{\partial v}{\partial y}=0,
 #### 复变函数积分的计算
 
 若一点 $z$ 在曲线 $C$ 上，且满足曲线 $C$ 的方程，那么可以将曲线 $C$ 用参数方程表示
+
 $$
 C:
 \begin{cases}
@@ -431,7 +458,9 @@ y=y(t) \\
 \quad
 \alpha\leqslant t\leqslant\beta
 $$
+
 此时有
+
 $$
 z=z(t)=x(t)+iy(t) \\
 \text{d}z = (x'(t)+iy'(t))\text{d}t = z'(t)\text{d}t \\
@@ -441,6 +470,7 @@ $$
 > e.g. 计算 $\displaystyle \int_C{z^2\text{d}z}$，其中 $C$ 是从点 $(0,0)$ 到点 $(2,1)$ 的直线段。
 
 不难设出 $x=2t,y=t,t\in[0,1],z=2t+it,\text{d}z = (2+i)\text{d}t$。那么积分变为
+
 $$
 \int_C{f(z)\text{d}z} = \int_0^1{(2t+it)^2(2+i)\text{d}t} = \frac{2+11i}{3}
 $$
@@ -452,10 +482,13 @@ $$
 > (2) 逆时针方向从 $A$ 到 $B$ 的单位圆周
 
 (1) 对于本问，有 $x=0, y\in[-1,1],z = x+iy=iy,\vert z\vert=\vert y\vert, \text{d}z = i\text{d}y$。那么积分就是 
+
 $$
 \int_C{\vert z\vert\text{d}z} = \int_{-1}^{1}\vert y\vert i\text{d}y = i\int_0^1 y\text{d}y = i
 $$
+
 (2) 对于本问，有 $\displaystyle C:z = e^{i\theta},\theta\in \left[-\frac{\pi}{2},\frac{\pi}{2}\right],\vert z\vert=1,\text{d}z = (-\sin\theta+i\cos\theta)\text{d}\theta$。那么积分就是
+
 $$
 \int_C \vert z\vert\text{d}z = \int_{-\frac{\pi}{2}}^{\frac{\pi}{2}}1\cdot (\sin\theta+i\cos\theta)\text{d}\theta = \int_{-\frac{\pi}{2}}^{\frac{\pi}{2}}\sin\theta\text{d}\theta + i\int_{-\frac{\pi}{2}}^{\frac{\pi}{2}}\cos\theta\text{d}\theta = 2i
 $$
@@ -463,9 +496,11 @@ $$
 > e.g. 证明$\displaystyle \oint_C \frac{1}{(z-z_0)^{n+1}}\text{d}z = \begin{cases}2\pi i \quad n=0\\ 0 \quad n=\pm1, \pm2, \cdots\end{cases}$，其中 $C$ 为 $\vert z-z_0\vert=r$，$r$ 为任意值。
 
 不难看出 $z = z_0+re^{i\theta},\text{d}z = ire^{i\theta}\text{d}\theta$。那么积分就是
+
 $$
 \oint_C \frac{1}{(z-z_0)^{n+1}}\text{d}z = \int_0^{2\pi}\frac{ire^{i\theta}\text{d}\theta}{(re^{i\theta})^{n+1}} =\frac{i}{r^n}\int_0^{2\pi}e^{-in\theta}\text{d}\theta
 $$
+
 对于 $n=0$ 时，有 $\displaystyle I = \frac{i}{r^0}2\pi = 2\pi i$，
 
 对于 $n=\pm1, \pm2,\cdots$，有 $\displaystyle I = \frac{i}{r^n}\int_0^{2\pi}(\cos{n\theta}-i\sin{n\theta})\text{d}\theta$。
@@ -473,6 +508,7 @@ $$
 > e.g. 计算 $\displaystyle \oint_{\vert z\vert=2}\frac{\overline{z}}{\vert z\vert}\text{d}z$。
 
 根据上一题的结论，可以做出如下转化
+
 $$
 \oint_{\vert z\vert=2}\frac{\overline{z}}{\vert z\vert}\text{d}z = \oint_{\vert z\vert=2}\frac{\frac{\vert z\vert^2}{z}}{\vert z\vert}\text{d}z = \oint_{\vert z\vert=2}\frac{\vert z\vert}{z}\text{d}z = \oint_{\vert z\vert=2}\frac{2}{z}\text{d}z = 2\oint_{\vert z\vert=2}\frac{1}{z}\text{d}z = 2\cdot2\pi i = 4\pi i
 $$
@@ -480,10 +516,13 @@ $$
 ### 柯西-古萨定理
 
 若函数 $f(z)$ 在单连通区域 $D$ 内解析，则对于任意 $D$ 内的封闭曲线 $C$，总满足
+
 $$
 \oint_Cf(z)\text{d}z = 0
 $$
+
 此处仅给出当满足 $f'(z)$ 连续情况下的证明。
+
 $$
 \begin{aligned}
 \oint_Cf(z)\text{d}z &= \oint_C(u+iv)(\text{d}x+i\text{d}y) \\
@@ -504,6 +543,7 @@ $$
 将柯西-古萨定理推广到多连通区域的情况，我们就得到了复合闭路定理。
 
 假设存在内部有 $n$ 个空洞的多连通区域 $D$，函数 $f(z)$ 在区域 $D$ 内解析，且在各边界连续，那么有
+
 $$
 \int_C+\int_{C_1^-}+\int_{C_2^-}+\cdots+\int_{C_n^-}=0 \\
 \begin{aligned}
@@ -511,7 +551,9 @@ $$
 &=\oint_{C_1}+\oint_{C_2}+\cdots+\oint_{C_n}
 \end{aligned}
 $$
+
 所以复合闭路定理的表达式为
+
 $$
 \oint_C f(z)\text{d}z = \sum_{k=1}^{n}\oint_{C_k}f(z)\text{d}z
 $$
@@ -519,6 +561,7 @@ $$
 > e.g. 计算 $\displaystyle \oint_C\frac{\cos{z}}{z}\text{d}z$，其中 $C$ 由 $\vert z\vert=2$ 的逆时针方向和 $\vert z\vert=1$ 的顺时针方向构成
 
 显然函数仅在 $z=0$ 处不解析，在所求区域内解析，因此根据复合闭路定理，有
+
 $$
 \oint_C\frac{\cos{z}}{z}\text{d}z=0
 $$
@@ -526,6 +569,7 @@ $$
 > e.g. 计算 $\displaystyle \oint_{\vert z\vert=\frac{1}{2}}\frac{1}{z^2-z}\text{d}z$
 
 显然函数的奇点为 $z=0$ 和 $z=1$。其中 $z=0$ 在所求区域内部，令 $C_1:\vert z\vert=r$ 为环绕 $z=0$ 的一个小空洞，那么根据复合闭路定理，有
+
 $$
 \begin{aligned}
 \oint_{\vert z\vert=\frac{1}{2}}\frac{1}{z^2-z}\text{d}z &= \oint_{C_1}\frac{1}{z^2-z}\text{d}z \\
@@ -540,6 +584,7 @@ $$
 > e.g. 计算 $\displaystyle \oint_{\vert z\vert=\frac{1}{2}}\frac{1}{z^2-z}\text{d}z$，其中 $C$ 是把 $\vert z\vert=1$ 包围的任意简单闭曲线
 
 在上一题的基础上，额外地令 $C_2:\vert z-1\vert=r$ 为环绕 $z=1$ 的一个小空洞，那么有
+
 $$
 \begin{aligned}
 \oint_{\vert z\vert=\frac{1}{2}}\frac{1}{z^2-z}\text{d}z &= \oint_{C_1}\frac{1}{z^2-z}\text{d}z + \oint_{C_2}\frac{1}{z^2-z}\text{d}z \\
