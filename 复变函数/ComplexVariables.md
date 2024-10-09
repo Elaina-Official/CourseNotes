@@ -603,3 +603,46 @@ $$
 - $\displaystyle \oint_C f(z)\text{d}z = \sum_{k=1}^{n}\oint_{C_k}f(z)\text{d}z$，其中 $n$ 是函数 $f(z)$ 的奇点数。
 - $\displaystyle \oint_C \frac{1}{(z-z_0)^{n+1}}\text{d}z = \begin{cases}2\pi i \quad n=0\\ 0 \quad n=\pm1, \pm2, \cdots\end{cases}$
 
+### 不定积分与定积分
+
+#### 原函数与不定积分
+
+定义 $F(z) = \displaystyle \int_{z_0}^{z}f(\xi)\xi$，则有 $F'(z) = f(z)$。若函数 $f(z)$ 在区域 $D$ 内解析，且有 $\phi'(z)=f(z)$，那么 $\phi(z)$ 为 $f(z)$ 在区域 $D$ 内的原函数，$F(z)$ 为 $f(z)$ 的一个原函数，不定积分为 $\displaystyle\int f(z)\text{d}z = F(z)+C$，$C$ 为任意常数。
+
+#### 牛顿-莱布尼茨公式与定积分
+
+对于复变函数，仍有牛顿-莱布尼茨公式(Newton-Leibniz Formula)，即 $\displaystyle \int_{z_0}^{z_1}f(z)\text{d}z = F(z)\Bigg|_{z_0}^{z_1} = F(z_1)-F(z_0)$。
+
+> e.g. 计算 $\displaystyle \int_{0}^{i}\cos{z}\text{d}z$
+
+不难写出 $\displaystyle \int_{0}^{i}\cos{z}\text{d}z = \sin{z}\Bigg|_0^i = \frac{e-e^{-1}}{2}i$。
+
+### 柯西积分
+
+若 $f(z)$ 在由曲线 $C$ 围成的区域 $D$ 内解析，且 $f(z)$ 在 $C$ 上正向连续，那么有
+$$
+\oint_C\frac{f(z)}{z-z_0}\text{d}z = 2\pi if(z_0)
+$$
+此时可以得到 $\displaystyle f(z_0) = \frac{1}{2\pi i}\oint_{\vert z-z_0\vert=r}\frac{f(z)}{z-z_0}\text{d}z$。由于 $z-z_0=r$ 代表距离点 $z_0$ 距离为 $r$ 的圆周，因此我们可以用 $re^{i\theta} \ 0\leqslant\theta\leqslant2\pi$ 替代 $z-z_0$。则有 $\displaystyle f(z_0) = \frac{1}{2\pi i}\int_0^{2\pi}\frac{f(z_0+re^{i\theta})}{re^{i\theta}}ire^{i\theta}\text{d}\theta = \frac{1}{2\pi}\int_0^{2\pi}f(z_0+re^{i\theta})\text{d}\theta$，这也就意味着解析函数在圆心处的取值等于圆周上的平均值。
+
+对于柯西积分，我们使用 $\xi$ 替代 $z$，并对于区域 $D$ 内任意一点 $z$，有 $\displaystyle \forall z\in D, f(z) = \oint_C\frac{f(\xi)}{\xi-z}\text{d}\xi$，这就意味着解析函数 $f(z)$ 在区域 $D$ 内部的点的取值完全由边界上的点确定。
+
+> e.g. 计算 $\displaystyle \oint_{\vert z\vert=2}\frac{\cos{z}}{z}\text{d}z$
+
+该函数的奇点为 $z=0$，那么有 $\displaystyle I = \oint_{C_1}\frac{\cos{z}}{z}\text{d}z = 2\pi i\cdot \cos{z}\Bigg|_{z=0}=2\pi i$。
+
+> e.g. 计算 $\displaystyle \oint_{C}\frac{e^{iz}}{z-\frac{\pi}{2}i}\text{d}z$，其中(1) $C:\vert z\vert=1$，(2) $C:\vert z\vert=2$
+
+该函数的奇点为 $z=\frac{\pi}{2}i$，而 $1<\frac{\pi}{2}<2$。对于(1)，我们发现在区域 $C$ 内没有奇点，因此积分 $I_1=0$。对于(2)，有 $I_2 = \displaystyle \oint_{C_1}\frac{e^{iz}}{z-\frac{\pi}{2}i}\text{d}z = 2\pi i\cdot e^{iz}\Bigg|_{z=\frac{\pi}{2}i} = 2i\pi e^{-\frac{\pi}{2}}$。
+
+> e.g. 计算 $\displaystyle \oint_{\vert z-1-\sqrt{3}i\vert=2}\frac{\ln(1+z)}{z-\sqrt{3}i}\text{d}z$
+
+该函数的奇点为 $z=\sqrt{3}i$，在所求区域内，因此有 $\displaystyle I = \oint_{C_1}\frac{\ln(1+z)}{z-\sqrt{3}i}\text{d}z = 2\pi i\ln(1+z)\Bigg|_{z=\sqrt{3}i} = 2\pi i\ln(1+\sqrt{3}i) = 2i\pi(\ln{2}+i\frac{\pi}{3})$。
+
+> e.g. 计算 $\displaystyle \oint_{\vert z\vert=2}\frac{1}{z^2-z}\text{d}z$
+
+该函数的奇点为 $z=0,z=1$，因此有 $I = \displaystyle \oint_{C_1}\frac{\frac{1}{z-1}}{z-0}\text{d}z + \oint_{C_2}\frac{\frac{1}{z}}{z-1}\text{d}z = 2\pi i\frac{1}{z-1}\Bigg|_{z=0}+2\pi i\frac{1}{z}\Bigg|_{z=1} = 0$。
+
+> e.g. 计算 $\displaystyle \oint_{\vert z\vert=3}\frac{e^z}{z^2+4}\text{d}z$
+
+该函数的奇点为 $z=2i,z=-2i$，因此有 $\displaystyle I = \oint_{C_1}\frac{\frac{e^z}{z+2i}}{z-2i}\text{d}z + \oint_{C_2}\frac{\frac{e^z}{z-2i}}{z-(-2i)}\text{d}z = 2\pi i\frac{e^z}{z+2i}\Bigg|_{z=2i} + 2\pi i\frac{e^z}{z-2i}\Bigg|_{z=-2i} = i\pi\sin2$。
