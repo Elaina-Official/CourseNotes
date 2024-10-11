@@ -155,7 +155,7 @@ $$
   $$
   Sa(t) = 1
   $$
-  抽样函数具有以下性质
+  抽样函数具有以下性质(<a name="dirichlet integral">狄利克雷积分</a>)
   $$
   \int_0^{\infty}Sa(t)\text{d}t = \int_0^{\infty}\frac{\sin(t)}{t}\text{d}t = \int_0^{\infty}\frac{\sin(\omega t)}{t}\text{d}t = \frac{\pi}{2} \ (\omega>0)\\
   \int_{-\infty}^{\infty}Sa(t)\text{d}t = \int_{-\infty}^{\infty}\frac{\sin(t)}{t}\text{d}t = \int_{-\infty}^{\infty}\frac{\sin(\omega t)}{t}\text{d}t = \pi \ (\omega>0)\\
@@ -508,7 +508,7 @@ $$
 - $\displaystyle \int_{-\infty}^{+\infty}x(t)\delta(t-t_0)\text{d}t = x(t_0),\ \displaystyle \int_{-\infty}^{+\infty}x(t)\delta(0)\text{d}t = x(0)$
 - $x(t)\delta(t) = x(0)\delta(t)$
 - $\displaystyle \delta(at) = \frac{1}{\vert a\vert}\delta(t)$
-- $\displaystyle \delta(f(t)) = \sum_{for\ all\ f(t_0)=0}{\frac{1}{\vert f'(t_0)\vert}}\delta(t-t_0)$
+- $\displaystyle \delta(f(t)) = \sum_{\text{for all}\ f(t_0)=0}{\frac{1}{\vert f'(t_0)\vert}}\delta(t-t_0)$
 
 根据上述公式，可以得到
 $$
@@ -528,7 +528,7 @@ $$
 \end{aligned}
 $$
 
-#### <a name="lemma1">引理1</a>
+#### <a name="lemma1">引理1(黎曼-勒贝格引理)</a>
 
 **若 $x(t)$ 不是无限振荡的函数，则**
 $$
@@ -712,6 +712,246 @@ x(t) &= \sum_{k=-\infty}^{+\infty}a_ke^{jk\omega_0t} \\
 &= a_0 + \sum_{k=1}^{+\infty}((a_k+a_{-k})\cos(\omega_0t)+j(a_k-a_{-k})\sin(\omega_0t)) \\ 
 \end{aligned}
 $$
+
+#### <a name="lemma3">引理3</a>
+
+若 $x(t)$ 满足狄里赫利条件，则有
+$$
+\lim_{N\to+\infty}\int_0^{T_0}x(t)\sin(Nt)\text{d}t = 0 \\
+\lim_{N\to+\infty}\int_0^{T_0}x(t)\cos(Nt)\text{d}t = 0 \\
+$$
+
+#### 傅里叶级数收敛性的证明(狄里赫利条件)
+
+狄里赫利条件
+
+- $x(t)$ 在一个周期内绝对可积，也就是信号的能量有限，即 $\displaystyle \int_0^{+\infty}\vert x(t)\vert \text{d}t<\infty$
+- $x(t)$ 在一个周期内极值的数量有限，即信号在一周期内不作无限振荡
+- $x(t)$ 在一个周期内连续或存在有限个第一类间断点
+
+若以 $T_0$ 为周期的信号 $x(t)$ 满足狄里赫利条件，则有
+$$
+x_N(t) =B_0+\sum_{k=1}^{N}B_k\cos(k\omega_0t)+\sum_{k=1}^{N}C_k\sin(k\omega_0t)\ (T_0=\frac{2\pi}{\omega_0}) \\
+\begin{aligned}
+B_0 &= \frac{1}{T_0}\int_{0}^{T_0}x(t)\mathrm{d}t \\
+B_k &= \frac{2}{T_0}\int_{0}^{T_0}x(t)\cos(k\omega_0{t})\mathrm{d}t \\
+C_k &= \frac{2}{T_0}\int_{0}^{T_0}x(t)\sin(k\omega_0{t})\mathrm{d}t \\
+\end{aligned}
+$$
+那么则有
+$$
+\lim_{N\to+\infty}x_N(t)=x(t)
+$$
+证明如下
+
+
+
+### 函数的正交分解
+
+#### 正交函数族
+
+对于函数族 $\{1, \cos(\omega_0t), \sin(\omega_0t),\cos(2\omega_0t),\sin(2\omega_0t),\cdots\}$，任取两个相乘，在一个周期 $T_0 = \frac{2\pi}{\omega_0}$ 上的积分都为 $0$。
+
+也就是说，$\{e^{jk\omega_0t}\}_{k=-\infty\sim+\infty, k\in\mathbb{Z}}$ 是正交基。
+
+对于一族函数 $\{e_i(t)\}_{i=1\sim +\infty}$，若满足任取两个 $e_i(t),e_j(t)$ 相乘的积分为 $0$，即 $\displaystyle \int_a^b e_i(t)e_j(t)\text{d}t=0$，则称该函数族为正交函数族。
+
+#### 施密特正交化
+
+对于一组非正交基 $\{\alpha_k\}_{k=1\sim+\infty}$，可以使用施密特正交化将其变成正交基，新的基底如下
+$$
+\begin{aligned}
+\beta_1 &= \alpha_1 \\
+\beta_2 &= \alpha_2-\frac{<\alpha_2,\beta_1>}{<\beta_1,\beta_1>}\beta_1 \\
+\beta_3 &= \alpha_3-\frac{<\alpha_3,\beta_1>}{<\beta_1,\beta_1>}\beta_1-\frac{<\alpha_3,\beta_2>}{<\beta_2,\beta_2>}\beta_2 \\
+\vdots\\
+\beta_k &= \alpha_k-\sum_{m=1}^{k-1}\frac{<\alpha_k,\beta_m>}{<\beta_m,\beta_m>}\beta_m
+\end{aligned}
+$$
+那么 $\{\beta_k\}_{k=1\sim+\infty}$ 就是正交基，这与线性代数中的过程相同，此处推广到复数域。
+
+### 傅里叶变换
+
+#### 傅里叶变换的定义
+
+非周期函数 $x(t)$ 在 $(-\infty,+\infty)$ 上的傅里叶变换为
+$$
+x(jw) = \int_{-\infty}^{+\infty}x(t)e^{-j\omega t}\text{d}t \\
+x(t) = \frac{1}{2\pi}\int_{-\infty}^{+\infty}x(j\omega)e^{j\omega t}\text{d}\omega
+$$
+这两个变换分别叫做傅里叶变换和傅里叶反变换，$x(j\omega)$ 叫做 $x(t)$ 的傅里叶变换。其中 $x(j\omega t)$ 叫做频域，$x(t)$ 叫做时域，因此有 $x(j\omega)=F(x(t)),\ x(t) = F^{-1}(x(j\omega))$，其中 $j$ 在此处无实际意义，$x(j\omega)$ 也可以直接使用 $x(\omega)$ 表示。
+
+下面给出傅里叶变换的证明。
+
+假设已知 $\displaystyle x(j\omega) = \int_{-\infty}^{+\infty}x(u)e^{-j\omega u}\text{d}u$，我们证明 $\displaystyle x(t) = \frac{1}{2\pi}\int_{-\infty}^{+\infty}x(j\omega)e^{j\omega t}\text{d}\omega$。
+$$
+\begin{aligned}
+x(t) &= \frac{1}{2\pi}\int_{-\infty}^{+\infty}x(j\omega)e^{j\omega t}\text{d}\omega \\
+&= \frac{1}{2\pi}\int_{-\infty}^{+\infty}\left[\int_{-\infty}^{+\infty}x(u)e^{-j\omega u}\text{d}u\right]e^{j\omega t}\text{d}\omega \\
+&= \frac{1}{2\pi}\int_{-\infty}^{+\infty}x(u)\text{d}u\left[\int_{-\infty}^{+\infty}e^{j\omega (t-u)}\text{d}\omega\right] \\ 
+&= \frac{1}{2\pi}\int_{-\infty}^{+\infty}x(u)\text{d}u\cdot \frac{1}{j(t-u)}e^{j\omega (t-u)}\Bigg|_{\omega=-\infty}^{+\infty} \\
+&= \frac{1}{\pi}\int_{-\infty}^{+\infty}x(u)\text{d}u\left[\lim_{\omega\to+\infty}\frac{\sin(\omega(t-u))}{t-u}\right] \\
+&= \frac{1}{\pi}\int_{-\infty}^{+\infty}x(u)\cdot\pi\delta(t-u) \text{d}u \\
+&= x(t)
+\end{aligned}
+$$
+上述式子中冲激函数的出现可以跳转到[引理1](#lemma1)。相应地，我们也可以在已知 $x(t)$ 的前提下证明上述 $x(j\omega)$ 的表达式，此处证明不在给出。
+
+#### 典型信号的傅里叶变换
+
+以下常见信号的傅里叶变换需要牢记，其均可以使用上面的定义证明。
+
+1. $\displaystyle e^{-at}u(t)\xrightarrow{F}\frac{1}{a+j\omega}\ (a>0)$
+2. $\displaystyle \delta(t)\xrightarrow{F}1$
+3. $\displaystyle 1\xrightarrow{F}2\pi\delta(\omega)$
+4. 在区间 $\left[\frac{-\tau}{2},\frac{\tau}{2}\right]$ 上高度为 $E$ 的方波 $\xrightarrow{F}$ $\displaystyle E\tau\text{Sa}(\frac{\tau}{2}\omega) = \frac{2E\sin(\frac{\tau}{2}\omega)}{\omega}$
+5. $\displaystyle \frac{\sin(\omega_c t)}{\pi t}\ (\omega_c>0)$ $\xrightarrow{F}$ 在区间 $[-\omega_c,\omega_c]$ 上高度为 $1$ 的方波
+6. $\displaystyle \cos(\omega_0t)\xrightarrow{F}\pi[\delta(\omega+\omega_0)+\delta(\omega-\omega_0)]$
+7. $\displaystyle \sin(\omega_0t)\xrightarrow{F}\frac{\pi}{j}[\delta(\omega-\omega_0)-\delta(\omega+\omega_0)]$
+8. $\displaystyle u(t)\xrightarrow{F}\frac{1}{j\omega}+\pi\delta(\omega)$
+
+接下来我们依次给出证明，此处需要多次使用[狄利克雷积分](#dirichlet integral)。
+
+对于信号 $x(j\omega) = \vert x(j\omega)\vert e^{j\theta(\omega)}$，$\vert x(j\omega)\vert$ 叫做幅度谱(Amplitude)，$e^{j\theta(\omega)}$ 叫做相位谱。
+
+1. $\displaystyle x(t)=e^{-at}u(t)$
+$$
+  \begin{aligned}
+  x(j\omega) &= \int_{-\infty}^{+\infty}\left[e^{-at}u(t)\right]e^{-j\omega t}\text{d}t \\
+  &= \int_{0}^{+\infty}e^{-(a+j\omega)t}\text{d}t \\
+  &= -\frac{1}{a+j\omega}e^{-(a+j\omega)t}\Bigg|_{t=0}^{+\infty} \\
+  &= -\frac{1}{a+j\omega}\left[e^{-(a+j\omega)\cdot(+\infty)}-1\right] \\
+  \end{aligned}
+$$
+  当且仅当 $a>0$ 时，有 $\displaystyle x(j\omega) = \frac{1}{a+j\omega}$。
+
+2. $x(t)=\delta(t)$
+$$
+  \begin{aligned}
+  x(j\omega) &= \int_{-\infty}^{+\infty}\delta(t)e^{-j\omega t}\text{d}t \\
+  &= e^{-j\omega t}\Bigg|_{t=0} \\
+  &= 1
+  \end{aligned}
+$$
+
+3. $x(j\omega) = 2\pi\delta(\omega)$
+$$
+  \begin{aligned}
+  x(t) &= \frac{1}{2\pi}\int_{-\infty}^{+\infty}2\pi\delta(\omega)e^{j\omega t}\text{d}\omega \\
+  &= \int_{-\infty}^{+\infty}\delta(\omega)e^{j\omega t}\text{d}\omega \\
+  &= e^{j\omega t}\Bigg|_{\omega=0} \\
+  &= 1
+  \end{aligned}
+$$
+  或者令 $x(t)=1$
+$$
+  \begin{aligned}
+  x(j\omega) &= \int_{-\infty}^{+\infty}e^{-j\omega t}\text{d}t \\
+  &= \lim_{N\to+\infty}\int_{-N}^{N}e^{-j\omega t}\text{d}t \\
+  &= \lim_{N\to+\infty}-\frac{1}{j\omega}e^{-j\omega t}\Bigg|_{-N}^{N} \\
+  &= \lim_{N\to+\infty}\frac{1}{j\omega}2j\sin(\omega N) \\
+  &= \lim_{N\to+\infty} \frac{2\sin(\omega N)}{\omega} \\
+  &= 2\pi\delta(\omega)
+  \end{aligned}
+$$
+
+4. $x(t)$ 为在区间 $\left[\frac{-\tau}{2},\frac{\tau}{2}\right]$ 上高度为 $E$ 的方波
+$$
+\begin{aligned}
+  x(j\omega) &= \int_{-\frac{\tau}{2}}^{\frac{\tau}{2}}Ee^{-j\omega t}\text{d}t \\
+  &= -\frac{E}{j\omega}e^{-j\omega t}\Bigg|_{t=-\frac{\tau}{2}}^{\frac{\tau}{2}} \\
+  &= \frac{E}{j\omega}2j\sin(\omega \frac{\tau}{2}) \\
+  &= \frac{2E\sin(\omega \frac{\tau}{2})}{\omega} \\
+  &= E\tau\sin(\frac{\tau}{2}\omega)
+  \end{aligned}
+$$
+
+5. $x(t) = \displaystyle \frac{\sin(\omega_c t)}{\pi t}$
+$$
+\begin{aligned}
+  x(j\omega) &= \int_{-\infty}^{+\infty}\frac{\sin(\omega_c t)}{\pi t}e^{-j\omega t}\text{d}t \\
+  &= \int_{-\infty}^{+\infty}\frac{\sin(\omega_c t)}{\pi t}[\cos(\omega t)-j\sin(\omega t)]\text{d}t \\
+  &= \int_{-\infty}^{+\infty}\frac{\sin(\omega_c t)}{\pi t}\cos(\omega t)\text{d}t \\
+  &= \frac{1}{2}\left[\int_{-\infty}^{+\infty}\frac{\sin((\omega_c+\omega)t)}{\pi t}\text{d}t + \int_{-\infty}^{+\infty}\frac{\sin((\omega_c-\omega)t)}{\pi t}\text{d}t\right] \\
+  \end{aligned}
+$$
+
+  - 当 $\omega < -\omega_c$ 时，有 $\omega+\omega_c<0,\ \omega_c-\omega>0$ ，因此 $x(j\omega) = \frac{1}{2}(-1+1) = 0$；
+  - 当 $-\omega_c<\omega<\omega_c$ 时，有 $\omega_c+\omega>0,\ \omega_c-\omega>0$，因此 $x(j\omega) = \frac{1}{2}(1+1)=1$；
+  - 当 $\omega>\omega_c$ 时，有 $\omega_c+\omega>0,\ \omega_c-\omega<0$，因此 $x(j\omega) = \frac{1}{1}(1-1)=0$。
+
+  这正是在区间 $[-\omega_c,\omega_c]$ 上高度为 $1$ 的方波的函数表达式。
+
+6. 
+
+7. 
+
+8. $\displaystyle x(j\omega) = \frac{1}{j\omega}+\pi\delta(\omega)$
+   $$
+   \begin{aligned}
+   x(t) &= \frac{1}{2\pi}\int_{-\infty}^{+\infty}\left[\frac{1}{j\omega}+\pi\delta(\omega)\right]e^{j\omega t}\text{d}\omega \\
+   &= \frac{1}{2\pi}\int_{-\infty}^{+\infty}\frac{1}{j\omega}e^{j\omega t}\text{d}\omega  + \frac{1}{2}\int_{-\infty}^{+\infty}\delta(\omega)e^{j\omega t}\text{d}\omega \\
+   &= \frac{1}{2\pi}\int_{-\infty}^{+\infty}\frac{1}{j\omega}(\cos(\omega t)+j\sin(\omega t))\text{d}\omega + \frac{1}{2} \\
+   &= \frac{1}{2\pi}\int_{-\infty}^{+\infty}\frac{1}{j\omega}\cos(\omega t)\text{d}\omega  + \frac{1}{2\pi}\int_{-\infty}^{+\infty}\frac{\sin(\omega t)}{\omega}\text{d}\omega + \frac{1}{2} \\
+   &= \frac{1}{2\pi}\int_{-\infty}^{+\infty}\frac{\sin(\omega t)}{\omega}\text{d}\omega + \frac{1}{2} \\
+   \end{aligned}
+   $$
+   由于 
+   $$
+   \frac{1}{2\pi}\int_{-\infty}^{+\infty}\frac{\sin(\omega t)}{\omega}\text{d}\omega = 
+   \begin{cases}
+   \frac{1}{2}\quad t>0 \\
+   -\frac{1}{2}\quad t<0
+   \end{cases}
+   $$
+   所以 $x(t) = u(t)$。
+
+   或者令 $x(t) = u(t)$
+   $$
+   \begin{aligned}
+   x(j\omega) &= \int_{-\infty}^{+\infty}u(t)e^{-j\omega t}\text{d}t \\
+   &= \int_{0}^{+\infty}e^{-j\omega t}\text{d}t \\
+   &= \frac{1}{j\omega}e^{-j\omega t}\Bigg|_{+\infty}^0 \\
+   &= \frac{1}{j\omega}\left[1-\lim_{N\to+\infty}e^{-j\omega N}\right] \\
+   &= \frac{1}{j\omega} - \lim_{N\to+\infty}\frac{e^{-j\omega N}}{j\omega} \\
+   &= \frac{1}{j\omega} - \lim_{N\to+\infty}\frac{\cos(\omega N)-j\sin(\omega N)}{j\omega} \\
+   &= \frac{1}{j\omega} - \lim_{N\to+\infty}\frac{\cos(\omega N)}{j\omega} + \lim_{N\to+\infty}\frac{\sin(\omega N)}{\omega} \\
+   &= \frac{1}{j\omega} - \lim_{N\to+\infty}\frac{\cos(\omega N)}{j\omega} + \pi\delta(t)
+   \end{aligned}
+   $$
+   接下来证明 $\displaystyle \lim_{N\to+\infty}\frac{\cos(\omega N)}{j\omega}=0$，也就是证明 $\displaystyle \lim_{N\to+\infty}\frac{\cos(\omega N)}{\omega}=0$。根据勒贝格积分定理，只需证对于任意的 $y(\omega)$，有 
+   $$
+   I = \int_{-\infty}^{+\infty}y(\omega)\left[\lim_{N\to+\infty}\frac{\cos(\omega N)}{j\omega}\right]\text{d}\omega = 0
+   $$
+   对其进行如下变换
+   $$
+   \begin{aligned}
+   I
+   &= \lim_{N\to+\infty}\int_{-\infty}^{+\infty}\frac{y(\omega)}{\omega}\cos(\omega N)\text{d}\omega \\
+   &= \lim_{N\to+\infty}\int_{-\infty}^{+\infty}\frac{y(\omega)-y(0)}{\omega}\cos(\omega N)\text{d}\omega +y(0)\lim_{N\to+\infty}\int_{-\infty}^{+\infty}\frac{\cos(\omega N)}{\omega}\text{d}\omega \\
+   \end{aligned}
+   $$
+   设 
+   $$
+   f(\omega) = 
+   \begin{cases}
+   y'(0)\quad \omega = 0 \\\\
+   \displaystyle \frac{y(\omega)-y(0)}{\omega} \omega\neq0
+   \end{cases}
+   $$
+   由于 $f(\omega)$ 满足狄里赫利条件，所以根据[引理3](#lemma3)，有 $I=0$。 因此有 $\displaystyle x(j\omega) = \frac{1}{j\omega}+\pi\delta(\omega)$。
+
+   
+
+
+
+> e.g. 求在区间 $\left[-5,5\right]$ 上高度为 $2$ 的方波的傅里叶变换
+
+根据公式 4，可知 $\frac{\tau}{2}=5,\ E=2$，那么代入结果，有 $\displaystyle x(j\omega) = \frac{2\cdot2\sin(5\omega)}{\omega} = \frac{4\sin(5\omega)}{\omega}$
+
+> e.g. 求 $x(j\omega)=7\text{Sa}(2\omega)$ 的傅里叶反变换
+
+根据公式 4，可知 $E\tau = 7,\ \frac{\tau}{2}=2$，那么就有 $E = \frac{7}{4}$，因此 $x(t)$ 为在区间 $\left[-2,2\right]$ 上高度为 $\frac{7}{4}$ 的方波。
 
 
 
