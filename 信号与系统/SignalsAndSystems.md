@@ -779,7 +779,7 @@ $$
 x(jw) = \int_{-\infty}^{+\infty}x(t)e^{-j\omega t}\text{d}t \\
 x(t) = \frac{1}{2\pi}\int_{-\infty}^{+\infty}x(j\omega)e^{j\omega t}\text{d}\omega
 $$
-这两个变换分别叫做傅里叶变换和傅里叶反变换，$x(j\omega)$ 叫做 $x(t)$ 的傅里叶变换。其中 $x(j\omega t)$ 叫做频域，$x(t)$ 叫做时域，因此有 $x(j\omega)=F(x(t)),\ x(t) = F^{-1}(x(j\omega))$，其中 $j$ 在此处无实际意义，$x(j\omega)$ 也可以直接使用 $x(\omega)$ 表示。
+这两个变换分别叫做傅里叶变换和傅里叶反变换，$x(j\omega)$ 叫做 $x(t)$ 的傅里叶变换。其中 $x(j\omega t)$ 叫做频域，$x(t)$ 叫做时域，因此有 $x(j\omega)=\mathscr{F}(x(t)),\ x(t) = \mathscr{F}^{-1}(x(j\omega))$，其中 $j$ 在此处无实际意义，$x(j\omega)$ 也可以直接使用 $x(\omega)$ 表示。
 
 下面给出傅里叶变换的证明。
 
@@ -795,7 +795,7 @@ x(t) &= \frac{1}{2\pi}\int_{-\infty}^{+\infty}x(j\omega)e^{j\omega t}\text{d}\om
 &= x(t)
 \end{aligned}
 $$
-上述式子中冲激函数的出现可以跳转到[引理1](#lemma1)。相应地，我们也可以在已知 $x(t)$ 的前提下证明上述 $x(j\omega)$ 的表达式，此处证明不在给出。
+上述式子中冲激函数的变换可以跳转到[引理1](#lemma1)。相应地，我们也可以在已知 $x(t)$ 的前提下证明上述 $x(j\omega)$ 的表达式，此处证明不在给出。
 
 #### 典型信号的傅里叶变换
 
