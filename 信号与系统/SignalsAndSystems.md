@@ -477,7 +477,7 @@ $$
 
 ### 连续线性时不变系统的卷积公式
 
-在连续 LTI 系统中，我们定义 $x(t)=\delta(t)$ 为**冲激函数**，$h(t)$ 为冲激响应。
+在连续 LTI 系统中，我们定义 $x(t)=\delta(t)$ 为**冲激函数**，那么此时输出 $h(t)$ 为冲激响应。
 
 连续 LTI 系统的卷积公式如下
 $$
@@ -882,9 +882,29 @@ $$
 
   这正是在区间 $[-\omega_c,\omega_c]$ 上高度为 $1$ 的方波的函数表达式。
 
-6. 
+6. $x(t) = \cos(\omega_0 t)$
+   $$
+   \cos(\omega_0 t) = \frac{1}{2}(e^{j\omega_0 t}+e^{-j\omega_0 t}) \\
+   1\xrightarrow{F}2\pi\delta(\omega) \\
+   \frac{1}{2}e^{j\omega_0 t}\xrightarrow{F}\pi\delta(\omega-\omega_0) \\
+   \frac{1}{2}e^{-j\omega_0 t}\xrightarrow{F}\pi\delta(\omega+\omega_0) \\
+   $$
+   根据傅里叶变换的[频移](#frequency_shift)性质，有
+   $$
+   \cos(\omega_0 t) = \frac{1}{2}(e^{j\omega_0 t}+e^{-j\omega_0 t}) \xrightarrow{F}\pi[\delta(\omega-\omega_0)+\delta(\omega+\omega_0)] \\
+   $$
 
-7. 
+7. $x(t) = \sin(\omega_0 t)$
+   $$
+   \sin(\omega_0 t) = \frac{1}{2j}(e^{j\omega_0 t}-e^{-j\omega_0 t}) \\
+   1\xrightarrow{F}2\pi\delta(\omega) \\
+   \frac{1}{2j}e^{j\omega_0 t}\xrightarrow{F}\frac{\pi}{j}\delta(\omega-\omega_0) \\
+   \frac{1}{2j}e^{-j\omega_0 t}\xrightarrow{F}\frac{\pi}{j}\delta(\omega+\omega_0) \\
+   $$
+   根据傅里叶变换的[频移](#frequency_shift)性质，有
+   $$
+   \sin(\omega_0 t) = \frac{1}{2j}(e^{j\omega_0 t}-e^{-j\omega_0 t}) \xrightarrow{F}\frac{\pi}{j}[\delta(\omega-\omega_0)-\delta(\omega+\omega_0)] \\
+   $$
 
 8. $\displaystyle x(j\omega) = \frac{1}{j\omega}+\pi\delta(\omega)$
    $$
@@ -941,9 +961,32 @@ $$
    $$
    由于 $f(\omega)$ 满足狄里赫利条件，所以根据[引理3](#lemma3)，有 $I=0$。 因此有 $\displaystyle x(j\omega) = \frac{1}{j\omega}+\pi\delta(\omega)$。
 
-   
 
+#### 傅里叶变换的性质
 
+- 线性
+
+  若 $x_1(t)\xrightarrow{F}x_1(j\omega), x_2(t)\xrightarrow{F}x_2(j\omega)$，则 $ax_1(t)+bx_2(t)\xrightarrow{F}ax_1(j\omega)+bx_2(j\omega)$。
+
+- 时移
+
+  若 $x(t)\xrightarrow{F}x(j\omega)$，则 $x(t-t_0) \xrightarrow{F}x(j\omega)e^{-j\omega t_0}$。
+
+- <a name="frequency_shift">频移</a>
+
+  若 $x(t)\xrightarrow{F}x(j\omega)$，则 $x(t)e^{j\omega_0 t}\xrightarrow{F}x(j(\omega-\omega_0))$。
+
+- 时域微分
+
+  若 $x(t)\xrightarrow{F}x(j\omega)$，则 $\displaystyle \frac{\text{d}x(t)}{\text{d}t}\xrightarrow{F}j\omega x(j\omega)$。
+
+- 频域微分
+
+  若 $x(t)\xrightarrow{F}x(j\omega)$，则 $tx(t)\xrightarrow{F}j\displaystyle \frac{\text{d}x(j\omega)}{\text{d}\omega}$。
+
+- 时域卷积
+
+  若 $x(t)\xrightarrow{F}x(j\omega),h(t)\xrightarrow{F}H(j\omega)$，则 $x(t)\ast h(t)\xrightarrow{F}x(j\omega)H(j\omega)$。也就是说，**时域卷积等于频域相乘**。
 
 > e.g. 求在区间 $\left[-5,5\right]$ 上高度为 $2$ 的方波的傅里叶变换
 
@@ -953,6 +996,16 @@ $$
 
 根据公式 4，可知 $E\tau = 7,\ \frac{\tau}{2}=2$，那么就有 $E = \frac{7}{4}$，因此 $x(t)$ 为在区间 $\left[-2,2\right]$ 上高度为 $\frac{7}{4}$ 的方波。
 
+> e.g. 求在 $[-4,4]$ 上最高高度为 $2$ 的三角波的傅里叶变换
 
+该三角波可以分解为两个方波的卷积，在 $[-2,2]$ 上高度分别为 $\frac{1}{2},1$ 的方波，那么根据时域卷积的性质，傅里叶变换的结果为两个方波的傅里叶变换相乘，即 $2\text{Sa}(2\omega)\cdot 4\text{Sa}(2\omega) = 8\text{Sa}^2(\omega)$。
+
+> e.g. 对于在 $[-1,0]$ 上为 $x(t)=t+1$，在 $[0,+\infty]$ 上为 $1$ 的梯形波，求其傅里叶变换
+
+该波可以分解成在 $[-1,0]$ 上高度为 $1$ 的方波和 $u(t)$ 的卷积，因此答案为 $\displaystyle \text{Sa}(\frac{1}{2}\omega)e^{j\frac{1}{2}\omega}[\frac{1}{j\omega}+\pi\delta(\omega)] = \frac{1}{j\omega}\text{Sa}(\frac{1}{2}\omega)e^{j\frac{1}{2}\omega}+\pi\delta(\omega)$。
+
+> e.g. 求 $\displaystyle \frac{2\sin^2(3\omega)}{\omega^2}$ 的傅里叶反变换
+
+显然 $\displaystyle \frac{2\sin^2(3\omega)}{\omega^2} = \left[\frac{2\sin(3\omega)}{\omega}\right]\cdot\left[\frac{\sin(3\omega)}{\omega}\right] = 6\text{Sa}(3\omega)\cdot\text{Sa}(3\omega)$，也就是在 $[-3,3]$ 上高度为 $1$ 的方波和高度为 $\frac{1}{2}$ 的方波的卷积的傅里叶变换，因此答案为这两个方波的卷积，也就是在 $[-6,6]$ 上最大值为 $3$ 的三角波。
 
 ## 离散时间傅里叶变换
