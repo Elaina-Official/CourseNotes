@@ -1008,4 +1008,37 @@ $$
 
 显然 $\displaystyle \frac{2\sin^2(3\omega)}{\omega^2} = \left[\frac{2\sin(3\omega)}{\omega}\right]\cdot\left[\frac{\sin(3\omega)}{\omega}\right] = 6\text{Sa}(3\omega)\cdot\text{Sa}(3\omega)$，也就是在 $[-3,3]$ 上高度为 $1$ 的方波和高度为 $\frac{1}{2}$ 的方波的卷积的傅里叶变换，因此答案为这两个方波的卷积，也就是在 $[-6,6]$ 上最大值为 $3$ 的三角波。
 
+#### 用傅里叶变换计算信号卷积
+
+利用傅里叶变换时域卷积的性质，我们可以很方便地求出信号的卷积。
+
+> e.g. 求 $e^{-at}u(t)\ast e^{-bt}u(t)$
+
+$$
+x(t) = e^{-at}u(t)\quad h(t) = e^{-bt}u(t) \\
+x(j\omega) = \frac{1}{a+j\omega}\quad H(j\omega) = \frac{1}{b+j\omega} \\
+$$
+
+当 $a=b$ 时，
+$$
+Y(j\omega) = \frac{1}{(b+j\omega)^2} \\
+y(t) = te^{-bt}u(t)
+$$
+当 $a\neq b$ 时，
+$$
+Y(j\omega) = \frac{1}{(a+j\omega)(b+j\omega)} = \frac{\frac{1}{b-a}}{a+j\omega}-\frac{\frac{1}{b-a}}{b+j\omega} \\
+y(t) = \frac{1}{b-a}(e^{-at}-e^{-bt})u(t)
+$$
+
+> e.g. 若对于某因果系统，有 $\displaystyle \frac{\text{d}^2y(t)}{\text{d}t^2} + 4\frac{\text{d}y(t)}{\text{d}t} +3y(t)=\frac{\text{d}x(t)}{\text{d}t}+2x(t)$，且输入信号为 $x(t)=e^{-t}u(t)$，求输出信号 $y(t)$
+
+对该微分方程两边分别进行傅里叶变换，得到
+$$
+(j\omega)^2Y(j\omega)+4j\omega Y(j\omega)+3Y(j\omega) = j\omega x(j\omega)+2x(j\omega) \\
+[(j\omega)^2+4(j\omega)+3]Y(j\omega) = (j\omega+2)x(j\omega) \\
+Y(j\omega) = \frac{j\omega+2}{(j\omega+1)^2(j\omega+3)} = \frac{\frac{1}{4}}{j\omega+1} + \frac{\frac{1}{2}}{(j\omega+1)^2}-\frac{\frac{1}{4}}{j\omega+3} \\
+y(t) = \frac{1}{4}e^{-t}u(t) + \frac{1}{2}te^{-t}u(t) - \frac{1}{4}e^{-3t}u(t)
+$$
+
+
 ## 离散时间傅里叶变换
