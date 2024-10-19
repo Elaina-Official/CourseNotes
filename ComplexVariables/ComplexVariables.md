@@ -45,9 +45,11 @@ $z\cdot\overline{z} = x^2+y^2,\ \displaystyle x = \frac{z+\overline{z}}{2},\ y =
 $$
 \arg{z} = 
 \begin{cases}
-\displaystyle \arctan\frac{y}{x}, \theta\in\left(-\frac{\pi}{2}, \frac{\pi}{2}\right) \\\\
-\displaystyle \arctan\frac{y}{x} + \pi, \theta\in\left(\frac{\pi}{2}, \pi\right) \\\\
-\displaystyle \arctan\frac{y}{x} - \pi, \theta\in\left(-\pi, -\frac{\pi}{2}\right) 
+\begin{array}{ll}
+\displaystyle \arctan\frac{y}{x} & \theta\in\left(-\frac{\pi}{2}, \frac{\pi}{2}\right) \\
+\displaystyle \arctan\frac{y}{x} + \pi & \theta\in\left(\frac{\pi}{2}, \pi\right) \\
+\displaystyle \arctan\frac{y}{x} - \pi & \theta\in\left(-\pi, -\frac{\pi}{2}\right) 
+\end{array}
 \end{cases}
 $$
 
@@ -633,16 +635,69 @@ $$
 
 > e.g. 计算 $\displaystyle \oint_{C}\frac{e^{iz}}{z-\frac{\pi}{2}i}\text{d}z$，其中(1) $C:\vert z\vert=1$，(2) $C:\vert z\vert=2$
 
-该函数的奇点为 $z=\frac{\pi}{2}i$，而 $1<\frac{\pi}{2}<2$。对于(1)，我们发现在区域 $C$ 内没有奇点，因此积分 $I_1=0$。对于(2)，有 $I_2 = \displaystyle \oint_{C_1}\frac{e^{iz}}{z-\frac{\pi}{2}i}\text{d}z = 2\pi i\cdot e^{iz}\Bigg|_{z=\frac{\pi}{2}i} = 2i\pi e^{-\frac{\pi}{2}}$。
+该函数的奇点为 $z=\frac{\pi}{2}i$，而 $1<\frac{\pi}{2}<2$。对于(1)，我们发现在区域 $C$ 内没有奇点，因此积分 $I_1=0$。对于(2)，有
+$$
+I_2 = \displaystyle \oint_{C_1}\frac{e^{iz}}{z-\frac{\pi}{2}i}\text{d}z = 2\pi i\cdot e^{iz}\Bigg|_{z=\frac{\pi}{2}i} = 2i\pi e^{-\frac{\pi}{2}}
+$$
 
 > e.g. 计算 $\displaystyle \oint_{\vert z-1-\sqrt{3}i\vert=2}\frac{\ln(1+z)}{z-\sqrt{3}i}\text{d}z$
 
-该函数的奇点为 $z=\sqrt{3}i$，在所求区域内，因此有 $\displaystyle I = \oint_{C_1}\frac{\ln(1+z)}{z-\sqrt{3}i}\text{d}z = 2\pi i\ln(1+z)\Bigg|_{z=\sqrt{3}i} = 2\pi i\ln(1+\sqrt{3}i) = 2i\pi(\ln{2}+i\frac{\pi}{3})$。
+该函数的奇点为 $z=\sqrt{3}i$，在所求区域内，因此有 
+$$
+I = \oint_{C_1}\frac{\ln(1+z)}{z-\sqrt{3}i}\text{d}z = 2\pi i\ln(1+z)\Bigg|_{z=\sqrt{3}i} = 2\pi i\ln(1+\sqrt{3}i) = 2i\pi(\ln{2}+i\frac{\pi}{3})
+$$
 
 > e.g. 计算 $\displaystyle \oint_{\vert z\vert=2}\frac{1}{z^2-z}\text{d}z$
 
-该函数的奇点为 $z=0,z=1$，因此有 $I = \displaystyle \oint_{C_1}\frac{\frac{1}{z-1}}{z-0}\text{d}z + \oint_{C_2}\frac{\frac{1}{z}}{z-1}\text{d}z = 2\pi i\frac{1}{z-1}\Bigg|_{z=0}+2\pi i\frac{1}{z}\Bigg|_{z=1} = 0$。
+该函数的奇点为 $z=0,z=1$，因此有
+$$
+I = \displaystyle \oint_{C_1}\frac{\frac{1}{z-1}}{z-0}\text{d}z + \oint_{C_2}\frac{\frac{1}{z}}{z-1}\text{d}z = 2\pi i\frac{1}{z-1}\Bigg|_{z=0}+2\pi i\frac{1}{z}\Bigg|_{z=1} = 0
+$$
 
 > e.g. 计算 $\displaystyle \oint_{\vert z\vert=3}\frac{e^z}{z^2+4}\text{d}z$
 
-该函数的奇点为 $z=2i,z=-2i$，因此有 $\displaystyle I = \oint_{C_1}\frac{\frac{e^z}{z+2i}}{z-2i}\text{d}z + \oint_{C_2}\frac{\frac{e^z}{z-2i}}{z-(-2i)}\text{d}z = 2\pi i\frac{e^z}{z+2i}\Bigg|_{z=2i} + 2\pi i\frac{e^z}{z-2i}\Bigg|_{z=-2i} = i\pi\sin2$。
+该函数的奇点为 $z=2i,z=-2i$，因此有
+$$
+\displaystyle I = \oint_{C_1}\frac{\frac{e^z}{z+2i}}{z-2i}\text{d}z + \oint_{C_2}\frac{\frac{e^z}{z-2i}}{z-(-2i)}\text{d}z = 2\pi i\frac{e^z}{z+2i}\Bigg|_{z=2i} + 2\pi i\frac{e^z}{z-2i}\Bigg|_{z=-2i} = i\pi\sin2
+$$
+
+### 解析函数的高阶导数(柯西积分的推广)
+
+解析函数可求任意阶导数，且导数仍是解析函数。
+
+若函数 $f(z)$ 在 $C_1$ 围成的区域 $D$ 内解析，且在边界 $C$ 连续，则有
+$$
+f^{(n)}(z_0) = \frac{1}{2\pi i}n!\oint_C\frac{f(z)\text{d}z}{(z-z_0)^{n+1}}
+$$
+在实际应用中，往往以以下形式给出
+$$
+\oint_C\frac{f(z)\text{d}z}{(z-z_0)^{n+1}} = \frac{2\pi i}{n!}f^{(n)}(z_0)
+$$
+解析函数的高阶导数证明如下
+
+根据柯西积分公式，有 $\displaystyle f(z) = \frac{1}{2\pi i}\oint_C\frac{f(\xi)}{\xi-z}\text{d}\xi$。对 $z$ 求导，得
+$$
+\begin{aligned}
+\frac{\text{d}^{(n)}f(z)}{\text{d}z^{(n)}} &= \frac{1}{2\pi i}\oint_C \left[\frac{\text{d}^{(n)}}{\text{d}z^{(n)}}\frac{f(\xi)}{\xi-z}\right]\text{d}\xi \\
+&= \frac{1}{2\pi i}n!\oint_C \left[\frac{f(\xi)}{(\xi-z)^{n+1}}\right]\text{d}\xi \\
+\end{aligned}
+$$
+
+> e.g. 求 $\displaystyle \oint_{\vert z\vert=2}\frac{\cos(5z)}{(z-1)^5}\text{d}z$
+
+该函数显然存在奇点 $z=1$，因此有
+$$
+\displaystyle I = \oint_{C_1}\frac{\cos(5z)}{(z-1)^5}\text{d}z = 2\pi i\frac{(\cos(5z))^4}{4!}\Bigg|_{z=1} = \frac{5^4\pi i}{12}\cos(5)
+$$
+
+> e.g. 求 $\displaystyle \oint_{\vert z\vert=2}\frac{1}{z^3(z+1)}\text{d}z$
+
+不难发现该函数奇点为 $z=0,z=-1$，因此有
+$$
+\begin{aligned}
+I &= \oint_{\vert z-0\vert=r}\frac{\frac{1}{z+1}}{z^3} + \oint_{\vert z-(-1)\vert=r}\frac{\frac{1}{z^3}}{z-(-1)} \\
+&= 2\pi i\frac{\left(\frac{1}{z+1}\right)''}{2!}\Bigg|_{z=0}+2\pi i\frac{1}{z^3}\Bigg|_{z=-1} \\
+&= 2\pi i -2\pi i \\
+&= 0
+\end{aligned}
+$$

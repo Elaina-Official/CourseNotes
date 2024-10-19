@@ -130,8 +130,10 @@ $$
   $$
   \delta(t) = 
   \begin{cases}
-  +\infty\quad t = 0 \\
-  0\quad otherwise
+  \begin{array}{ll}
+  +\infty & t = 0 \\
+  0 & \text{otherwise}
+  \end{array}
   \end{cases}
   $$
   且有
@@ -187,7 +189,7 @@ $$
   \delta[n] = 
   \begin{cases}
   1\quad n = 0 \\
-  0\quad otherwise
+  0\quad \text{otherwise}
   \end{cases}
   $$
 
@@ -198,7 +200,7 @@ $$
   \delta[n] = 
   \begin{cases}
   1\quad n \geqslant 0 \\
-  0\quad otherwise
+  0\quad \text{otherwise}
   \end{cases}
   $$
   
@@ -560,8 +562,10 @@ $$
 $$
 x(t) = \frac{y(t)-y(0)}{\pi t} = 
 \begin{cases}
-\displaystyle \frac{y'(0)}{\pi}\quad t = 0 \\
-\displaystyle \frac{y(t)-y(0)}{\pi t}\quad t\neq0
+\begin{array}{ll}
+\displaystyle \frac{y'(0)}{\pi} & t = 0 \\
+\displaystyle \frac{y(t)-y(0)}{\pi t} & t\neq0
+\end{array}
 \end{cases}
 $$
 所以 $x(t)$ 不是无限振荡的函数，那么根据[引理1](#lemma1)，有
@@ -920,12 +924,14 @@ $$
    $$
    \frac{1}{2\pi}\int_{-\infty}^{+\infty}\frac{\sin(\omega t)}{\omega}\text{d}\omega = 
    \begin{cases}
-   \frac{1}{2}\quad t>0 \\
-   -\frac{1}{2}\quad t<0
+   \begin{array}{ll}
+   \frac{1}{2} & t>0 \\
+   -\frac{1}{2} & t<0
+   \end{array}
    \end{cases}
    $$
    所以 $x(t) = u(t)$。
-
+   
    或者令 $x(t) = u(t)$
    $$
    \begin{aligned}
@@ -955,8 +961,10 @@ $$
    $$
    f(\omega) = 
    \begin{cases}
-   y'(0)\quad \omega = 0 \\\\
-   \displaystyle \frac{y(\omega)-y(0)}{\omega} \omega\neq0
+   \begin{array}{ll}
+   y'(0) & \omega = 0 \\\\
+   \displaystyle \frac{y(\omega)-y(0)}{\omega} & \omega\neq0
+   \end{array}
    \end{cases}
    $$
    由于 $f(\omega)$ 满足狄里赫利条件，所以根据[引理3](#lemma3)，有 $I=0$。 因此有 $\displaystyle x(j\omega) = \frac{1}{j\omega}+\pi\delta(\omega)$。
