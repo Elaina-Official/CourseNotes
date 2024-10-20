@@ -239,6 +239,104 @@ Two quantifiers are nested if one is within the scope of the other.
 
 If quantifiers are same type, the order is not a matter. If quantifiers are different types, read from left to right. 
 
+### Rules of Inference
+
+#### Rules of Inference
+
+Argument in propositional logic is a sequence of propositions. A argument form is like this:
+$$
+\begin{array}{r}
+p \\
+p\rightarrow q \\
+\hline
+\therefore q
+\end{array}
+$$
+The upper is called Premise/Hypothesis, and the lower is called Conclusion. 
+
+- Premises / Hypothesis: All except the final proposition
+- Conclusion: The final proposition
+
+**Rules of Inference ($\rightarrow $)**
+
+| Formal Name | Symbol |
+| ---- | ---- |
+|   Modus Ponens   | $((p \rightarrow q) \land p) \rightarrow q$ |
+| Modus Tollens | $((\neg q) \land (p \rightarrow q)) \rightarrow \neg p$ |
+| Hypothetical Syllogism | $((p \rightarrow q) \land (q \rightarrow r)) \rightarrow (p \rightarrow r)$ |
+| Disjunctive Syllogism | $((p \lor q) \land \neg p) \rightarrow q$ |
+| Addition | $p \rightarrow (p \lor q)$ |
+| Simplification | $(p \land q) \rightarrow p$ |
+| Conjunction | $(p \land q) \rightarrow (p \land q)$ |
+| Resolution | $((p \lor q) \land (\neg p \lor r)) \rightarrow (q \lor r)$ |
+
+**Proof of Theorems: Equivalence**
+
+Since we know that $p\leftrightarrow q\equiv(p\rightarrow q)\land(q\rightarrow p)$.To prove equivalence, we can show $p\rightarrow q$ and $q\rightarrow p$ are both true. 
+
+#### Rules of Inference for Quantifiers
+
+- Universal Instantiation
+  $$
+  \begin{array}{r}
+  \forall xP(x) \\
+  \hline
+  \therefore P(a)
+  \end{array}
+  $$
+
+- Existential Instantiation
+  $$
+  \begin{array}{r}
+  \exist xP(x) \\
+  \hline
+  \therefore P(c) \text{ for some element }c
+  \end{array}
+  $$
+
+- Universal Generalization
+  $$
+  \begin{array}{r}
+  P(b)\text{ for an arbitraty }b \\
+  \hline
+  \therefore \forall xP(x)
+  \end{array}
+  $$
+
+- Existential Generalization
+  $$
+  \begin{array}{r}
+  P(d)\text{ for some element }d \\
+  \hline
+  \therefore \exist xP(x)
+  \end{array}
+  $$
+
+
+
+### Introduction to Proofs
+
+These are formal proofs, which are very clear and precise, always extremely lone and hard to follow. 
+
+- Proposition
+- Operator
+- Predicates
+- Quantifier
+- Truth Table
+- Rules of Equivalence
+- Rules of Inference
+
+We also have some informal proofs. There will be more than one rule of inference may be used in each step, and steps may be skipped. 
+
+- Direct Proof
+- Indirect Proof
+-  Proof by Contraposition
+- Proof of Theorems: Equivalence
+- Proof by Contradiction
+- Proof by Cases
+- Existence Proof
+- Uniqueness Proof
+
 ## Relation
 
 ## Counting 
