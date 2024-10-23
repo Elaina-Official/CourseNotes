@@ -805,7 +805,7 @@ $$
 
 以下常见信号的傅里叶变换需要牢记，其均可以使用上面的定义证明。
 
-1. $\displaystyle e^{-at}u(t)\xrightarrow{F}\frac{1}{a+j\omega}, \frac{t^{n-1}}{(n-1)!}e^{-at}u(t)\xrightarrow{F}\frac{1}{(a+j\omega)^n}\ (a>0)$
+1. $\displaystyle e^{-at}u(t)\xrightarrow{F}\frac{1}{a+j\omega}(a>0)$
 2. $\displaystyle \delta(t)\xrightarrow{F}1$
 3. $\displaystyle 1\xrightarrow{F}2\pi\delta(\omega)$
 4. 在区间 $\left[\frac{-\tau}{2},\frac{\tau}{2}\right]$ 上高度为 $E$ 的方波 $\xrightarrow{F}$ $\displaystyle E\tau\text{Sa}(\frac{\tau}{2}\omega) = \frac{2E\sin(\frac{\tau}{2}\omega)}{\omega}$
@@ -827,7 +827,9 @@ $$
   &= -\frac{1}{a+j\omega}\left[e^{-(a+j\omega)\cdot(+\infty)}-1\right] \\
   \end{aligned}
 $$
-  当且仅当 $a>0$ 时，有 $\displaystyle x(j\omega) = \frac{1}{a+j\omega}$。
+  当且仅当 $a>0$ 时，有 $\displaystyle x(j\omega) = \frac{1}{a+j\omega}$。对于高阶形式，有 $\displaystyle \frac{t^{n-1}}{(n-1)!}e^{-at}u(t)\xrightarrow{F}\frac{1}{(a+j\omega)^n}\ (a>0)$。
+
+  对于含三角函数的形式，有 $\displaystyle e^{-at}\cos{\omega_0 t}u(t)\xrightarrow{F}\frac{a+j\omega}{(a+j\omega)^2+\omega_0^2}$ 和 $\displaystyle e^{-at}\sin{\omega_0 t}u(t)\xrightarrow{F}\frac{\omega_0}{(a+j\omega)^2+\omega_0^2}$。
 
 2. $x(t)=\delta(t)$
 $$
@@ -986,15 +988,19 @@ $$
 
 - 时域微分
 
-  若 $x(t)\xrightarrow{F}x(j\omega)$，则 $\displaystyle \frac{\text{d}x(t)}{\text{d}t}\xrightarrow{F}j\omega x(j\omega), \frac{\text{d}^nx(t)}{\text{d}t^n}\xrightarrow{F}(j\omega)^n x(j\omega)$。
+  若 $x(t)\xrightarrow{F}x(j\omega)$，则 $\displaystyle \frac{\text{d}x(t)}{\text{d}t}\xrightarrow{F}j\omega x(j\omega)$，$\displaystyle \frac{\text{d}^nx(t)}{\text{d}t^n}\xrightarrow{F}(j\omega)^n x(j\omega)$。
 
 - 频域微分
 
-  若 $x(t)\xrightarrow{F}x(j\omega)$，则 $tx(t)\xrightarrow{F}j\displaystyle \frac{\text{d}x(j\omega)}{\text{d}\omega}, t^nx(t)\xrightarrow{F}j^n\frac{\text{d}^nx(j\omega)}{\text{d}\omega^n}$。
+  若 $x(t)\xrightarrow{F}x(j\omega)$，则 $tx(t)\xrightarrow{F}j\displaystyle \frac{\text{d}x(j\omega)}{\text{d}\omega}$，$\displaystyle t^nx(t)\xrightarrow{F}j^n\frac{\text{d}^nx(j\omega)}{\text{d}\omega^n}$。
 
 - 时域卷积
 
   若 $x(t)\xrightarrow{F}x(j\omega),h(t)\xrightarrow{F}H(j\omega)$，则 $x(t)\ast h(t)\xrightarrow{F}x(j\omega)H(j\omega)$。也就是说，**时域卷积等于频域相乘**。
+  
+- 帕斯瓦尔定理
+
+  若 $x(t)\xrightarrow{F}x(j\omega)$，则 $\displaystyle \int_{-\infty}^{+\infty}\vert X(j\omega)\vert^2\text{d}\omega = 2\pi\int_{-\infty}^{+\infty}\vert x(t)\vert^2\text{d}t$。也就是说，信号在时域和频域上的能量总和是相等的。
 
 > e.g. 求在区间 $\left[-5,5\right]$ 上高度为 $2$ 的方波的傅里叶变换
 
@@ -1047,8 +1053,6 @@ $$
 Y(j\omega) = \frac{j\omega+2}{(j\omega+1)^2(j\omega+3)} = \frac{\frac{1}{4}}{j\omega+1} + \frac{\frac{1}{2}}{(j\omega+1)^2}-\frac{\frac{1}{4}}{j\omega+3} \\
 y(t) = \frac{1}{4}e^{-t}u(t) + \frac{1}{2}te^{-t}u(t) - \frac{1}{4}e^{-3t}u(t)
 $$
-
-#### 帕斯瓦尔变换
 
 
 
