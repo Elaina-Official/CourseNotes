@@ -805,7 +805,7 @@ $$
 
 以下常见信号的傅里叶变换需要牢记，其均可以使用上面的定义证明。
 
-1. $\displaystyle e^{-at}u(t)\xrightarrow{F}\frac{1}{a+j\omega}\ (a>0)$
+1. $\displaystyle e^{-at}u(t)\xrightarrow{F}\frac{1}{a+j\omega}, \frac{t^{n-1}}{(n-1)!}e^{-at}u(t)\xrightarrow{F}\frac{1}{(a+j\omega)^n}\ (a>0)$
 2. $\displaystyle \delta(t)\xrightarrow{F}1$
 3. $\displaystyle 1\xrightarrow{F}2\pi\delta(\omega)$
 4. 在区间 $\left[\frac{-\tau}{2},\frac{\tau}{2}\right]$ 上高度为 $E$ 的方波 $\xrightarrow{F}$ $\displaystyle E\tau\text{Sa}(\frac{\tau}{2}\omega) = \frac{2E\sin(\frac{\tau}{2}\omega)}{\omega}$
@@ -986,11 +986,11 @@ $$
 
 - 时域微分
 
-  若 $x(t)\xrightarrow{F}x(j\omega)$，则 $\displaystyle \frac{\text{d}x(t)}{\text{d}t}\xrightarrow{F}j\omega x(j\omega)$。
+  若 $x(t)\xrightarrow{F}x(j\omega)$，则 $\displaystyle \frac{\text{d}x(t)}{\text{d}t}\xrightarrow{F}j\omega x(j\omega), \frac{\text{d}^nx(t)}{\text{d}t^n}\xrightarrow{F}(j\omega)^n x(j\omega)$。
 
 - 频域微分
 
-  若 $x(t)\xrightarrow{F}x(j\omega)$，则 $tx(t)\xrightarrow{F}j\displaystyle \frac{\text{d}x(j\omega)}{\text{d}\omega}$。
+  若 $x(t)\xrightarrow{F}x(j\omega)$，则 $tx(t)\xrightarrow{F}j\displaystyle \frac{\text{d}x(j\omega)}{\text{d}\omega}, t^nx(t)\xrightarrow{F}j^n\frac{\text{d}^nx(j\omega)}{\text{d}\omega^n}$。
 
 - 时域卷积
 
@@ -1038,7 +1038,7 @@ Y(j\omega) = \frac{1}{(a+j\omega)(b+j\omega)} = \frac{\frac{1}{b-a}}{a+j\omega}-
 y(t) = \frac{1}{b-a}(e^{-at}-e^{-bt})u(t)
 $$
 
-> e.g. 若对于某因果系统，有 $\displaystyle \frac{\text{d}^2y(t)}{\text{d}t^2} + 4\frac{\text{d}y(t)}{\text{d}t} +3y(t)=\frac{\text{d}x(t)}{\text{d}t}+2x(t)$，且输入信号为 $x(t)=e^{-t}u(t)$，求输出信号 $y(t)$
+> e.g. 若对于某因果 LTI 系统，有 $\displaystyle \frac{\text{d}^2y(t)}{\text{d}t^2} + 4\frac{\text{d}y(t)}{\text{d}t} +3y(t)=\frac{\text{d}x(t)}{\text{d}t}+2x(t)$，且输入信号为 $x(t)=e^{-t}u(t)$，求输出信号 $y(t)$
 
 对该微分方程两边分别进行傅里叶变换，得到
 $$
@@ -1047,6 +1047,9 @@ $$
 Y(j\omega) = \frac{j\omega+2}{(j\omega+1)^2(j\omega+3)} = \frac{\frac{1}{4}}{j\omega+1} + \frac{\frac{1}{2}}{(j\omega+1)^2}-\frac{\frac{1}{4}}{j\omega+3} \\
 y(t) = \frac{1}{4}e^{-t}u(t) + \frac{1}{2}te^{-t}u(t) - \frac{1}{4}e^{-3t}u(t)
 $$
+
+#### 帕斯瓦尔变换
+
 
 
 ## 离散时间傅里叶变换
