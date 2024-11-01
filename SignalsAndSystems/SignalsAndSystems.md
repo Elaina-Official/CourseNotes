@@ -997,10 +997,6 @@ $$
 - 时域卷积
 
   若 $x(t)\xrightarrow{F}x(j\omega),h(t)\xrightarrow{F}H(j\omega)$，则 $x(t)\ast h(t)\xrightarrow{F}x(j\omega)H(j\omega)$。也就是说，**时域卷积等于频域相乘**。
-  
-- 帕斯瓦尔定理
-
-  若 $x(t)\xrightarrow{F}x(j\omega)$，则 $\displaystyle \int_{-\infty}^{+\infty}\vert X(j\omega)\vert^2\text{d}\omega = 2\pi\int_{-\infty}^{+\infty}\vert x(t)\vert^2\text{d}t$。也就是说，信号在时域和频域上的能量总和是相等的。
 
 > e.g. 求在区间 $\left[-5,5\right]$ 上高度为 $2$ 的方波的傅里叶变换
 
@@ -1094,7 +1090,77 @@ $$
 
 不妨先考虑在 $[-1,1]$ 上高度为 $1$ 的三角波的傅里叶反变换，其显然为两个在 $[-\frac{1}{2},\frac{1}{2}]$ 上高度为 $1$ 的方波的卷积，那么根据傅里叶变换的调制性质，可知该三角波的傅里叶反变换为 $\displaystyle \frac{2\sin(\frac{1}{2}t)}{t}\cdot\frac{\sin(\frac{1}{2}t)}{\pi t}$，然后我们可以通过频移来构造原 $X(j\omega)$，则有 $\displaystyle x(t) = \frac{2\left[\sin(\frac{1}{2}t)\right]^2}{\pi t^2}(e^{j3t}+e^{j(-3)t}) = \frac{4\left[\sin(\frac{1}{2}t)\right]^2}{\pi t^2}\cos(3t)$。
 
+#### 傅里叶变换的其他性质
 
+- 尺度变换
+
+  若 $x(t)\xrightarrow{F}X(j\omega)$，则 $\displaystyle x(at)\xrightarrow{F}\frac{1}{\vert a\vert}X(j\frac{\omega}{a})$。
+
+  证明如下
+
+  对于 $x(at)$，其傅里叶变化满足 $\displaystyle X(j\omega) = \int_{-\infty}^{+\infty}x(at)e^{-j\omega t}\text{d}t$。
+
+  $\displaystyle \mathscr{F}(x(at)) = \int_{-\infty}^{+\infty}x(at)e^{-j\omega t}\text{d}t$
+
+  设 $at = t'$，则
+
+  当 $a>0$ 时，$\displaystyle \mathscr{F}(x(at)) = \frac{1}{a}\int_{-\infty}^{+\infty}x(t')e^{-j\omega \frac{t'}{a}}\text{d}t' = \frac{1}{a}X(j\frac{\omega}{a})$,
+
+  当 $a<0$ 时，$\displaystyle \mathscr{F}(x(at)) = \frac{1}{a}\int_{+\infty}^{-\infty}x(t')e^{-j\omega \frac{t'}{a}}\text{d}t' = -\frac{1}{a}X(j\frac{\omega}{a})$。
+
+- 对偶性
+
+  若 $x(t)\xrightarrow{F}X(j\omega)$，则 $X(t)\xrightarrow{F}2\pi x(-\omega)$。
+
+  证明如下
+
+  对于 $\displaystyle 2\pi x(t) = \int_{-\infty}^{+\infty}X(j\omega)e^{j\omega t}\text{d}t$，交换 $\omega$ 与 $t$ 可得 $\displaystyle 2\pi x(-\omega) = \int_{-\infty}^{+\infty}X(t)e^{-j\omega t\text{d}t} = \mathscr{F}(X(t))$。
+
+  > e.g. 计算 $\displaystyle \frac{1}{1+jt}$ 的傅里叶变换
+
+  因为 $\displaystyle e^{-t}u(t)\xrightarrow{F}\frac{1}{1+j\omega}$，所以 $\displaystyle \frac{1}{1+jt}\xrightarrow{F}2\pi e^{\omega}u(-\omega)$。
+
+  > e.g. 计算 $\displaystyle \frac{1}{\pi t}$ 的傅里叶变换
+
+  根据 $\displaystyle u(t)\xrightarrow{F}\frac{1}{j\omega}+\pi\delta(\omega)$ 和 $\displaystyle 1\xrightarrow{F}2\pi\delta(\omega)$，我们可以得到 $\displaystyle \frac{j}{\pi}(u(t)-\frac{1}{2})\xrightarrow{F}\frac{1}{2\pi \omega}$。根据傅里叶变换的对偶性，有 $\displaystyle \frac{1}{\pi t}\xrightarrow{F}2j(u(-\omega)-\frac{1}{2})$。
+
+- 帕斯瓦尔定理
+
+  若 $x(t)\xrightarrow{F}x(j\omega)$，则 $\displaystyle \int_{-\infty}^{+\infty}\vert X(j\omega)\vert^2\text{d}\omega = 2\pi\int_{-\infty}^{+\infty}\vert x(t)\vert^2\text{d}t$。也就是说，信号在时域和频域上的能量总和是相等的。
+
+  证明如下
+  $$
+  \begin{aligned}
+  \int_{-\infty}^{+\infty}\vert x(t)\vert^2\text{d}t &= \int_{-\infty}^{+\infty}x(t)\overset{\ast}{x(t)}\text{d}t \\
+  &= \int_{-\infty}^{+\infty}x(t)\left[\frac{1}{2\pi}\int_{-\infty}^{+\infty}\overset{\ast}{X(j\omega)}e^{-j\omega t}\text{d}\omega\right]\text{d}t \\
+  &= \frac{1}{2\pi}\int_{-\infty}^{+\infty}\overset{\ast}{X(j\omega)}\text{d}\omega\left[\int_{-\infty}^{+\infty}x(t)e^{-j\omega t}\text{d}t \right] \\
+  &= \frac{1}{2\pi}\int_{-\infty}^{+\infty}\overset{\ast}{X(j\omega)}X(j\omega)\text{d}\omega \\
+  &= \frac{1}{2\pi}\int_{-\infty}^{+\infty}\vert X(j\omega)\vert^2\text{d}\omega
+  \end{aligned}
+  $$
+  其中 $\overset{\ast}{f(x)}$ 表示 $f(x)$ 的共轭。
+
+  > e.g. 计算 $\displaystyle \int_{-\infty}^{+\infty}\left(\frac{\sin t}{t}\right)^2\text{d}t$
+
+  因为 $\displaystyle \frac{\sin t}{t}$ 的傅里叶变换是在 $[-1,1]$ 上高度为 $\pi$ 的方波，所以根据帕斯瓦尔定理，有 
+  $$
+  \int_{-\infty}^{+\infty}\left(\frac{\sin t}{t}\right)^2\text{d}t = \frac{1}{2\pi}\int_{-\infty}^{+\infty}\left(X(j\omega)\right)^2\text{d}\omega = \frac{1}{2\pi}\int_{-1}^{1}\pi^2\text{d}\omega = \pi
+  $$
+
+  > e.g. 若 $x(t)\xrightarrow{F}X(j\omega)$ 满足 $\mathscr{F}^{-1}((2+j\omega)X(j\omega)) = Ae^{-t}u(t)\ (A>0)$ 和 $\displaystyle \frac{1}{2\pi}\int_{-\infty}^{+\infty}\vert X(j\omega)\vert^2\text{d}\omega = 1$，求 $x(t)$ 的值
+
+  根据题目可知 $Ae^{-t}u(t)\xrightarrow{F}(2+j\omega)X(j\omega)$，因此根据傅里叶变换，有 $\displaystyle \frac{A}{1+j\omega} = (2+j\omega)X(j\omega) = A(\frac{1}{1+j\omega} - \frac{1}{2+j\omega})$。因此 $x(t) = A(e^{-t}-e^{-2t})u(t)$。根据第二个条件和帕斯瓦尔定理，有 $\displaystyle \int_{-\infty}^{+\infty}\vert x(t)\vert^2\text{d}t=1$，也就是 $\displaystyle \int_{-\infty}^{+\infty}\vert A(e^{-t}-e^{-2t})\vert^2\text{d}t=1$，解得 $A=2\sqrt{3}$。所以 $x(t) = 2\sqrt{3}(e^{-t}-e^{-2t})u(t)$。
+
+- 共轭性与共轭对称性
+
+  - 若 $x(t)$ 是实偶函数，则 $X(j\omega)$ 只有 $\cos$ 分量
+  - 若 $x(t)$ 是实奇函数，则 $X(j\omega)$ 只有 $\sin$ 分量
+  - 若 $x(t)$ 是实函数，则 $X(j\omega)$ 实部为偶函数，虚部为奇函数
+  - 若 $x(t)$ 是实函数，设 $X(j\omega) = \vert X(j\omega)\vert e^{j\theta(\omega)}$，则幅度谱 $\vert X(j\omega)\vert$ 是偶函数，$\theta(\omega)$ 是奇函数
+
+  > e.g. 若实因果信号 $x(t)$ 的傅里叶变换 $X(j\omega)$ 的实部是 $\displaystyle \text{Re}\{X(j\omega)\} = \frac{1}{\omega^2+1}$，求 $x(t)$
+
+  根据题意，有 $\displaystyle \frac{x(t)+x(-t)}{2}\xrightarrow{F}\frac{1}{\omega^2+1}$，根据公式 $\displaystyle e^{-a\vert t\vert}\xrightarrow{F}\frac{2a}{a^2+\omega^2}$，不难发现对于本题，有 $\displaystyle \frac{x(t)+x(-t)}{2} = \frac{1}{2}e^{-\vert t\vert}$。对于是 LTI 系统的因果系统，有 $x(t) = 0\ when\ t < 0$，因此 $x(t) = e^{-t}u(t)$。
 
 ## 离散时间傅里叶变换
 
