@@ -721,5 +721,81 @@ $$
 
 定义：若 $u$ 是调和函数，且 $v$ 使得 $u+iv$ 为解析函数，则 $v$ 成为 $u$ 的共轭调和函数。
 
+**求共轭调和函数的三种方法**
+
+已知调和函数 $u$，求共轭调和函数 $v$，其中 $u+iv$ 解析。
+
+- 线积分法
+
+  对于 $v$，我们有 $\text{d}v = \displaystyle \frac{\partial v}{\partial x}\text{d}x+\frac{\partial v}{\partial y}\text{d}y = -\frac{\partial u}{\partial y}\text{d}x+\frac{\partial u}{\partial x}\text{d}y$，
+
+  那么就有
+  $$
+  v = \int_{(x_0,y_0)}^{(x,y)}\text{d}v+C = \int_{(x_0,y_0)}^{(x,y)}\left(-\frac{\partial u}{\partial y}\text{d}x+\frac{\partial u}{\partial x}\text{d}y\right)+C
+  $$
+  设 $\displaystyle P(x,y)=-\frac{\partial u}{\partial y},Q(x,y)=\frac{\partial u}{\partial x}$，由于该函数解析，因此积分与路径无关，有
+  $$
+  v = \int_{(x_0,y_0)}^{(x,y)}P(x,y)\text{d}x+Q(x,y)\text{d}y = \int_{x_0}^{x}P(x,y_0)\text{d}x+\int_{y_0}^{y}Q(x,y)\text{d}y
+  $$
+
+  > e.g. 已知 $u = y^3-3x^2y$，证明 $u$ 是调和函数，并求出其共轭调和函数 $v$，其中 $f(z)=u+iv$ 解析
+
+  根据题目可知 $\displaystyle \frac{\partial u}{\partial x} = -6xy,\frac{\partial u}{\partial y} = 3y^2-3x^2,\frac{\partial^2 u}{\partial x^2} = -6y,\frac{\partial^2 u}{\partial y^2} = 6y$，显然满足 $\displaystyle \frac{\partial^2u}{\partial x^2} + \frac{\partial^2u}{\partial y^2} = 0$，因此 $u$ 是调和函数。对于 $v$，取 $(x_0,y_0) = (0,0)$，有
+  $$
+  \begin{aligned}
+  v &= \int_{(x_0,y_0)}^{(x,y)}\left(-\frac{\partial u}{\partial y}\text{d}x+\frac{\partial u}{\partial x}\text{d}y\right)+C \\
+  &= \int_{(x_0,y_0)}^{(x,y)}(3x^2-3y^2)\text{d}x+(-6xy)\text{d}y+C \\
+  &= \int_{x_0}^{x}(3x^2-3y_0^2)\text{d}x+\int_{y_0}^{y}(-6xy)\text{d}y+C \\
+  &= \int_{x_0}^{x}(3x^2)\text{d}x+\int_{y_0}^{y}(-6xy)\text{d}y+C \\
+  &= x^3-3xy^2+C
+  \end{aligned}
+  $$
+  将 $x,y$ 分别用 $\displaystyle x = \frac{z+\overline{z}}{2},y = \frac{z-\overline{z}}{2i}$ 替换即可得到含 $z$ 的表达式。
+
+- 不定积分法
+
+  对于 $f(z) = u+iv$，有 $f'(z) = \displaystyle \frac{\partial u}{\partial x}+\frac{\partial v}{\partial x}i = \frac{\partial u}{\partial x}-\frac{\partial u}{\partial y}i$，那么 
+  $$
+  f(z) = \int f'(z)\text{d}z = \int\left(\frac{\partial u}{\partial x}-i\frac{\partial u}{\partial y}\right)
+  $$
+  同样对于上面的题目，使用不定积分法来解，就有 
+  $$
+  \begin{aligned}
+  f'(z) &= \frac{\partial u}{\partial x}+i\frac{\partial v}{\partial x} \\
+  &= -6xy+i(3x^2-3y^2) \\
+  &= 3ix^2-6xy-3iy^2 \\
+  &= 3i(x^2+2ixy-3y^2) \\
+  &= 3iz^2
+  \end{aligned}
+  $$
+  所以 $\displaystyle f(z) = \int f'(z)\text{d}z = \int 3iz^2\text{d}z = iz^3+C$，将 $z=x+iy$ 代入即可得到 $v$。
+
+  > e.g. 若 $\displaystyle v = \frac{y}{x^2+y^2}$，且满足 $f(2) = 0$ 求 $f=u+iv$ 解析，求 $f$
+
+  先求偏导
+  $$
+  \begin{cases}
+  \displaystyle \frac{\partial u}{\partial x} = \frac{\partial v}{\partial y} = \frac{x^2-y^2}{(x^2+y^2)^2} \\
+  \displaystyle \frac{\partial u}{\partial y} = -\frac{\partial v}{\partial x} = \frac{2xy}{(x^2+y^2)^2}
+  \end{cases}
+  $$
+  那么 
+  $$
+  \begin{aligned}
+  f'(z) &= \frac{\partial u}{\partial x}+i\frac{\partial v}{\partial x} \\
+  &= \frac{x^2-y^2-2ixy}{(x^2+y^2)^2} \\
+  &= \frac{(x-iy)^2}{(x^2+y^2)^2} \\
+  &= \frac{\overline{z}^2}{z\cdot\overline{z}^2} \\
+  &= \frac{1}{z^2} \\
+  \end{aligned}
+  $$
+  因此 $\displaystyle f(z) = \int f'(z)\text{d}z = \int \frac{1}{z^2}\text{d}z = -\frac{1}{z}+C$，又因为 $f(2) = -\frac{1}{2}+C=0$，所以 $C = \frac{1}{2}$。那么 $\displaystyle f(z) = -\frac{1}{x+iy}+\frac{1}{2}$。
+
+- 偏积分法
+
+  先将 $x$ 视为常数，根据 $\displaystyle v = \int\frac{\partial v}{\partial y}\text{d}y$ 计算出 $C(x)$，再对得到的 $v$ 求关于 $x$ 的偏导，此时与 C-R 方程求得的 $\displaystyle \frac{\partial v}{\partial x}$ 进行比对，得到 $C(x)$ 的完整表达式，此时即可求出 $v$。
+
+  同样对于上面的题目，使用偏积分法求解，就有 $\displaystyle v = \int\frac{\partial v}{\partial y}\text{d}y = \int(-6xy)\text{d}y = -3xy^2+C(x)$，则 $\displaystyle \frac{\partial v}{\partial x} = -3y^2+C'(x)$，又因为 $\displaystyle \frac{\partial v}{\partial x} = -\frac{\partial u}{\partial y} = -3y^2+3x^2$，所以 $C'(x) = 3x^2,C(x) = x^3+C$。因此 $v = -3xy^2+x^3+C,f(z) = u+iv$。
+
 ## 级数
 
