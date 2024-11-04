@@ -701,3 +701,25 @@ I &= \oint_{\vert z-0\vert=r}\frac{\frac{1}{z+1}}{z^3} + \oint_{\vert z-(-1)\ver
 &= 0
 \end{aligned}
 $$
+
+### 解析函数与调和函数
+
+#### 调和函数
+
+定义：若二元实值函数 $\phi(x,y)$ 的二阶偏导存在且连续，那么若满足 Laplace 方程 $\displaystyle \frac{\partial^2\phi}{\partial x^2} + \frac{\partial^2\phi}{\partial y^2} = 0$，则称 $\phi$ 为调和函数。
+
+> e.g. 证明若 $f(z) = u+iv$ 解析则 $u,v$ 调和
+
+验证 $u$ 是调和的，且解析函数满足 C-R 方程，因此有
+$$
+\frac{\partial^2u}{\partial x^2} + \frac{\partial^2u}{\partial y^2} =
+\frac{\partial^2v}{\partial y\partial x} - \frac{\partial^2v}{\partial x\partial y} = 0 \\
+$$
+类似地，可以得到 $v$ 也是调和的。
+
+#### 共轭调和函数
+
+定义：若 $u$ 是调和函数，且 $v$ 使得 $u+iv$ 为解析函数，则 $v$ 成为 $u$ 的共轭调和函数。
+
+## 级数
+
