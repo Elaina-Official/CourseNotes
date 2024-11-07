@@ -799,3 +799,136 @@ $$
 
 ## 级数
 
+### 级数的敛散性
+
+#### 复数列的极限
+
+定义复数列 $\{\alpha_n\}$，其中 $\alpha_n = a_n+ib_n$。若 $\{\alpha_n\}$ 收敛于 $\alpha=a+ib$，则记为 $\displaystyle \lim_{n\to\infty}\alpha_n=\alpha$。
+
+对于 $\displaystyle \lim_{n\to\infty}\alpha_n = \alpha$，$\displaystyle \lim_{n\to\infty}(a_n+ib_n)=a+ib$ 的充要条件为 $\displaystyle \lim_{n\to\infty}a_n = a$ 且 $\displaystyle \lim_{n\to\infty}b_n = b$。
+
+#### 级数收敛的充要条件
+
+定义复变函数的级数
+$$
+\alpha_q+\alpha_2+\alpha_3+\cdots+\alpha_n = \sum_{n=1}^{\infty}\alpha_n
+$$
+构造 
+$$
+\begin{aligned}
+S_1 &= \alpha_1 \\
+S_2 &= \alpha_1 + \alpha_2 \\
+S_3 &= \alpha_1 + \alpha_2 + \alpha_3 \\
+&\vdots \\
+S_n &= \alpha_1 + \alpha_2 + \alpha_3 + \cdots + \alpha_n = \sum_{k=1}^{n}\alpha_k \\
+\end{aligned}
+$$
+那么若 $\displaystyle \lim_{n\to\infty}S_n = S$，则称级数 $\displaystyle \sum_{n=1}^{\infty}\alpha_n$ 收敛于 $S$。若 $\displaystyle \lim_{n\to\infty}S_n$ 不存在，则称级数 $\displaystyle \sum_{n=1}^{\infty}\alpha_n$ 发散。
+
+级数 $\displaystyle \sum_{n=1}^{\infty}\alpha_n = \sum_{n=1}^{\infty}(a_n+ib_n)$ 收敛的充要条件是级数 $\displaystyle \sum_{n=1}^{\infty}a_n$ 和 $\displaystyle \sum_{n=1}^{\infty}b_n$ 同时收敛。此时有 $\displaystyle S_n = \sum_{k=1}^{n}\alpha_k = \sum_{k=1}^{n}(a_k+ib_k) = \sum_{k=1}^{n}a_k+\sum_{k=1}^{n}b_k$。
+
+#### 级数不等式
+
+若有 $\displaystyle \sum_{n=1}^{\infty}a_n$ 收敛 $\displaystyle \Rightarrow \lim_{n\to\infty}a_n = 0$ 和 $\displaystyle \sum_{n=1}^{\infty}b_n$ 收敛 $\displaystyle \Rightarrow \lim_{n\to\infty}b_n = 0$，那么就有 $\displaystyle \sum_{n=1}^{\infty}\alpha_n$ 收敛 $\displaystyle \Rightarrow \lim_{n\to\infty}\alpha_n  = \lim_{n\to\infty}(a_n+ib_n) = 0$ 。
+
+若有 $\displaystyle \sum_{n=1}^{\infty}\vert\alpha_n\vert$ 收敛 $\displaystyle \Rightarrow \sum_{n=1}^{\infty}\alpha_n$  收敛，且 $\displaystyle \Bigg|\sum_{n=1}^{\infty}\alpha_n\Bigg|\leqslant\sum_{n=1}^{\infty}\vert\alpha_n\vert$，那么就有 $\vert\alpha_n\vert=\sqrt{a_n^2+b_n^2}$。
+
+#### 级数敛散性的判断
+
+若 $\displaystyle \sum_{n=1}^{\infty}\vert\alpha_n\vert$ 收敛，则称 $\displaystyle \sum_{n=1}^{\infty}\alpha_n$ 绝对收敛。若 $\displaystyle \sum_{n=1}^{\infty}\alpha_n$ 收敛，但 $\displaystyle \sum_{n=1}^{\infty}\vert\alpha_n\vert$ 发散，则称 $\displaystyle \sum_{n=1}^{\infty}\alpha_n$ 条件收敛。
+
+此处复变函数级数敛散性的判断方法与实变函数级数敛散性的判断方法几乎完全一样，此处仅列举部分。
+
+对于级数 $\displaystyle \sum_{n=1}^{\infty}\alpha_n$，我们可以通过如下步骤判断其敛散性。
+
+- 若 $\alpha_n\to0$，说明级数发散；否则继续判断
+
+- 此时我们对级数分为如下几类分别判断
+
+  - 正项级数($\alpha_n>0$)
+
+    - 比较判别法：
+
+      对于 $p$ 级数，有
+      $$
+      \sum_{n=1}^{\infty}\frac{1}{n^p} = 
+      \begin{cases}
+      \text{converges} & p>1 \\
+      \text{diverges} & p\leqslant 1
+      \end{cases}
+      $$
+      对于等比级数，还有
+      $$
+      \sum_{n=1}^{\infty}q^n = 
+      \begin{cases}
+      \text{converges} & \vert p\vert<1 \\
+      \text{diverges} & \vert p\vert\geqslant 1
+      \end{cases}
+      $$
+      也可以使用和其他级数的比值判别。若级数 $\displaystyle \sum_{n=1}^{\infty}\alpha_n, \sum_{n=1}^{\infty}\beta_n$，若满足
+      $$
+      \lim_{n\to\infty}\frac{\alpha_n}{\beta_n}=l(0<l<+\infty)
+      $$
+      则说明这两个级数的敛散性相同。
+
+    - 比值判别法
+      $$
+      \lim_{n\to\infty}\frac{\alpha_{n+1}}{\alpha_n}=l
+      \begin{cases}
+      \text{converges} & 0\leqslant l<1 \\
+      \text{uncertain} & l = 1 \\
+      \text{diverges} & l>1
+      \end{cases}
+      $$
+
+    - 根式判别法
+      $$
+      \lim_{n\to\infty}\sqrt[n]{\alpha_n} = q 
+      \begin{cases}
+      \text{converges} &q<1 \\
+      \text{uncertain} & q = 1 \\
+      \text{diverges} & q>1
+      \end{cases}
+      $$
+
+  - 交错级数
+
+    根据 Leibniz 法则，若 $\vert(-1)^n\alpha_n\vert\to0$ 且单调递减，则级数收敛。
+
+  - 一般级数
+
+    对于一般级数，我们可以判断其绝对收敛性。
+
+    若级数 $\displaystyle \sum_{n=1}^{\infty}\beta_n$ 收敛，且有
+    $$
+    \sum_{n=1}^{\infty}\vert\alpha_n\vert \leqslant \sum_{n=1}^{\infty}\beta_n
+    $$
+    则级数 $\displaystyle \sum_{n=1}^{\infty}\alpha_n$ 绝对收敛。
+
+> e.g. 判断级数 $\displaystyle \sum_{n=1}^{\infty}\left[\ln{(1+\frac{1}{n^2})}+\frac{2^n\cdot n!}{n^n}i\right]$ 是否收敛
+
+对于实部，有 $\displaystyle \sum_{n=1}^{\infty}\ln(1+\frac{1}{n^2})\sim\sum_{n=1}^{\infty}\frac{1}{n^2}$，因此收敛。
+
+对于虚部，有 
+$$
+\lim_{n\to\infty}\frac{u_{n+1}}{u_n} = \lim_{n\to\infty}\frac{\frac{2^{n+1}\cdot (n+1)!}{(n+1)^{n+1}}}{\frac{2^n\cdot n!}{n^n}} = \lim_{n\to\infty}\frac{2}{\left(1+\frac{1}{n}\right)^n} = \frac{2}{e}<1
+$$
+因此收敛。
+
+因为该级数的实部和虚部均收敛，因此级数收敛。
+
+> e.g. 判断级数 $\displaystyle \sum_{n=1}^{\infty}\frac{(2+3i)^n}{5^n}$ 是否收敛
+
+对于该级数，我们有 
+$$
+\sum_{n=1}^{\infty}\Bigg|\frac{(2+3i)^n}{5^n}\Bigg| = \sum_{n=1}^{\infty}\Bigg|\frac{2+3i}{5}\Bigg|^n = \sum_{n=1}^{\infty}\left(\frac{\vert 2+3i\vert}{\vert 5\vert}\right)^n
+$$
+上式中最右级数是等比级数，有 $\displaystyle q=\frac{\vert 2+3i\vert}{5} = \frac{\sqrt{2^2+3^2}}{5}<1$，因此级数收敛。
+
+### 幂级数
+
+### Taylor 级数
+
+### Laurent 级数
+
+### 留数
