@@ -827,7 +827,7 @@ $$
 
 级数 $\displaystyle \sum_{n=1}^{\infty}\alpha_n = \sum_{n=1}^{\infty}(a_n+ib_n)$ 收敛的充要条件是级数 $\displaystyle \sum_{n=1}^{\infty}a_n$ 和 $\displaystyle \sum_{n=1}^{\infty}b_n$ 同时收敛。此时有 $\displaystyle S_n = \sum_{k=1}^{n}\alpha_k = \sum_{k=1}^{n}(a_k+ib_k) = \sum_{k=1}^{n}a_k+\sum_{k=1}^{n}b_k$。
 
-#### 级数不等式
+**级数不等式**
 
 若有 $\displaystyle \sum_{n=1}^{\infty}a_n$ 收敛 $\displaystyle \Rightarrow \lim_{n\to\infty}a_n = 0$ 和 $\displaystyle \sum_{n=1}^{\infty}b_n$ 收敛 $\displaystyle \Rightarrow \lim_{n\to\infty}b_n = 0$，那么就有 $\displaystyle \sum_{n=1}^{\infty}\alpha_n$ 收敛 $\displaystyle \Rightarrow \lim_{n\to\infty}\alpha_n  = \lim_{n\to\infty}(a_n+ib_n) = 0$ 。
 
@@ -1002,6 +1002,54 @@ $$
   $$
 
 ### Taylor 级数
+
+#### 泰勒展开定理
+
+若级数 $\displaystyle f(z) = \sum_{n=0}^{\infty}a_n(z-z_0)^n$ 在 $\mathbb{D}:\vert z-z_0\vert<R$  解析，则
+$$
+f(z) = \sum_{n=0}^{\infty}C_n(z-z_0)^n \\
+\text{where }C_n = \frac{f^{(n)}(z_0)}{n!} = \frac{1}{2\pi i}\oint_{C}\frac{f(z)}{(z-z_0)^{n+1}}\text{d}z \\
+C:\vert z-z_0\vert=\rho
+$$
+
+#### 泰勒级数的两个结论
+
+- $f(z)$ 在 $z_0$ 处解析等价于 $f(z)$ 在 $z_0$ 附近可以展开成幂级数
+- 对于级数 $\displaystyle f(z) = \sum_{n=0}^{\infty}C_n(z-z_0)^n$，其收敛半径为 $R=\vert z_0-a\vert$，其中 $a$ 是与 $z_0$ 中心距离最近的奇点。
+
+> e.g. 若 $\displaystyle \frac{1}{(z-1)(z-2)}$ 在 $z=1+i$ 附近可以展开成幂级数，求级数的收敛半径
+
+显然该式有两个奇点分别为 $z=1, z=2$，那么对于 $z=1+i$，距离其最近的奇点为 $z=1$，且二者距离为 $\vert (1+i)-(1)\vert$，因此该级数的收敛半径就是 $R=1$。
+
+> e.g. 将 $e^{z^2}z$ 在 $z=0$ 处展开为泰勒级数
+
+$$
+e^{z^2} = \sum_{n=0}^{\infty}\frac{(z^2)^n}{n!} \\
+ze^{z^2} = \sum_{n=0}^{\infty}\frac{z^{2n+1}}{n!}
+$$
+
+> e.g. 分别将 $\displaystyle f(z) = \frac{1}{z}$ 和 $\displaystyle g(z) = \frac{1}{z^2}$ 在 $z=1$ 处展开为泰勒级数
+
+$$
+f(z) = \frac{1}{1-(-(z-1))} = \sum_{n=0}^{\infty}(-(z-1))^n = \sum_{n=0}^{\infty}(-1)^n(z-1)^n \\
+g(z) = (-f'(z)) = \left(\sum_{n=0}^{\infty}(-1)^n(z-1)^n\right)' = \sum_{n=1}^{\infty}(-1)^{n+1}n(z-1)^{n-1}
+$$
+
+> e.g. 将 $e^z\sin{z}$ 在 $z=0$ 处展开为幂级数
+
+$$
+\begin{aligned}
+e^z\sin{z} 
+&= e^z\frac{e^{iz}-e^{-iz}}{2i} \\
+&= \frac{1}{2i}\left(e^{(1+i)z}-e^{(1-i)z}\right) \\
+&= \frac{1}{2}\left(\sum_{n=0}^{\infty}\frac{(1+i)^n z^n}{n!}-\sum_{n=0}^{\infty}\frac{(1-i)^n z^n}{n!}\right) \\
+&= \frac{1}{2i}\sum_{n=0}^{\infty}\frac{1}{n!}((1+i)^n-(1-i)^n)z^n \\
+&= \sum_{n=0}^{\infty}\frac{1}{n!}\cdot\frac{(1+i)^n-(1-i)^n}{2i}z^n \\
+&= \sum_{n=0}^{\infty}\frac{1}{n!}\text{Im}\{(1+i)^n\}z^n \\
+&= \sum_{n=0}^{\infty}\frac{1}{n!}\text{Im}\{(\sqrt{2}e^{i\frac{\pi}{4}})^n\}z^n \\
+&= \sum_{n=0}^{\infty}\frac{1}{n!}2^{\frac{n}{2}}\sin{\frac{n}{4}\pi}\cdot z^n \\
+\end{aligned}
+$$
 
 ### Laurent 级数
 
