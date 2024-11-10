@@ -927,6 +927,80 @@ $$
 
 ### 幂级数
 
+#### 幂级数的概念
+
+对于如下形式的级数
+$$
+\sum_{n=0}^{\infty}C_n(z-z_0)^2 = C_0+C_1(z-z_0)+C_2(z-z_0)^2+\cdots+C_n(z-z_0)^n+\cdots
+$$
+称为幂级数。对于幂级数，有以下定义
+
+- 如果存在 $z$ 使得级数收敛，则称 $z$ 为该收敛点
+- 所有收敛点的集合称为收敛域
+- 若级数的收敛域为 $\vert z\vert<m$，则也可将收敛域称为收敛圆
+
+#### 阿贝尔定理
+
+阿贝尔定理(Abel Theorem)描述如下
+
+对于级数 $\displaystyle \sum_{n=0}^{\infty}C_nz^n$，若在 $z=z_0(z_0\neq0)$ 处收敛，则对于任意 $\vert z\vert<\vert z_0\vert$ 的 $z$，级数都绝对收敛；若在 $z=z_0$ 处发散，则对于任意 $\vert z\vert>\vert z_0\vert$ 的 $z$，级数都发散。
+
+> e.g. 若级数 $\displaystyle \sum_{n=0}^{\infty}C_n z_n$ 在 $1+i$ 处收敛，在 $3$ 处发散，试判断级数在 $i$ 处和 $2+3i$ 处的敛散性
+
+显然 $\vert i\vert<\vert 1+i\vert$，因此级数在 $i$ 处收敛；$\vert 2+3i\vert>\vert3\vert$，因此级数在 $2+3i$ 处发散。
+
+#### 收敛半径
+
+设级数 $\displaystyle \sum_{n=0}^{\infty}C_n z^n$ 的收敛半径为 $R$，则
+
+- 若满足 $\displaystyle \lim_{n\to\infty}\left|\frac{C_{n+1}}{C_n}\right|=\lambda$，则收敛半径为 $\displaystyle R=\frac{1}{\lambda}$
+- 若满足 $\displaystyle \lim_{n\to\infty}\sqrt[n]{\vert C_n\vert} = \lambda$，则收敛半径为 $\displaystyle R=\frac{1}{\lambda}$
+
+对于级数，有
+$$
+\lim_{n\to\infty}\frac{\vert C_{n+1}z^{n+1}\vert}{\vert C_n z_n\vert} = \lim_{n\to\infty}\left|\frac{C_{n+1}}{C_n}\right|\cdot\vert z\vert = 
+\begin{cases}
+<1 & \text{Converges} \\
+>1 & \text{Diverges}
+\end{cases}
+$$
+而 $\displaystyle \lambda = \lim_{n\to\infty}\left|\frac{C_{n+1}}{C_n}\right|$，所以收敛半径以 $\lambda\cdot\vert z\vert=1$ 为界。
+
+> e.g. 计算 $\displaystyle \sum_{n=0}^{\infty}(\sin{in})z^n$ 的收敛半径
+
+$$
+\lambda = \lim_{n\to\infty}\left|\frac{C_{n+1}}{C_n}\right| = \lim_{n\to\infty}\left|\frac{\sin{i(n+1)}}{\sin{in}}\right| = \lim_{n\to\infty}\left|\frac{\frac{e^{-(n+1)}-e^{n+1}}{2i}}{\frac{e^{-n}-e^n}{2i}}\right| = e
+$$
+
+因此收敛半径为 $\displaystyle R = \frac{1}{\lambda} = \frac{1}{e}$。
+
+>  e.g. 计算 $\displaystyle \sum_{n=0}^{\infty}(1-i)^nz^n$ 的收敛半径
+
+$$
+\lambda = \lim_{n\to\infty}\left|\frac{C_{n+1}}{C_n}\right| = \lim_{n\to\infty}\left|\frac{(1-i)^{n+1}}{(1-i)^n}\right| = \lim_{n\to\infty}\left|1-i\right| = \sqrt{2} \\
+or \\
+\lambda = \lim_{n\to\infty}\sqrt[n]{\vert C_n\vert} = \lim_{n\to\infty}\sqrt[n]{\vert (1-i)^n\vert} = \lim_{n\to\infty}\vert 1-i\vert = \sqrt{2}
+$$
+
+因此收敛半径为 $\displaystyle R = \frac{1}{\lambda} = \frac{1}{\sqrt{2}}$。
+
+#### 幂级数的性质
+
+- 两个幂级数在公共收敛域，能够进行 $+, -, \times$ 的计算
+
+- 若级数 $\displaystyle \sum_{n=0}^{\infty}a_n(z-z_0)^n$ 在 $\mathbb{D}:\vert z-z_0\vert<R$ 收敛，则
+
+  (1) 和函数 $\displaystyle f(z) = \sum_{n=0}^{\infty}a_n(z-z_0)^n$ 在 $\mathbb{D}$ 内解析
+
+  (2) 可在 $\mathbb{D}$ 内逐项求导，即 $\displaystyle f'(z) = \sum_{n=0}^{\infty}(a_n(z-z_0)^n)' = \sum_{n=0}^{\infty}a_n\cdot n(z-z_0)^n$
+
+  (3) 可在 $\mathbb{D}$ 内逐项积分，即 $\displaystyle \int_C f(z)\text{d}z = \sum_{n=0}^{\infty}\int_C a_n(z-z_0)^n\text{d}z$
+
+  特别地，有
+  $$
+  \int_{z_0}^{z}f(z)\text{d}z = \sum_{n=0}^{\infty}\int_{z_0}^{z}a_n(z-z_0)^n\text{d}(z-z_0) = \sum_{n=0}^{\infty}a_n\frac{(z-z_0)^{n+1}}{n+1}\Bigg|_{z_0}^{z} = \sum_{n=0}^{\infty}\frac{a_n(z-z_0)^{n+1}}{n+1}
+  $$
+
 ### Taylor 级数
 
 ### Laurent 级数
