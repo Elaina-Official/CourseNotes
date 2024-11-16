@@ -1162,6 +1162,10 @@ $$
 
   根据题意，有 $\displaystyle \frac{x(t)+x(-t)}{2}\xrightarrow{F}\frac{1}{\omega^2+1}$，根据公式 $\displaystyle e^{-a\vert t\vert}\xrightarrow{F}\frac{2a}{a^2+\omega^2}$，不难发现对于本题，有 $\displaystyle \frac{x(t)+x(-t)}{2} = \frac{1}{2}e^{-\vert t\vert}$。对于是 LTI 系统的因果系统，有 $x(t) = 0\ when\ t < 0$，因此 $x(t) = e^{-t}u(t)$。
 
+#### 理想低通滤波器
+
+
+
 ## 离散时间傅里叶变换
 
 ## 第五章

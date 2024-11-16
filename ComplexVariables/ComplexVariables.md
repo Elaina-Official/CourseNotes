@@ -1053,4 +1053,91 @@ $$
 
 ### Laurent 级数
 
+#### Laurent 级数的引入
+
+对于级数
+$$
+\frac{C_{-n}}{(z-z_0)^n}+\cdots+\frac{C_{-2}}{(z-z_0)^2}+\frac{C_{-1}}{(z-z_0)^1}+C_0+C_1(z-z_0)+\cdots
+$$
+假设后半部分在 $\vert z-z_0\vert<R_2$ 时收敛，令 $\displaystyle t = \frac{1}{z-z_0}$，则前半部分为 $C_{-n}t^n+\cdots+C_{-2}t^{2}+C_1t^1$，当 $\vert t\vert<\mu$ 时该部分收敛。此时有 $\displaystyle \left|\frac{1}{z-z_0}\right|<\mu\Leftrightarrow\vert z-z_0\vert>\frac{1}{\mu} = R_1$，那么级数的收敛域为 $R_1<\vert z-z_0\vert<R_2$。
+
+因此，若函数 $f(z)$ 在 $R_1<\vert z-z_0\vert<R_2$ 内解析，则其可以表示成如下形式
+$$
+f(z) = \sum_{n=-\infty}^{+\infty}C_n(z-z_0)^n
+$$
+其中 $f(z)$ 在 $z_0$ 处展开为 Laurent 级数，且有 $\displaystyle C_n = \frac{1}{2\pi i}\oint_C\frac{f(\xi)}{(\xi-z_0)^{n+1}}\text{d}\xi,\ C:\vert z-z_0\vert=r(R_1<r<R_2)$。
+
+#### Laurent 级数的推论
+
+若 $f(z)$ 在 $R_1<\vert z-z_0\vert<R_2$ 内解析，则对于 $C:\vert z-z_0\vert=r(R_1<r<R_2)$ 有 $C_{-1} = \displaystyle \frac{1}{2\pi i}\oint_C f(z)\text{d}z$，也就是 $\displaystyle \oint_C f(z)\text{d}z = 2\pi i\cdot C_{-1}$，其中 $C_{-1}$ 是 $\displaystyle\frac{1}{z-z_0}$ 的系数。
+
+> e.g. 将函数 $\displaystyle f(z) = \frac{1}{z^2-3z+2}$ 在 $z=0$ 处展开为 Laurent 级数
+
+不难发现函数 $\displaystyle f(z) = \frac{1}{z^2-3z+2} = \frac{1}{(z-1)(z-2)} = \frac{1}{z-2} - \frac{1}{z-1}$ 的奇点为 $z=1,z=2$，因此其在三个区域内完全解析。
+
+- $\vert z-0\vert<1$
+
+  在此区域内，有
+  $$
+  \begin{aligned}
+  f(z) &= \frac{1}{z-2} - \frac{1}{z-1} \\
+  &= -\frac{1}{2}\frac{1}{1-\frac{z}{2}} + \frac{1}{1-z} \\
+  &= -\frac{1}{2}\sum_{n=0}^{\infty}\left(\frac{z}{2}\right)^n + \sum_{n=0}^{\infty}z^n \\
+  &= -\sum_{n=0}^{\infty}\frac{1}{2^{n+1}}z^n + \sum_{n=0}^{\infty}z^n
+  \end{aligned}
+  $$
+
+- $1<\vert z-0\vert<2$
+
+  在此区域内，有
+  $$
+  \begin{aligned}
+  f(z) &= \frac{1}{z-2} - \frac{1}{z-1} \\
+  &= -\frac{1}{2}\frac{1}{1-\frac{z}{2}} - \frac{1}{z}\frac{1}{1-\frac{1}{z}} \\
+  &= -\frac{1}{2}\sum_{n=0}^{\infty}\left(\frac{z}{2}\right)^n - \frac{1}{z}\sum_{n=0}^{\infty}\left(\frac{1}{z}\right)^n \\
+  &= -\sum_{n=0}^{\infty}\frac{1}{2^{n+1}}z^n - \sum_{n=0}^{\infty}\frac{1}{z^{n+1}}
+  \end{aligned}
+  $$
+
+- $\vert z-0\vert>2$
+
+  在此区域内，有
+  $$
+  \begin{aligned}
+  f(z) &= \frac{1}{z-2} - \frac{1}{z-1} \\
+  &= -\frac{1}{z}\frac{1}{1-\frac{2}{z}} - \frac{1}{z}\frac{1}{1-\frac{1}{z}} \\
+  &= -\frac{1}{z}\sum_{n=0}^{\infty}\left(\frac{2}{z}\right)^n - \frac{1}{z}\sum_{n=0}^{\infty}\left(\frac{1}{z}\right)^n \\
+  &= -\sum_{n=0}^{\infty}\frac{1}{z^{n+1}}2^n - \sum_{n=0}^{\infty}\frac{1}{z^{n+1}}
+  \end{aligned}
+  $$
+
+> e.g. 计算 $\displaystyle \oint_{\vert z\vert=3}\frac{1}{z(z+1)^2}\text{d}z$
+
+不难发现此函数的奇点为 $z=0, z=-1$，我们可以将其展开为 Laurent 级数。
+$$
+\begin{aligned}
+\frac{1}{z(z+1)^2} &= \frac{1}{(z+1)^2}\frac{1}{(z+1)-1} \\
+&= \frac{1}{(z+1)^2}\frac{1}{z+1}\frac{1}{1-\frac{1}{z+1}} \\
+&= \frac{1}{(z+1)^3}\sum_{n=0}^{\infty}\left(\frac{1}{z+1}\right)^n \\
+&= \sum_{n=0}^{\infty}\left(\frac{1}{z+1}\right)^{n+3} \\
+\end{aligned}
+$$
+显然 $C_{-1}=0$，因此 $\displaystyle \oint_{\vert z\vert=3}\frac{1}{z(z+1)^2}\text{d}z = 2\pi i\cdot C_{-1} = 0$。
+
+> e.g. 计算 $\displaystyle \oint_{\vert z\vert=2}\frac{ze^{\frac{1}{z}}}{1-z}\text{d}z$
+
+不难发现此函数的奇点为 $z=1$，且 $\vert z\vert=2$ 在以 $z=0$ 为圆心 $1$ 为半径的圆外。
+
+对于 $e^{\frac{1}{z}}$，其在 $z=0$ 附近可展开为 
+$$
+e^\frac{1}{z} = 1+\frac{1}{z}+\frac{1}{2!}\frac{1}{z^2}+\cdots
+$$
+在 $\vert z\vert>1$ 区域内，$\displaystyle \frac{z}{1-z}$ 可展开为
+$$
+\frac{z}{1-z} = \frac{1}{\frac{1}{z}-1} = -\frac{1}{1-\frac{1}{z}} = -\sum_{n=0}^{\infty}\left(\frac{1}{z}\right)^n
+$$
+因此，$\displaystyle \frac{ze^{\frac{1}{}}}{1-z} = -1-\frac{2}{z}-\frac{5}{2}\frac{1}{z^2}+\cdots$，也就意味着 $C_{-1} = -2$。
+
+所以 $\displaystyle \oint_{\vert z\vert=2}\frac{ze^{\frac{1}{z}}}{1-z}\text{d}z = 2\pi i\cdot C_{-1} = -4\pi i$。
+
 ### 留数
