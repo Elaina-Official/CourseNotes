@@ -159,21 +159,19 @@ $$
 
 #### 定义
 
-对于复数 $z = x+iy$，如果经过变换 $f$ 后的结果仍是复数，则称 $f$ 是复变函数
+对于复数 $z = x+iy$，如果经过变换 $f$ 后的结果仍是复数，则称 $f$ 是复变函数。
 
 #### 复变函数的极限与连续性
 
-和实函数类似，当且仅当从各个方向趋近一点的值均相同时，复变函数的极限存在
+和实函数类似，当且仅当从各个方向趋近一点的值均相同时，复变函数的极限存在。
 
-假设 $f(z) = u(x,y)+iv(x,y)$，则 $\underset{z\to z_0}{\lim}f(z) = \underset{(x,y)\to(x_0,y_0)}{\lim}f(z) = A = u_0+iv_0$ 满足oner
+假设 $f(z) = u(x,y)+iv(x,y)$，则 $\underset{z\to z_0}{\lim}f(z) = \underset{(x,y)\to(x_0,y_0)}{\lim}f(z) = A = u_0+iv_0$ 满足 $\underset{(x,y)\to(x_0,y_0)}{\lim}u(x,y)=u_0,\ \underset{(x,y)\to(x_0,y_0)}{\lim}v(x,y)=v_0$。
 
-$\underset{(x,y)\to(x_0,y_0)}{\lim}u(x,y)=u_0,\ \underset{(x,y)\to(x_0,y_0)}{\lim}v(x,y)=v_0$
+对于 $A =f(z_0)$，若存在 $\underset{z\to z_0}{\lim}f(z) = f(z_0)$，则称 $f(z)$ 在 $z_0$ 处连续。
 
-对于 $A =f(z_0)$，若存在 $\underset{z\to z_0}{\lim}f(z) = f(z_0)$，则称 $f(z)$ 在 $z_0$ 处连续
+若 $f(z)$ 在区域 $\mathbb{D}$ 内每一点都连续，则称 $f(z)$ 在区域 $\mathbb{D}$ 上连续。
 
-若 $f(z)$ 在区域 $\mathbb{D}$ 内每一点都连续，则称 $f(z)$ 在区域 $\mathbb{D}$ 上连续
-
-连续函数的四则运算和复合仍是连续函数
+连续函数的四则运算和复合仍是连续函数。
 
 #### 复变函数的导数与微分
 
@@ -302,7 +300,7 @@ $z^2 = (x+iy)^2=x^2-y^2+2xyi$，令 $u=x^2-y^2,v=2xy$。
 
 $\vert z\vert^2 = x^2+y^2+0i$，令 $u=x^2+y^2,v=0$。
 
-$\displaystyle \frac{\partial u}{\partial x}=2x,\frac{\partial v}{\partial y}=0, \frac{\partial v}{\partial x}=0,\frac{\partial u}{\partial y}2y$。若 C-R 方程成立，需满足 $x=y=0$。因此该函数仅在复平面上一点 $(0,0)$ 可导，在定义域内不解析。
+$\displaystyle \frac{\partial u}{\partial x}=2x,\frac{\partial v}{\partial y}=0, \frac{\partial v}{\partial x}=0,\frac{\partial u}{\partial y}=2y$。若 C-R 方程成立，需满足 $x=y=0$。因此该函数仅在复平面上一点 $(0,0)$ 可导，在定义域内不解析。
 
 ## 初等函数
 
@@ -492,7 +490,7 @@ $$
 (2) 对于本问，有 $\displaystyle C:z = e^{i\theta},\theta\in \left[-\frac{\pi}{2},\frac{\pi}{2}\right],\vert z\vert=1,\text{d}z = (-\sin\theta+i\cos\theta)\text{d}\theta$。那么积分就是
 
 $$
-\int_C \vert z\vert\text{d}z = \int_{-\frac{\pi}{2}}^{\frac{\pi}{2}}1\cdot (\sin\theta+i\cos\theta)\text{d}\theta = \int_{-\frac{\pi}{2}}^{\frac{\pi}{2}}\sin\theta\text{d}\theta + i\int_{-\frac{\pi}{2}}^{\frac{\pi}{2}}\cos\theta\text{d}\theta = 2i
+\int_C \vert z\vert\text{d}z = \int_{-\frac{\pi}{2}}^{\frac{\pi}{2}}1\cdot (-\sin\theta+i\cos\theta)\text{d}\theta = -\int_{-\frac{\pi}{2}}^{\frac{\pi}{2}}\sin\theta\text{d}\theta + i\int_{-\frac{\pi}{2}}^{\frac{\pi}{2}}\cos\theta\text{d}\theta = 2i
 $$
 
 > e.g. 证明$\displaystyle \oint_C \frac{1}{(z-z_0)^{n+1}}\text{d}z = \begin{cases}2\pi i \quad n=0\\ 0 \quad n=\pm1, \pm2, \cdots\end{cases}$，其中 $C$ 为 $\vert z-z_0\vert=r$，$r$ 为任意值。
@@ -505,7 +503,7 @@ $$
 
 对于 $n=0$ 时，有 $\displaystyle I = \frac{i}{r^0}2\pi = 2\pi i$，
 
-对于 $n=\pm1, \pm2,\cdots$，有 $\displaystyle I = \frac{i}{r^n}\int_0^{2\pi}(\cos{n\theta}-i\sin{n\theta})\text{d}\theta$。
+对于 $n=\pm1, \pm2,\cdots$，有 $\displaystyle I = \frac{i}{r^n}\int_0^{2\pi}(\cos{n\theta}-i\sin{n\theta})\text{d}\theta = 0$。
 
 > e.g. 计算 $\displaystyle \oint_{\vert z\vert=2}\frac{\overline{z}}{\vert z\vert}\text{d}z$。
 
@@ -536,7 +534,7 @@ $$
 
 > e.g. 计算 $\displaystyle \oint_{\vert z\vert=1}\frac{1}{\cos{z}}\text{d}z$
 
-首先判断函数的奇点，也就是满足 $\cos{z}=0$ 的点，显然 $z = k\pi + \frac{\pi}{2}$。对于任意的 $k\in\mathbb{Z}$，都有 $\vert z\vert>1$。也就是说 $\frac{1}{\cos{z}}$ 在 $\vert z\vert<1$ 区域内解析，因此积分为 $0$。
+首先判断函数的奇点，也就是满足 $\cos{z}=0$ 的点，显然 $z = k\pi + \frac{\pi}{2}$。对于任意的 $k\in\mathbb{Z}$，都有 $\vert z\vert>1$。也就是说 $\frac{1}{\cos{z}}$ 在 $\vert z\vert\leqslant 1$ 区域内解析，因此积分为 $0$。
 
 **Morera 定理：若 $f(z)$ 在单连通区域 $D$ 连续，且对于任意简单封闭曲线的积分为 $0$，那么 $f(z)$ 在区域 $D$ 内解析。**
 
@@ -570,7 +568,7 @@ $$
 
 > e.g. 计算 $\displaystyle \oint_{\vert z\vert=\frac{1}{2}}\frac{1}{z^2-z}\text{d}z$
 
-显然函数的奇点为 $z=0$ 和 $z=1$。其中 $z=0$ 在所求区域内部，令 $C_1:\vert z\vert=r$ 为环绕 $z=0$ 的一个小空洞，那么根据复合闭路定理，有
+显然函数的奇点为 $z=0$ 和 $z=1$。其中 $z=0$ 在所求区域内部，令 $C_1:\vert z\vert=r$ 为环绕 $z=0$ 的一个小空心圆，那么根据复合闭路定理，有
 
 $$
 \begin{aligned}
@@ -583,7 +581,7 @@ $$
 \end{aligned}
 $$
 
-> e.g. 计算 $\displaystyle \oint_{\vert z\vert=\frac{1}{2}}\frac{1}{z^2-z}\text{d}z$，其中 $C$ 是把 $\vert z\vert=1$ 包围的任意简单闭曲线
+> e.g. 计算 $\displaystyle \oint_{C}\frac{1}{z^2-z}\text{d}z$，其中 $C$ 是把 $\vert z\vert=1$ 包围的任意简单闭曲线
 
 在上一题的基础上，额外地令 $C_2:\vert z-1\vert=r$ 为环绕 $z=1$ 的一个小空洞，那么有
 
