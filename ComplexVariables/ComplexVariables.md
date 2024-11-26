@@ -607,7 +607,7 @@ $$
 
 #### 原函数与不定积分
 
-定义 $F(z) = \displaystyle \int_{z_0}^{z}f(\xi)\xi$，则有 $F'(z) = f(z)$。若函数 $f(z)$ 在区域 $D$ 内解析，且有 $\phi'(z)=f(z)$，那么 $\phi(z)$ 为 $f(z)$ 在区域 $D$ 内的原函数，$F(z)$ 为 $f(z)$ 的一个原函数，不定积分为 $\displaystyle\int f(z)\text{d}z = F(z)+C$，$C$ 为任意常数。
+定义 $F(z) = \displaystyle \int_{z_0}^{z}f(\xi)\text{d}\xi$，则有 $F'(z) = f(z)$。若函数 $f(z)$ 在区域 $D$ 内解析，且有 $\phi'(z)=f(z)$，那么 $\phi(z)$ 为 $f(z)$ 在区域 $D$ 内的原函数，$F(z)$ 为 $f(z)$ 的一个原函数，不定积分为 $\displaystyle\int f(z)\text{d}z = F(z)+C$，$C$ 为任意常数。
 
 #### 牛顿-莱布尼茨公式与定积分
 
@@ -685,7 +685,7 @@ $$
 
 该函数显然存在奇点 $z=1$，因此有
 $$
-\displaystyle I = \oint_{C_1}\frac{\cos(5z)}{(z-1)^5}\text{d}z = 2\pi i\frac{(\cos(5z))^4}{4!}\Bigg|_{z=1} = \frac{5^4\pi i}{12}\cos(5)
+\displaystyle I = \oint_{C_1}\frac{\cos(5z)}{(z-1)^5}\text{d}z = 2\pi i\frac{(\cos(5z))^{(4)}}{4!}\Bigg|_{z=1} = \frac{5^4\pi i}{12}\cos(5)
 $$
 
 > e.g. 求 $\displaystyle \oint_{\vert z\vert=2}\frac{1}{z^3(z+1)}\text{d}z$
@@ -1040,7 +1040,7 @@ $$
 e^z\sin{z} 
 &= e^z\frac{e^{iz}-e^{-iz}}{2i} \\
 &= \frac{1}{2i}\left(e^{(1+i)z}-e^{(1-i)z}\right) \\
-&= \frac{1}{2}\left(\sum_{n=0}^{\infty}\frac{(1+i)^n z^n}{n!}-\sum_{n=0}^{\infty}\frac{(1-i)^n z^n}{n!}\right) \\
+&= \frac{1}{2i}\left(\sum_{n=0}^{\infty}\frac{(1+i)^n z^n}{n!}-\sum_{n=0}^{\infty}\frac{(1-i)^n z^n}{n!}\right) \\
 &= \frac{1}{2i}\sum_{n=0}^{\infty}\frac{1}{n!}((1+i)^n-(1-i)^n)z^n \\
 &= \sum_{n=0}^{\infty}\frac{1}{n!}\cdot\frac{(1+i)^n-(1-i)^n}{2i}z^n \\
 &= \sum_{n=0}^{\infty}\frac{1}{n!}\text{Im}\{(1+i)^n\}z^n \\
@@ -1138,4 +1138,92 @@ $$
 
 所以 $\displaystyle \oint_{\vert z\vert=2}\frac{ze^{\frac{1}{z}}}{1-z}\text{d}z = 2\pi i\cdot C_{-1} = -4\pi i$。
 
-### 留数
+## 留数
+
+### 孤立奇点
+
+若 $f(z)$ 有奇点 $z_0$ ，$\exist \delta>0$，使得 $0<\vert z-z_0\vert<\delta$，则称 $z_0$ 为 $f(z)$ 的孤立奇点。
+
+> e.g. 判断 $\displaystyle \frac{1}{z(z-1)}$ 的奇点是否均为孤立奇点
+
+显然 $f(z)$ 具有奇点 $0,1$，均为孤立奇点
+
+> e.g. 判断 $\displaystyle \frac{1}{\sin{\frac{1}{z}}}$ 的奇点是否均为孤立奇点
+
+$f(z)$ 的奇点有 $0,\displaystyle \frac{1}{k\pi}, k\in{Z}$。当 $k\to\infty$ 时，有 $\displaystyle \frac{1}{k\pi}\to 0$，因此 $f(z)$ 的奇点不都是孤立奇点。
+
+若 $f(z)$ 在 $0<\vert z-z_0\vert<\delta$ 处展开 Laurent 级数，则有
+$$
+f(z) = \cdots+\frac{C_{-n}}{(z-z_0)^n}+\cdots+\frac{C_{-1}}{z-z_0}+C_0+C_1(z-z_0)+\cdots
+$$
+那么若奇点为
+
+- 可去奇点
+
+  则有
+  $$
+  f(z) = C_0+C_1(z-z_0)+C_2(z-z_0)^2+\cdots
+  $$
+  对于奇点而言，其等价的极限表达式为 $\displaystyle \lim_{z\to z_0}f(z)=C_0$。
+
+- 极点
+
+  则有
+  $$
+  f(z) = \cdots+\frac{C_{-m}}{(z-z_0)^m}+\cdots+\frac{C_{-1}}{z-z_0}+C_0+C_1(z-z_0)+\cdots
+  $$
+  且 $C_{-m}\neq0$，则称 $z_0$ 为 $f(z)$ 的 $m$ 阶极点。
+
+  $f(z)$ 还可改写为如下形式
+  $$
+  f(z) = \frac{1}{(z-z_0)^m}[C_{-m}+C_{-(n-1)}(z-z_0)+\cdots+C_0(z-z_0)^m+\cdots]
+  $$
+  若令 $\phi(z) = C_{-m}+C_{-(n-1)}(z-z_0)+\cdots+C_0(z-z_0)^m+\cdots$，且 $C_{-m} \neq 0$，那么则有如下定义
+
+  对于函数 $\displaystyle f(z) = \frac{1}{(z-z_0)^m}\phi(z)$，若 $\phi(z)$ 解析，且 $\phi(z_0)\neq0$，则称 $z=z_0$ 为$f(z)$ 的 $m$ 阶极点。
+
+  > e.g. 求 $\displaystyle f(z) = \frac{2z}{(z^2+1)(z-i)^3}$ 的极点
+
+  整理得 $\displaystyle f(z) = \frac{2z}{(z^2+1)(z-i)^3} = \frac{2z}{(z+i)(z-i)^4}$，不难发现奇点为 $z=\pm i$，因此
+
+  当 $z=i$ 时，$\displaystyle f(z) = \frac{1}{(z-i)^4}\cdot\frac{2z}{z+i}$，且 $\displaystyle \frac{2z}{z+i}\Bigg|_{z=i}\neq0$，因此 $i$ 是 $f(z)$ 的 4 阶极点。
+
+  当 $z=-i$ 时，$\displaystyle f(z) = \frac{1}{z+i}\cdot\frac{2z}{(z-i)^4}$，且 $\displaystyle \frac{2z}{(z-i)^4}\Bigg|_{z=-i}\neq0$，因此 $-i$ 是 $f(z)$ 的 1 阶极点。
+
+  对于极点而言，其等价的极限表达式为 $\displaystyle \lim_{z\to z_0}f(z)=\infty$。
+
+  > e.g. 求 $\displaystyle f(z) = \frac{\sin{z}}{z^3}$ 的极点
+
+  对 $\sin{z}$ 进行泰勒展开，得 $\displaystyle \frac{\sin{z}}{z^3} = \frac{z-\frac{z^3}{3!}+\cdots}{z^3} = \frac{1}{z^2}-\frac{1}{3!}+\cdots$，显然有 $f(z)$ 的 2 阶极点为 $z=0$。
+
+- 本性奇点
+
+  若 $f(z)$ 在 $z=z_0$ 处满足
+  $$
+  f(z) = \phi(z)+C_0+\cdots
+  $$
+  其中 $\phi(z) = \cdots+\displaystyle \frac{C_{-m}}{(z-z_0)^m}+\cdots+\frac{C_{-1}}{z-z_0}$，且拥有无穷多项，则称 $z_0$ 为 $f(z)$ 的本性奇点。
+
+  常见的拥有本性奇点的表达式有
+
+  - $\displaystyle e^{\frac{1}{z}} = \sum_{n=0}^{\infty}\frac{1}{n!}z^{-n}(0<\vert z\vert<\infty)$，有 $z=0$ 为本性奇点
+
+  - $\displaystyle \sin{\frac{1}{z}} = \frac{1}{z}-\frac{1}{3!}z^{-3}+\cdots$，有 $z=0$ 为本性奇点
+
+  - $\displaystyle \cos\frac{1}{z} = 1-\frac{1}{2!}z^{-2}+\cdots$，有 $z=0$ 为本性奇点
+
+  对于本性奇点而言，其等价的极限表达式为 $\displaystyle \lim_{z\to z_0}f(z)$ 不存在。
+
+- 零点
+
+  若 $f(z)$ 在 $z=0$ 处满足
+  $$
+  f(z) = \displaystyle (z-z_0)^m\phi(z)
+  $$
+  且 $\phi(z)$ 解析，$\phi(z_0)\neq 0$，则称 $z_0$ 为 $f(z)$ 的 $m$ 阶零点。
+
+  若有 $f(z_0) = f'(z_0) = f''(z_0) = \cdots = f^{(m-1)}(z_0) = 0$，且 $f^{(m)}(z_0)\neq 0$，则也认为 $z_0$ 为 $f(z)$ 的 $m$ 阶零点。
+
+  > e.g. 求 $f(z) = z^2(e^z-1)$ 的零点
+
+  对 $f(z)$ 进行展开，可得 $\displaystyle f(z) = z^2(1+z+\frac{z^2}{2!}+\cdots - 1) = z^3(1+\frac{z}{2!}+\cdots)$。令 $\displaystyle \phi(z) = 1+\frac{z}{2!}+\cdots$，则有 $\phi(0)=1$，因此 $z=0$ 是 $f(z)$ 的三阶极点。
