@@ -1224,6 +1224,36 @@ $$
 
   若有 $f(z_0) = f'(z_0) = f''(z_0) = \cdots = f^{(m-1)}(z_0) = 0$，且 $f^{(m)}(z_0)\neq 0$，则也认为 $z_0$ 为 $f(z)$ 的 $m$ 阶零点。
 
-  > e.g. 求 $f(z) = z^2(e^z-1)$ 的零点
+  若 $z=z_0$ 为 $f(z)$ 的 $m$ 级零点，$g(z)$ 的 $n$ 级零点。则 
 
+  - $z=z_0$ 为 $f(z)\cdot g(z)$ 的 $(m+n)$ 级零点
+  - $z=z_0$ 为 $\displaystyle \frac{f(z)}{g(z)}$ 的 $\begin{cases}\text{可去奇点} & m\geqslant n \\ (n-m)\text{阶极点} & m<n\end{cases}$ 
+  
+  > e.g. 求 $f(z) = z^2(e^z-1)$ 的零点
+  
   对 $f(z)$ 进行展开，可得 $\displaystyle f(z) = z^2(1+z+\frac{z^2}{2!}+\cdots - 1) = z^3(1+\frac{z}{2!}+\cdots)$。令 $\displaystyle \phi(z) = 1+\frac{z}{2!}+\cdots$，则有 $\phi(0)=1$，因此 $z=0$ 是 $f(z)$ 的三阶极点。
+
+**零点与极点的关系**
+
+若 $z=z_0$ 为 $f(z)$ 的 $m$ 阶零点，则 $z=z_0$ 为 $\displaystyle \frac{1}{f(z)}$ 的 $m$ 阶极点，反之也成立。
+
+> e.g. 求 $f(z) = \displaystyle \frac{1}{z^3(e^z-1)}$ 的极点
+
+题目等价于求 $g(z) = z^3(e^z-1)$ 的零点。$z=0$ 显然为 $3+1=4$ 阶零点。对于 $e^z-1=0$，有 $z = \text{Ln}{1} = \ln{1}+2k\pi i = 2k\pi i$，所以 $z=2k\pi i(k\neq 0)$ 均为 $1$ 阶零点。因此 $f(z)$ 的 $1$ 阶极点是 $z=2k\pi i(k\neq 0)$，$4$ 阶极点是 $z=0$。
+
+### 函数在无穷远点的性态
+
+若 $f(z)$ 在 $z=\infty$ 附近一邻域 $R<\vert z\vert<\infty$ 内解析，咋称 $z=\infty$ 是 $f(z)$ 的孤立奇点。
+
+若有 
+$$
+f(z) = \sum_{n=-\infty}^{+\infty}C_nz^n
+$$
+那么对于 $\displaystyle z = \frac{1}{t}$，就有 $\displaystyle \phi(t) = f(\frac{1}{t}) = \sum_{n=-\infty}^{+\infty}C_n\frac{1}{t^n}$。
+
+我们规定，若 $z=\infty$ 为
+
+- 可去奇点，那么其等价于 $\phi(t)$ 在 $t=0$ 处拥有可去奇点
+- $m$ 阶极点，那么其等价于 $\phi(t)$ 在 $t=0$ 处拥有 $m$ 阶极点
+- 本性奇点，那么其等价于 $\phi(t)$ 在 $t=0$ 处拥有本性奇点
+
