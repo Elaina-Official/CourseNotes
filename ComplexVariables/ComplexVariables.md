@@ -1,5 +1,11 @@
 # 复变函数
 
+## 前言
+
+非常感谢梨米特小方老师的课程视频，本笔记大部分基于此份课程。
+
+- 课程链接：[《复变函数》基础知识全解析，适合0基础的同学快速学习](https://www.bilibili.com/video/BV1w54y1m7Wb)
+
 ## 复数
 
 ### 复数及其代数运算
@@ -1241,7 +1247,7 @@ $$
 
 题目等价于求 $g(z) = z^3(e^z-1)$ 的零点。$z=0$ 显然为 $3+1=4$ 阶零点。对于 $e^z-1=0$，有 $z = \text{Ln}{1} = \ln{1}+2k\pi i = 2k\pi i$，所以 $z=2k\pi i(k\neq 0)$ 均为 $1$ 阶零点。因此 $f(z)$ 的 $1$ 阶极点是 $z=2k\pi i(k\neq 0)$，$4$ 阶极点是 $z=0$。
 
-### 函数在无穷远点的性态
+**函数在无穷远点的性态**
 
 若 $f(z)$ 在 $z=\infty$ 附近一邻域 $R<\vert z\vert<\infty$ 内解析，咋称 $z=\infty$ 是 $f(z)$ 的孤立奇点。
 
@@ -1257,3 +1263,56 @@ $$
 - $m$ 阶极点，那么其等价于 $\phi(t)$ 在 $t=0$ 处拥有 $m$ 阶极点
 - 本性奇点，那么其等价于 $\phi(t)$ 在 $t=0$ 处拥有本性奇点
 
+> e.g. 求 $\sin z$ 在 $z=\infty$ 的特征
+
+$\sin{z}$ 在 $z=\infty$ 处等价于 $\displaystyle \lim_{t\to 0}\sin{\frac{1}{t}}$，而该极限不存在，因此 $\sin{z}$ 在 $z=\infty$ 处拥有本性奇点。
+
+> e.g. 求 $\displaystyle f(z) = \frac{(z^2-1)(z-2)^3}{(\sin{\pi z})^3}$ 奇点
+
+对于分母 $(\sin{\pi z})^3=0$，有 $z = k(k\in \mathbb{Z})$ ，此时是三阶零点。
+
+对于分子 $(z^2-1)(z-2)^3=0$，有三阶零点 $z=2$ 和一阶零点 $z=\pm 1$。
+
+因此对于 $f(z)$，$z=\pm 1$ 是二阶极点， $z=2$ 是可去奇点，$z=k(k\in\mathbb{Z})$ 是三阶极点。
+
+对于 $z=\infty$，有 $\displaystyle f(z) = f(\frac{1}{t}) = \frac{(\frac{1}{t^2}-1)(\frac{1}{t}-2)^3}{(\sin{\frac{\pi}{t}})^3} = \frac{(1-t^2)(1-2t)^3}{t^5(\sin{\frac{\pi}{t}})^3}$。当 $t\to 0$ 时，$\sin\frac{\pi}{t}\to 0$，是 $f(\frac{1}{t})$ 的奇点，因此 $z=\infty$ 不是孤立奇点。
+
+### 留数
+
+#### 留数的定义与表示
+
+对于孤立奇点 $z_0$，若函数 $f(z)$ 在 $0<\vert z-z_0\vert <R$ 内解析，那么 $f(z)$ 具有 Laurent 展开式
+$$
+f(z) = \cdots+C_{-m}\frac{1}{(z-z_0)^m}+\cdots+C_{-1}\frac{1}{z-z_0}+C_0+C_1(z-z_0)+\cdots
+$$
+在 $0<\vert z-z_0\vert <R$ 内一闭合曲线 $C$ 上对两边积分，得到
+$$
+\oint_C f(z)\text{d}z = \cdots+\oint_CC_{-m}\frac{1}{(z-z_0)^m}\text{d}z+\cdots+C_{-1}\oint_C\frac{1}{z-z_0}\text{d}z+\cdots+C_n\oint_C(z-z_0)^n\text{d}z\cdots
+$$
+根据
+$$
+\oint_C\frac{\text{d}z}{(z-z_0)^n} = 
+\begin{cases}
+2\pi i & n=1 \\
+0 & n\neq 1
+\end{cases}
+$$
+可得
+$$
+\oint_C f(z)\text{d}z = 2\pi iC_{-1} \\
+C_{-1} = \frac{1}{2\pi i}\oint_Cf(z)\text{d}z
+$$
+其中 $C_{-1} = \text{Res}[f(z),z_0]$ 称为留数 Residue。
+
+> e.g. 求 $f(z) = \displaystyle \frac{z-\sin{z}}{z^6}$ 在 $z=0$ 处的留数
+
+$$
+\begin{aligned}
+f(z) &= \frac{z-\sin{z}}{z^6} \\
+&= \frac{z - (z-\frac{z^3}{3!} + \frac{z^5}{5!}-\cdots)}{z^6} \\
+&= \frac{\frac{z^3}{3!}-\frac{z^5}{5!}+\cdots}{z^6} \\
+&= \frac{1}{3!z^3}-\frac{1}{5!z}+\cdots
+\end{aligned}
+$$
+
+因此 $\text{Res}[f(z),0] = -\frac{1}{5!}$。
