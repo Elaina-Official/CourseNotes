@@ -1360,3 +1360,62 @@ $$
 > e.g. 计算 $\displaystyle \oint_{\vert z\vert=2}\frac{z^5}{z^6-1}\text{d}z$
 
 奇点 $z^6-1=0$ 可得 $z=1,e^{i\frac{\pi}{3}},e^{i\frac{2\pi}{3}},-1,e^{-i\frac{2\pi}{3}},e^{-i\frac{\pi}{3}}$。对于 $\displaystyle \frac{z^5}{z^6-1}$，有 $z^5\big|_{z=z_k}\neq 0$，且 $(z^6)'\big|_{z=z_k}=6z^5\big|_{z=z_k}\neq0$，那么就有 $\displaystyle \text{Res}[f(z),z_k] = \frac{z^5}{6z^5}\Bigg|_{z=z_k} = \frac{1}{6}$。因此 $\displaystyle \oint_{\vert z\vert=2}\frac{z^5}{z^6-1}\text{d}z = 2\pi i\sum_{n=1}^{6}\text{Res}[f(z),z_k] = 2\pi i\cdot(6\cdot \frac{1}{6}) = 2\pi i$。
+
+#### 无穷远点的留数
+
+对于无穷远处一邻域 $R<\vert z\vert<\infty$，记 $R$ 处顺时针闭合回路为 $C^-$，那么无穷远点的留数就是
+$$
+C_{-1} = \frac{1}{2\pi i}\oint_{C^-}f(z)\text{d}z = \text{Res}[f(z),\infty]
+$$
+**若 $f(z)$ 在扩充复平面 $C\cup\{\infty\}$ 内只有有限个奇点，则所有奇点（包含 $\infty$ 处）的留数总和为 $0$。**也就是说
+$$
+\oint_C f(z)\text{d}z+\oint_{C^-}f(z)\text{d}z = 0
+$$
+在无穷远处，留数的计算遵循如下规则
+$$
+\text{Res}[f(z),\infty] = \frac{1}{2\pi i}\oint_{\vert z\vert=R}f(z)\text{d}z\xlongequal{t = \frac{1}{z}}\frac{1}{2\pi i}\oint_{\vert t \vert = \frac{1}{R}}f(\frac{1}{t})(-\frac{1}{t^2})\text{d}t
+$$
+对于将 $z$ 更换为 $t$，需要考虑积分方向。$\vert z\vert=R$ 时方向为顺时针，而若 $z = re^{i\theta}$，则 $\displaystyle \frac{1}{z} = \frac{1}{r}e^{-i\theta}$，因此 $\displaystyle \vert t\vert = \frac{1}{R}$ 为逆时针，也就是正向，所以
+$$
+\text{Res}[f(z),\infty] = \frac{1}{2\pi i}\oint_{\vert z \vert = \frac{1}{R}}f(\frac{1}{z})(-\frac{1}{z^2})\text{d}z = \text{Res}[-\frac{1}{z^2}f(\frac{1}{z}),0]
+$$
+
+> e.g. 计算 $\displaystyle \oint_{\vert z\vert=2}\frac{z^5}{z^6-1}\text{d}z$
+
+根据无穷远点留数的性质，有 $\displaystyle \sum_{n=1}^6\text{Res}[f(z),z_k]+\text{Res}[f(z),\infty] = 0$。那么无穷远点处的留数就是
+$$
+\text{Res}[f(z),\infty] = \text{Res}[-\frac{1}{z^2}\frac{(\frac{1}{z})^5}{(\frac{1}{z})^6-1},0] = \text{Res}[-\frac{1}{z(1-z^6)},0] = -\frac{1}{(1-z^6)}\Bigg|_{z=0} = -1
+$$
+那么就能得到 $\displaystyle \oint_{\vert z\vert=2}\frac{z^5}{z^6-1}\text{d}z = 2\pi i\sum_{n=1}^6\text{Res}[f(z),z_k] = 2\pi i(-\text{Res}[f(z),\infty]) = 2\pi i$。
+
+> e.g. 计算 $\displaystyle \oint_{\vert z\vert = 2}\frac{1}{(z+i)^{10}(z-1)(z-3)}\text{d}z$
+
+类似地，我们可以通过无穷远点的留数来计算该积分。$f(z)$ 在扩充复平面内的奇点有 $-i, 1, 3, \infty$。因此有
+$$
+\text{Res}[f(z),-i] + \text{Res}[f(z),1] + \text{Res}[f(z),3] + \text{Res}[f(z),\infty] = 0
+$$
+对于 $z=3$ 处的留数，有 $\displaystyle \text{Res}[f(z),3] = (z-3)\frac{1}{(z+i)^{10}(z-1)(z-3)}\Bigg|_{z=3} = \frac{1}{2(3+i)^{10}}$。
+
+对于无穷远处的留数，有 $\displaystyle \text{Res}[f(z),\infty] = \text{Res}[(-\frac{1}{z^2}\frac{1}{(\frac{1}{z}+i)^{10}(\frac{1}{z}-1)(\frac{1}{z}-2)}),0] = \text{Res}[-\frac{z^{10}}{(1+zi)^{10}(1-z)(1-3z)},0] = 0$。
+
+因此 $\displaystyle \oint_{\vert z\vert = 2}\frac{1}{(z+i)^{10}(z-1)(z-3)}\text{d}z = 2\pi i(\text{Res}[f(z),-i]+\text{Res}[f(z),1]) = 2\pi i(-\text{Res}[f(z),3]-\text{Res}[f(z),\infty]) = -2\pi i\frac{1}{2(3+i)^{10}}$。
+
+### 留数在定积分上的应用
+
+- 对于形如 $\displaystyle \int_{0}^{2\pi}R(\cos\theta,\sin\theta)\text{d}\theta$ 的积分，可以令 $z = e^{i\theta},\text{d}\theta = \frac{1}{iz}$，那么就有 $\displaystyle \cos\theta = \frac{z^2+1}{2z},\sin\theta = \frac{z^2-1}{2iz}$，此时就能将原积分变为在 $\vert z\vert=1$ 上的复变函数积分。类似地，对于积分限为 $[-\pi,\pi]$ 的积分，此方法也能使用。
+
+  > e.g. 计算 $\displaystyle \int_0^{2\pi}\frac{1}{5+3\cos\theta}\text{d}\theta$
+
+  $$
+  \begin{aligned}
+  \displaystyle \int_0^{2\pi}\frac{1}{5+3\cos\theta}\text{d}\theta 
+  &= \oint_{\vert z\vert = 1}\frac{1}{5+3(\frac{z^2+1}{2z})}\frac{1}{iz}\text{d}z \\
+  &= \frac{2}{i}\oint_{\vert z\vert = 1}\frac{1}{3z^2+10z+3}\text{d}z \\
+  &= \frac{2}{3i}\oint_{\vert z\vert = 1}\frac{1}{(z+\frac{1}{3})(z+3)}\text{d}z \\
+  &= \frac{2}{3i}2\pi i\cdot\text{Res}[\frac{1}{(z+\frac{1}{3})(z+3)},-\frac{1}{3}] \\
+  &= \frac{4\pi}{3}\frac{1}{z+3}\Bigg|_{z = -\frac{1}{3}} \\
+  &= \frac{\pi}{2}
+  \end{aligned}
+  $$
+
+  
