@@ -1316,3 +1316,47 @@ f(z) &= \frac{z-\sin{z}}{z^6} \\
 $$
 
 因此 $\text{Res}[f(z),0] = -\frac{1}{5!}$。
+
+#### 留数的计算规则
+
+- 若 $f(z)$ 在 $z_0$ 拥有一阶极点，那么
+  $$
+  C_{-1} = \lim_{z\to z_0}(z-z_0)f(z)
+  $$
+
+- 若 $f(z)$ 在 $z_0$ 拥有 $m$ 阶极点，那么
+  $$
+  C_{-1} = \lim_{z\to z_0}\frac{1}{(m-1)!}\left[(z-z_0)^m f(z)\right]^{(m-1)}
+  $$
+
+- 若 $\displaystyle f(z) = \frac{P(z)}{Q(z)}$ 在 $z=z_0$ 处满足 $P(z_0)\neq 0,\ Q(z_0) = 0,\ Q'(z_0)\neq 0$，即 $z_0$ 为 $f(z)$ 的一阶极点，为 $Q(z)$ 的一阶零点，那么
+  $$
+  \text{Res}[f(z),z_0] = \lim_{z\to z_0}(z-z_0)f(z) = \lim_{z\to z_0}(z-z_0)\frac{P(z)}{Q(z)} = \lim_{z\to z_0}\frac{P(z)}{\frac{Q(z)-Q(z_0)}{z-z_0}} = \frac{P(z_0)}{Q'(z_0)}
+  $$
+
+> e.g. 求 $\displaystyle f(z)=\frac{e^z}{z^2-1}$ 在奇点处的留数
+
+显然有 $z=\pm 1$ 为一阶极点。$z=1$ 时，有 $\text{Res}[f(z),1] = \displaystyle \lim_{z\to 1}(z-1)\frac{e^z}{(z^2-1)} = \frac{e}{2}$；$z=-1$ 时，有 $\text{Res}[f(z),-1] = \displaystyle \lim_{z\to -1}(z+1)\frac{e^z}{(z^2-1)} = -\frac{e}{2}$。
+
+> e.g. 求 $f(z) = \displaystyle \frac{1}{z^3(z-i)}$ 在奇点处的留数
+
+显然有 $z=0$ 为三阶极点，$z=i$ 为一阶极点。那么对于 $z=0$ 时，有 $\displaystyle \text{Res}[f(z),0] = \frac{1}{2!}\left[z^3\frac{1}{z^3(z-i)}\right]''\Bigg|_{z=0} = (z-i)^{-3}\Bigg|_{z=0} = -i$；对于 $z=i$ 时，有 $\displaystyle \text{Res}[f(z),i] = (z-i)\frac{1}{z^3(z-i)}\Bigg|_{z=i} = i$。
+
+> e.g. 求 $\displaystyle \frac{z}{\frac{\sqrt{2}}{2}-\sin{z}}$ 在 $\displaystyle z=\frac{\pi}{4}$ 处的留数
+
+因为 $\displaystyle \frac{\sqrt{2}}{2}-\sin{\frac{\pi}{4}} = 0$，且 $\displaystyle \left(\frac{\sqrt{2}}{2}-\sin{z}\right)'\Bigg|_{z=\frac{\pi}{4}} = -\cos{z}\Bigg|_{z=\frac{\pi}{4}}\neq 0$，所以 $\displaystyle z=\frac{\pi}{4}$ 是一阶极点。又因为 $\displaystyle z=\frac{\pi}{4}$，因此根据第三条规则，有 $\text{Res}[f(z),\displaystyle \frac{\pi}{4}] = \frac{z}{-\cos{z}}\Bigg|_{z=\frac{\pi}{4}} = -\frac{\sqrt{2}\pi}{4}$。
+
+#### 留数定理
+
+若有一闭合回路 $C$，其中有数个奇点，将奇点附近的闭合回路称为 $C_1,C_2,C_3,\cdots$，那么就有
+$$
+\oint_C f(z)\text{d}z = \sum_{k=1}^{n}\oint_{C_k}f(z)\text{d}z = \sum_{n=1}^{n}2\pi i\cdot\text{Res}[f(z),z_k] = 2\pi i\sum_{n=1}^{n}\text{Res}[f(z),z_k]
+$$
+
+> e.g. 计算 $\displaystyle \oint_{\vert z\vert=2}\frac{e^z}{z(z-1)^2}\text{d}z$
+
+在 $\vert z\vert=2$ 范围内，有奇点 $z=0$ 和 $z=1$。$z=0$ 是一阶极点，那么就有 $\displaystyle \text{Res}[f(z),0] = \lim_{z\to 0}\frac{e^z}{(z-1)^2} = 1$；$z=1$ 是二阶极点，有 $\displaystyle \text{Res}[f(z),1] = \lim_{z\to 1}\frac{1}{1!}\left(\frac{e^z}{z}\right)' = 0$。因此 $\displaystyle \oint_{\vert z\vert=2}\frac{e^z}{z(z-1)^2}\text{d}z = 2\pi [\text{Res}[f(z),0]+\text{Res}[f(z),1]] = 2\pi i$。
+
+> e.g. 计算 $\displaystyle \oint_{\vert z\vert=2}\frac{z^5}{z^6-1}\text{d}z$
+
+奇点 $z^6-1=0$ 可得 $z=1,e^{i\frac{\pi}{3}},e^{i\frac{2\pi}{3}},-1,e^{-i\frac{2\pi}{3}},e^{-i\frac{\pi}{3}}$。对于 $\displaystyle \frac{z^5}{z^6-1}$，有 $z^5\big|_{z=z_k}\neq 0$，且 $(z^6)'\big|_{z=z_k}=6z^5\big|_{z=z_k}\neq0$，那么就有 $\displaystyle \text{Res}[f(z),z_k] = \frac{z^5}{6z^5}\Bigg|_{z=z_k} = \frac{1}{6}$。因此 $\displaystyle \oint_{\vert z\vert=2}\frac{z^5}{z^6-1}\text{d}z = 2\pi i\sum_{n=1}^{6}\text{Res}[f(z),z_k] = 2\pi i\cdot(6\cdot \frac{1}{6}) = 2\pi i$。
