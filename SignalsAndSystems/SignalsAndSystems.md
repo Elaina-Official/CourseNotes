@@ -1164,6 +1164,114 @@ $$
 
 #### 理想低通滤波器
 
+$$
+\frac{\sin(\omega_c t)}{\pi t}
+$$
+
+称为低通滤波器。当其在时域上和输入信号 $x(t)$ 卷积后，能够得到原信号的带限信号。
+
+**注意：理想低通滤波器是非因果系统，因而不能实现实时的 LTI 系统。且理想低通滤波器会把陡峭的上升沿信号变成逐渐衰减的振荡传递至无穷远处。**
+
+对于滤波器的应用，我们希望其具有尽可能大的主瓣面积和尽可能小的旁瓣面积，从而削弱其带来的振荡。
+
+理想低通滤波器的阶跃响应表述如下
+$$
+\begin{aligned}
+u(t)\ast \frac{\sin(\omega_c t)}{\pi t} 
+&= \int_{-\infty}^{+\infty}\frac{\sin(\omega_c \tau)}{\pi t}u(t-\tau)\text{d}\tau \\
+&= \int_{-\infty}^{t}\frac{\sin(\omega_c \tau)}{\pi t}\text{d}\tau \\
+&= \int_{-\infty}^{0}\frac{\sin(\omega_c \tau)}{\pi t}\text{d}\tau + \int_{0}^{t}\frac{\sin(\omega_c \tau)}{\pi t}\text{d}\tau \\
+&= \frac{1}{2} + \frac{1}{\pi}\text{Si}(\omega_c t) \\
+\end{aligned}
+$$
+其中 $\displaystyle \int_{0}^{x}\frac{\sin\tau}{\tau}\text{d}\tau = \text{Si}(x)$。
+
+#### 二维信号的傅里叶变换与反变换
+
+- 二维信号的傅里叶变换
+
+  对于二位信号（图像）$f(x,y)$，定义二维信号的傅里叶变换为
+  $$
+  F(u,v) = \int_{-\infty}^{+\infty}\int_{-\infty}^{+\infty}f(x,y)e^{-j(ux+vy)}\text{d}x\text{d}y \\
+  \Vert F(u,v)\Vert = \sqrt{\text{Re}\{F(u,v)\}^2 + \text{Im}\{F(u,v)\}^2}\quad\text{(幅度谱)} \\
+  \theta(u,v) = \arctan{\frac{\text{Im}\{F(u,v)\}}{\text{Re}\{F(u,v)\}}}\quad\text{(相位谱)}
+  $$
+
+- 二维信号的傅里叶反变换
+  $$
+  f(x,y) = \frac{1}{4\pi^2}\int_{-\infty}^{+\infty}\int_{-\infty}^{+\infty}F(u,v)e^{j(ux+vy)}\text{d}u\text{d}v
+  $$
+  离散时间傅里叶变换
+
+#### 四个不常用的傅里叶变换
+
+1. 双边指数信号
+
+   $\displaystyle e^{-a\vert t\vert}\xrightarrow{F}\frac{2a}{a^2+\omega^2}$
+
+2. 高斯脉冲信号
+
+   $\displaystyle Ee^{-\left(\frac{t}{\tau}\right)^2}\xrightarrow{F}\sqrt{\pi}E\tau e^{-\left(\frac{\omega\tau}{2}\right)^2}$
+
+3. 半波余弦信号
+
+   $\displaystyle \begin{cases}E\cos(\frac{\pi t}{\tau}) & \vert t\vert<\frac{\tau}{2} \\ 0 & \vert t\vert>\frac{\tau}{2}\end{cases} \xrightarrow{F}\frac{2E\tau}{\pi}\frac{\cos(\frac{\omega\tau}{2})}{1-(\frac{\omega\tau}{\pi})^2}$
+
+4. 奇对称斜线
+
+   $\displaystyle \frac{E}{T}t(-T<t<T)\xrightarrow{F}j\frac{E}{T}\left[\frac{2\sin(\omega t)}{\omega^2}-\frac{2T}{\omega}\cos(\omega T)\right]$
+
+#### 通过傅里叶变换计算傅里叶级数
+
+对于傅里叶级数，我们有
+$$
+a_k = \frac{1}{T}\int_{T}x(t)e^{-jk\omega_0 t}\text{d}t \\
+x(t) = \sum_{k=-\infty}^{+\infty}a_ke^{jk\omega_0 t}
+$$
+其中 $x(t)$ 是以 $T$ 为周期的函数，且 $\omega_0 = \frac{2\pi}{T}$ 。
+
+对于傅里叶变换，我们有
+$$
+X(j\omega) = \int_{-\infty}^{+\infty}x(t)e^{-j\omega t}\text{d}t \\
+x(t) \frac{1}{2\pi}\int_{-\infty}^{+\infty}X(j\omega)e^{j\omega t}\text{d}\omega
+$$
+将两者相联系，可以得到
+$$
+a_k = \frac{1}{T}X(jk\omega_0)
+$$
+
+> e.g. 若 $x(t)$ 是以 $T$ 为周期，在 $[-T_1,T_1]$ 上高度为 $1$ 的周期方波信号，求 $a_k$
+
+首先，我们需要求出一个周期内的傅立叶变换。也就是 $\displaystyle X(j\omega) = 2T_1Sa(T_1\omega) = \frac{2\sin(T_1\omega)}{\omega}$。
+
+那么就有 $\displaystyle a_k = \frac{1}{T}X(jk\omega_0) = \frac{1}{T}\frac{2\sin(T_1 k\omega_0)}{k\omega_0} = \frac{1}{\frac{2\pi}{\omega_0}}\frac{2\sin(T_1 k\omega_0)}{k\omega_0} = \frac{\sin(k\omega_0T_1)}{k\pi}$。
+
+因此
+$$
+\begin{aligned}
+x(t) &= \sum_{k=-\infty}^{+\infty}a_ke^{jk\omega_0 t} \\
+&= a_0 + 2\sum_{k=1}^{+\infty}a_k\cos(k\omega_0 t) \\
+&= \frac{2T_1}{T}  +2\sum_{k=1}^{+\infty}\frac{\sin(2k\pi\frac{T_1}{T})}{k\pi}\cos(k\frac{2\pi}{T}t)
+\end{aligned}
+$$
+
+> e.g. 若 $x(t)$ 是以 $T$ 为周期，在 $[-\frac{T}{2},\frac{T}{2}]$ 上最高为 $E$ 的周期三角波信号，求 $a_k$
+
+首先，先求出一个周期内的 $X(j\omega)$。显然 $\displaystyle X(j\omega) = \frac{TE}{2}\text{Sa}^2(\frac{\tau}{4}\omega) = \frac{8E\sin^2(\frac{\tau}{4}\omega)}{T\omega^2}$
+
+那么就有 $\displaystyle a_k = \frac{1}{T}X(j\omega) = \frac{8E\sin^2(\frac{\tau}{4}k\omega_0)}{Tk^2\omega_0^2} = \frac{2E\sin^2(\frac{k}{2}\pi)}{k^2\pi^2}$。
+
+因此
+$$
+\begin{aligned}
+x(t) &= \sum_{k=-\infty}^{+\infty}a_ke^{jk\omega_0 t} \\
+&= a_0+2\sum_{k=1}^{+\infty}a_k\cos(k\omega_0 t) \\
+&= \frac{E}{2} + 4\sum_{k=1}^{+\infty}\frac{E\sin^2(\frac{k}{2}\pi)}{k^2\pi^2}\cos(k\frac{2\pi}{T}t)
+\end{aligned}
+$$
+
+#### 周期函数的傅里叶级数和傅里叶变换
+
 
 
 ## 离散时间傅里叶变换

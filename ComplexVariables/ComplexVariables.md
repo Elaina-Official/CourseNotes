@@ -10,7 +10,7 @@
 
 ### 复数及其代数运算
 
-#### 定义
+#### 复数的定义
 
 $z = x + iy,\ i = \sqrt{-1}$
 
@@ -163,7 +163,7 @@ $$
 
 ### 复变函数
 
-#### 定义
+#### 复变函数的定义
 
 对于复数 $z = x+iy$，如果经过变换 $f$ 后的结果仍是复数，则称 $f$ 是复变函数。
 
@@ -221,7 +221,7 @@ $$
 
 ### 复变函数的求导
 
-#### 奇点
+#### 奇点的定义
 
 $f(z)$ 不解析的点叫做奇点。
 
@@ -1418,4 +1418,23 @@ $$
   \end{aligned}
   $$
 
-  
+- 对于形如 $\displaystyle \int_{-\infty}^{+\infty}\frac{P(x)}{Q(x)}\text{d}x$ 的积分，若 $P(x),Q(x)$ 为多项式，且 $Q(x)$ 的次数超过 $P(x)$ 二次，$Q(x)$ 在实轴上无奇点，那么就有 $\displaystyle I = 2\pi i\cdot N$，其中 $N$ 是 $\displaystyle \frac{P(x)}{Q(x)}$ 在上半平面所有奇点的留数之和。
+
+  > e.g. 计算 $\displaystyle \int_{-\infty}^{+\infty}\frac{x^2-x+2}{x^4+10x^2+9}\text{d}x$
+
+  对原式因式分解，得到 $\displaystyle \frac{z^2-z+2}{(z^2+1)(z^2+9)}$，显然有奇点 $z=\pm i, \pm 3i$，那么根据上述内容，就有
+  $$
+  \begin{aligned}
+  \int_{-\infty}^{+\infty}\frac{P(x)}{Q(x)}\text{d}x 
+  &= 2\pi i\cdot[\text{Res}[f(z),i]+\text{Res}[f(z),3i]] \\
+  &= 2\pi i\cdot\left(\frac{1-i}{16i}+\frac{7+3i}{48i}\right) \\
+  &= \frac{5}{12}\pi
+  \end{aligned}
+  $$
+  其中留数的计算过程此处不再赘述。
+
+- 对于形如 $\displaystyle \int_{-\infty}^{+\infty}f(x)\cos{ax}\text{d}x+i\int_{-\infty}^{+\infty}f(x)\sin{ax}\text{d}x = \int_{\infty}^{+\infty}f(x)e^{iax}\text{d}x$ 的积分，若 $P(x),Q(x)$ 为多项式，且 $Q(x)$ 的次数超过 $P(x)$ 一次，$Q(x)$ 在实轴上无奇点，那么就有 $\displaystyle I = 2\pi i\cdot N$，其中 $N$ 是 $\displaystyle \frac{P(x)}{Q(x)}$ 在上半平面所有奇点的留数之和。
+
+  > e.g. 计算 $\displaystyle \int_{0}^{+\infty}\frac{x\sin{x}}{x^2+a^2}\text{d}x(a>0)$
+
+  因为 $f(x)$ 是偶函数，所以有 $\displaystyle \int_{0}^{+\infty}\frac{x\sin{x}}{x^2+a^2}\text{d}x = \frac{1}{2}\int_{-\infty}^{+\infty}\frac{x\sin{x}}{x^2+a^2}\text{d}x$。因为 $\sin{x} = \text{Im}\{e^{ix}\}$，所以我们转为考察 $\displaystyle \frac{ze^{iz}}{z^2+a^2}$。显然有奇点 $z = \pm ai$，而在上半平面的奇点则是 $z=ai$，且 $\displaystyle \text{Res}\left[\frac{ze^{iz}}{z^2+a^2},ai\right] = \frac{ze^{iz}}{z+ai}\Bigg|_{z=ai} = \frac{e^{-a}}{2}$。也就是说，$\displaystyle \int_{-\infty}^{+\infty}\frac{xe^{ix}}{x^2+a^2}\text{d}x = 2\pi i\cdot\frac{e^{-a}}{2}=i\pi e^{-a}$。因此，我们就能得到 $\displaystyle \frac{1}{2}\int_{-\infty}^{+\infty}\frac{x(\cos{x}+i\sin{x})}{x^2+a^2}\text{d}x = \frac{i\pi e^{-a}}{2}$。分别取左右两边的虚部，就有 $\displaystyle \int_{0}^{+\infty}\frac{x\sin{x}}{x^2+a^2}\text{d}x=\frac{e^{-a}\pi}{2}$。
