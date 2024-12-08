@@ -1433,7 +1433,7 @@ $$
   $$
   其中留数的计算过程此处不再赘述。
 
-- 对于形如 $\displaystyle \int_{-\infty}^{+\infty}f(x)\cos{ax}\text{d}x+i\int_{-\infty}^{+\infty}f(x)\sin{ax}\text{d}x = \int_{\infty}^{+\infty}f(x)e^{iax}\text{d}x$ 的积分，若 $P(x),Q(x)$ 为多项式，且 $Q(x)$ 的次数超过 $P(x)$ 一次，$Q(x)$ 在实轴上无奇点，那么就有 $\displaystyle I = 2\pi i\cdot N$，其中 $N$ 是 $\displaystyle \frac{P(x)}{Q(x)}$ 在上半平面所有奇点的留数之和。
+- 对于形如 $\displaystyle \int_{-\infty}^{+\infty}f(x)\cos{ax}\text{d}x+i\int_{-\infty}^{+\infty}f(x)\sin{ax}\text{d}x = \int_{\infty}^{+\infty}f(x)e^{iax}\text{d}x$ 的积分，若 $\displaystyle f(x)=\frac{P(x)}{Q(x)}$，$P(x),Q(x)$ 为多项式，且 $Q(x)$ 的次数超过 $P(x)$ 一次，$Q(x)$ 在实轴上无奇点，那么就有 $\displaystyle I = 2\pi i\cdot N$，其中 $N$ 是 $\displaystyle \frac{P(x)}{Q(x)}$ 在上半平面所有奇点的留数之和。
 
   > e.g. 计算 $\displaystyle \int_{0}^{+\infty}\frac{x\sin{x}}{x^2+a^2}\text{d}x(a>0)$
 
