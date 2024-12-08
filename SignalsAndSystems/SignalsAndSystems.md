@@ -663,7 +663,7 @@ $x(t)\ast[h_1(t)+h_2(t)] = x(t)\ast h_1(t)+x(t)\ast h_2(t)$
 
 - $x(t+t_0)\ast h(t-t_0) = x(t)\ast h(t)$
 
-## 连续时间傅里叶变换
+## 连续时间频域分析
 
 ### 傅里叶级数
 
@@ -774,7 +774,7 @@ $$
 $$
 那么 $\{\beta_k\}_{k=1\sim+\infty}$ 就是正交基，这与线性代数中的过程相同，此处推广到复数域。
 
-### 傅里叶变换
+### 连续时间傅里叶变换
 
 #### 傅里叶变换的定义
 
@@ -1270,11 +1270,52 @@ x(t) &= \sum_{k=-\infty}^{+\infty}a_ke^{jk\omega_0 t} \\
 \end{aligned}
 $$
 
-#### 周期函数的傅里叶级数和傅里叶变换
+#### 周期信号的傅里叶级数和傅里叶变换
 
+对于周期信号，我们有 $\displaystyle x(t) = \sum_{k=-\infty}^{+\infty}a_k e^{jk\omega_0 t}$，而其傅里叶变换的结果就是
+$$
+X(j\omega) = 2\pi\sum_{k=-\infty}^{+\infty}a_k\delta(\omega-k\omega_0)
+$$
 
+> e.g. 若 $x(t)$ 是以 $T=4T_1$ 为周期，在 $[-T_1,T_1]$ 上高度为 $1$ 的周期方波信号，求 $X(j\omega)$
 
-## 离散时间傅里叶变换
+根据上面的题目，我们可以得到 $\displaystyle a_k = \frac{\sin(k\omega_0T_1)}{k\pi} = \frac{\sin(\frac{k}{2}\pi)}{k\pi}$，那么就有
+$$
+X(j\omega) = 2\pi\sum_{k=-\infty}^{+\infty}\frac{\sin(\frac{k}{2}\pi)}{k\pi}\delta(\omega-k\omega_0)
+$$
+
+> e.g. 求 $\displaystyle \delta_{T}(t) = \sum_{-\infty}^{+\infty}\delta(t-kT)$ 的傅里叶变换
+
+这是一个周期为 $T$ 的信号，先求一个周期内的傅里叶变换，有 $\displaystyle \delta(t)\xrightarrow{F}1$，那么 $\displaystyle a_k = \frac{1}{T}X(j\omega) = \frac{1}{T}$。那么就有
+$$
+X(j\omega) = 2\pi\sum_{k=-\infty}^{+\infty}\frac{1}{T}\delta(\omega-k\omega_0)
+$$
+
+## 离散时间频域分析
+
+### 离散时间傅里叶变换
+
+离散时间的傅里叶变换和反变换公式为
+$$
+X(e^{j\omega}) = \sum_{n-\infty}^{+\infty}x[n]e^{-j\omega n} \\
+x[n] = \frac{1}{2\pi}\int_{2\pi}X(e^{j\omega})e^{j\omega n}\text{d}\omega
+$$
+为了和连续时间的傅里叶变换区分，连续时间的傅里叶变换用 $X(j\omega)$ 表示，离散时间的傅里叶变换用 $X(e^{j\omega})$ 表示。
+
+#### 傅里叶变换的性质
+
+- 离散时间的傅里叶变换是周期函数，即 $\omega$ 以 $2\pi$ 为周期的函数。因此，对于 $x[n]$ 表达式中的积分，可以是任意区间长度为 $2\pi$ 的积分。
+
+#### 典型信号的傅里叶变换
+
+1. $\displaystyle a^nu[n]\xrightarrow{F}\frac{1}{1-ae^{-j\omega}}(\vert a\vert <1)$
+2. $\displaystyle \delta[n]\xrightarrow{F}1$
+3. $\displaystyle 1\xrightarrow{F}2\pi\sum_{k=-\infty}^{+\infty}\delta(\omega-2k\pi)$
+4. $\displaystyle x[n] = 1(n\in\mathbb{Z}\text{ and }n\in[-N_1,N_1])\xrightarrow{F}\frac{\sin(N_1+\frac{1}{2})\omega}{\sin(\frac{1}{2}\omega)}$
+5. $\displaystyle \frac{\sin(\omega_0 n)}{\pi n}\xrightarrow{F}$ 在 $[-2\pi-\omega_0,-2\pi+\omega_0],[-\omega_0,\omega_0],[2\pi-\omega_0,2\pi+\omega_0](0<\omega_0<\pi)$ 上高度为 $1$ 的三个方波
+6. $\displaystyle u[n]\xrightarrow{F}\frac{1}{1-e^{-j\omega}}+\pi\sum_{k=-\infty}^{+\infty}\delta(\omega-2k\pi)$
+7. $\displaystyle \cos(\omega_0n)\xrightarrow{F} \pi\sum_{k=-\infty}^{+\infty}[\delta(\omega+\omega_0-2k\pi)+\delta(\omega-\omega_0-2k\pi)]$
+8. $\displaystyle \sin(\omega_0n)\xrightarrow{F}\frac{\pi}{j}\sum_{k=-\infty}^{+\infty}[\delta(\omega-\omega_0-2k\pi)-\delta(\omega+\omega_0-2k\pi)]$
 
 ## 第五章
 
