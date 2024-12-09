@@ -1402,7 +1402,7 @@ $$
 
 ### 留数在定积分上的应用
 
-- 对于形如 $\displaystyle \int_{0}^{2\pi}R(\cos\theta,\sin\theta)\text{d}\theta$ 的积分，可以令 $z = e^{i\theta},\text{d}\theta = \frac{1}{iz}$，那么就有 $\displaystyle \cos\theta = \frac{z^2+1}{2z},\sin\theta = \frac{z^2-1}{2iz}$，此时就能将原积分变为在 $\vert z\vert=1$ 上的复变函数积分。类似地，对于积分限为 $[-\pi,\pi]$ 的积分，此方法也能使用。
+- 对于形如 $\displaystyle \int_{0}^{2\pi}R(\cos\theta,\sin\theta)\text{d}\theta$ 的积分，可以令 $z = e^{i\theta},\text{d}\theta = \frac{1}{iz}\text{d}z$，那么就有 $\displaystyle \cos\theta = \frac{z^2+1}{2z},\sin\theta = \frac{z^2-1}{2iz}$，此时就能将原积分变为在 $\vert z\vert=1$ 上的复变函数积分。类似地，对于积分限为 $[-\pi,\pi]$ 的积分，此方法也能使用。
 
   > e.g. 计算 $\displaystyle \int_0^{2\pi}\frac{1}{5+3\cos\theta}\text{d}\theta$
 
