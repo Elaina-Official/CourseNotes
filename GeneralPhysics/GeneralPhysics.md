@@ -3,6 +3,7 @@
 ## PREFACE
 
 - 请注意：本笔记仅仅包含 2024 年第二学期大学物理（Ⅲ）命题计划中的内容, 没有详细给出的部分并不代表不在教学范围内. 
+- 带 * 的章节是可能对整章学习有影响，但不在考纲中的内容。
 
 ## Chapter 18 Temperature, Heat and 1st Law
 
@@ -28,7 +29,7 @@ An intrinsic characteristic of the fundamental particles. 基本粒子的内禀�
 
 电荷是量子化的: A physical quantity has only discrete values. 分立值, 即 $q = ne,\ n \in\mathbb{Z}$.
 
-![](./Images/LEPTONS_AND_QUARKS.png)
+<img src="./Images/LEPTONS_AND_QUARKS.png" style="zoom: 30%;" />
 
 - 夸克带电 $\pm2/3$
 - 质子带电 $+1$
@@ -110,7 +111,7 @@ Flux through a surface: $\displaystyle \Phi = \iint\vec{E}\cdot\text{d}\vec{A}$
 
 For a closed surface, outward is positive: $\displaystyle \Phi = \oiint \vec{E}\cdot\text{d}\vec{A}$
 
-![](./Images/Electric_Flux.png)
+<img src="./Images/Electric_Flux.png" style="zoom: 25%;" />
 
 点电荷的电通量: A spherical **closed surface** with a point charge at its center: 
 $$
@@ -133,7 +134,7 @@ Excess charge on a conductor is entirely on the **conductor’s surface**. 多�
 
 一个很经典的例子是, 若存在一个均匀的空心球体, 其内部有一个不在球心的点电荷, 那么无论该电荷在哪里, 最终球壳外表面上的电荷分布也是均匀的. <a name="Electric Field of a Charged Board"></a>
 
-![](./Images/Electric_Field_1.jpg)
+<img src="./Images/Electric_Field_1.jpg" style="zoom:50%;" />
 
 对于一块均匀金属板, 其上带某种电荷, 那么取其上一个圆柱体, 其产生的电场强度如下
 $$
@@ -144,7 +145,7 @@ $$
 $$
 E = 2E_1 = \frac{\sigma_1}{\epsilon_0} = \frac{\sigma}{2\epsilon_0}(\sigma = \pm2\sigma_1)
 $$
-![](./Images/Electric_Field_2.jpg)
+<img src="./Images/Electric_Field_2.jpg" style="zoom: 50%;" />
 
 对于上图中的两块带不同电荷的金属板, 其可以视为两个金属板所产生的电场的合成, 因此对于整体, 有
 $$
@@ -157,11 +158,11 @@ The Gaussian surface should match the symmetry of the charge so that to simplify
 
 以下是几种常见的对称情形电场强度
 
-![](./Images/Normal_Symmetric_Electric_Field.jpg)
+<img src="./Images/Normal_Symmetric_Electric_Field.jpg" style="zoom:67%;" />
 
 - **Spherically symmetric charges 球对称**<a name="Spherically symmetric charges"></a>
 
-  ![](./Images/Spherically_Symmetric.png)
+  <img src="./Images/Spherically_Symmetric.png" style="zoom: 50%;" />
 
   对于均匀的空心金属球壳而言, 由于静电屏蔽, 其内部无电场强度, 而外部电场等价于球心处放置的点电荷所产生的电场, 因此有
   $$
@@ -187,9 +188,9 @@ The Gaussian surface should match the symmetry of the charge so that to simplify
   \end{cases}
   $$
 
-- **Cylindrically symmetric charges 柱对称**
+- **Cylindrically symmetric charges 柱对称**<a name="Cylindrically symmetric charges"></a>
 
-  ![](./Images/Cylindrical_Symmetric.jpg)
+  <img src="./Images/Cylindrical_Symmetric.jpg" style="zoom: 60%;" />
 
   对于半径为 $R$, 均匀的带电金属棍, 研究其附近的圆柱形区域电场强度. 
 
@@ -278,7 +279,7 @@ $$
 
 ### Calculating Potential from Field
 
-![](./Images/Electric_Potential_From_Field.jpg)
+<img src="./Images/Electric_Potential_From_Field.jpg" style="zoom:55%;" />
 
 **Work** done by the field on a charge. 
 $$
@@ -310,11 +311,92 @@ $$
 
 ## Chapter 25 Capacitance
 
+### Capacitor and Capacitance
+
+A **capacitor** is a device in which **electrical energy** is **stored**. It consists of two isolated conductors (plates) with insulating material between them. 
+
+<img src="./Images/Electric_Field_Of_Capacitance.jpg" style="zoom:80%;" />
+
+The capability of **how much charge** a capacitor can store is called **capacitance**.
+$$
+C = \frac{q}{V_{ab}}
+$$
+电容的单位是法[拉]，有 $1F = 1C/V$，微法 $1\mu F = 10^{-6}F$，皮法 $1pF = 10^{-12}F$. 
+
 ### Calculating Capacitance
+
+The **capacitance** of a capacitor does **not depend on** the potential difference **nor on** the charge of the capacitor. **电容是本征材料和结构决定的，与外加电压和充电电量无关。**
+
+- 对于**平行板电容器 Parallel-Plate Capacitor**，有
+
+  $$
+  E = \frac{\sigma}{\epsilon_0} = \frac{1}{\epsilon_0}\frac{q}{A} \\
+  V = Ed = \frac{1}{\epsilon_0}\frac{q}{A}d \\
+  C = \frac{q}{V} = \epsilon_0\frac{A}{d}
+  $$
+
+- 对于**柱状电容器 Cylindrical Capacitor**，有
+
+  $$
+  E(r) = \frac{q}{2\pi\epsilon_0 rL} \\
+  V = \int_{a}^{b}\frac{q}{2\pi\epsilon_0rL}\text{d}r = \frac{q}{2\pi\epsilon_0L}\ln(b/a) \\
+  C = \frac{q}{V} = 2\pi\epsilon_0\frac{L}{\ln(b/a)}
+  $$
+  
+  其中 $E(r)$ 的表达式可以参考[此处](#Cylindrically symmetric charges)。
+
+- 对于**球状电容器 Spherical Capacitor**，有
+  
+  $$
+  E(r) = \frac{q}{4\pi\epsilon_0 r^2} \\
+  V = \int_{a}^{b}E(r)\text{d}r = \frac{q}{4\pi\epsilon_0}(\frac{1}{a}-\frac{1}{b}) \\
+  C = \frac{q}{V} = 4\pi\epsilon_0\frac{ab}{b-a}
+  $$
+  
+  其中 $E(r)$ 的表达式可以参考[此处](#Spherically symmetric charges)。
 
 ### Capacitors in Parallel and in Series
 
+- 并联 Parallel
+
+  ![](./Images/Capacitors_In_Parallel.jpg)
+
+  此时分析电路，有 $V = V_1 = V_2 = V_3, q = q_1 + q_2 + q_3$, 可以得到
+  $$
+  C_{eq} = C_1+C_2+C_3
+  $$
+
+- 串联 Capacitors in Series 
+
+  <img src="./Images/Capacitors_In_Series.jpg" style="zoom:80%;" />
+  
+  此时分析电路，有 $V = V_1+V_2+V_3, q = q_1=q_2=q_3$,  可以得到
+  $$
+  \frac{1}{C_{eq}} = \frac{1}{C_1}+\frac{1}{C_2}+\frac{1}{C_3} = \sum_{i}^{n}\frac{1}{C_i}
+  $$
+
 ### Energy of Electric Field
+
+To charge a capacitor and store electric potential energy in it, **work** must be **done** by an **external force**.
+$$
+\text{d}W = V\text{d}q = \frac{q}{C}\text{d}q \\
+W = \int_{0}^{q}\frac{q}{C}\text{d}q = \frac{q^2}{2C} \\
+U = W = \frac{1}{2}qV = \frac{1}{2}CV^2
+$$
+**Energy density** **of an electric field** **能量密度** 
+$$
+u = \frac{U}{V_{volume}} = \frac{\frac{1}{2}CV^2}{Ad} = \frac{\frac{1}{2}(\epsilon_0\frac{A}{d})(Ed)^2}{Ad} = \frac{1}{2}\epsilon_0E^2
+$$
+
+### **Capacitor with a Dielectric* ** 
+
+When a dielectric is inserted into a capacitor, its capacitance is increased by a factor called dielectric constant $\kappa$ (kappa).**电介质插入双极板，电容以介电常数倍增加。**也就是说，在插入介质之后，电容变化是 $C\to\kappa C$。
+
+**Dielectric strength** $E_{max}$ 介电强度: The maximum electric field of a dielectric it can tolerate without breakdown. 最大击穿场强. 
+
+In a region completely filled by a dielectric, all electrostatic equations containing permittivity constant $\epsilon_0$ are to be replaced with $\kappa\epsilon_0$. 在电介质完全填充的区域，需要将 $\epsilon_0$ 全部替换成 $\kappa\epsilon_0$. 也就是说，对于介质中的电场，其需要进行 $\displaystyle E\to\frac{E}{\kappa}$ 的变换。
+
+### **Gauss’ Law in Dielectric***
 
 ## Chapter 26 Current and Resistance
 
@@ -322,17 +404,226 @@ $$
 
 ## Chapter 28 Magnetic Fields
 
+### Magnet and Magnetic field 
+
+磁体主要可分为两种，**Permanent magnet** 永磁体和 **Electromagnet** 电磁体。
+
+An **electron** has an intrinsic magnetic field. **电子具有内禀磁场.** 
+
+The vector sum gives a net magnetic field. **矢量和表现为净磁场. **
+
+Electric **current** (moving charged particles) produces magnetic fields. **运动的带电粒子产生磁场. **
+
+磁感应强度 **magnetic induction** 反应磁场的大小，其满足如下方程
+$$
+\vec{F_B} = q\vec{v}\times\vec{B}
+$$
+磁场力的方向遵循右手定则。
+
+<img src="./Images/Right_Hand_Rule.png" style="zoom: 10%;" />
+
+磁感应强度的单位是 **Tesla 特斯拉** 和 **Gauss 高斯**。
+
+$1T = 1N\cdot s\cdot C^{-1}\cdot m^{-1} = 1N\cdot A^{-1}\cdot m^{-1}$
+
+$1T = 10^4 G$
+
+磁感线的方向. At any point, the **tangent** of a *magnetic field line* gives the **direction** of the magnetic 
+
+磁感应强度的大小. The **number** of *lines per unit area* in a plane perpendicular to the magnetic field lines is proportional to the **magnitude** of the magnetic field. field.
+
+对于地磁场而言，地球的北极是地磁的南极，地球的南极是地磁的北极。
+
 ### Circular motion of a charged particle
+
+In a magnetic field, a charged particle moves in a circular path if the initial velocity is perpendicular to the magnetic field. 圆周运动。
+
+<img src="./Images/Circular_Path_In_Magnetic_Field.png" style="zoom: 30%;" />
+
+对于此种情形，我们可以列出
+$$
+F_B = ma \\
+\vert q\vert vB = m\frac{v^2}{r} \\
+$$
+那么就会得到
+$$
+\begin{array}{rlrl}
+\text{Angular velocity} & \displaystyle \omega = \frac{v}{r} = \frac{\vert q\vert B}{m} & \text{Radius} & \displaystyle r = \frac{mv}{\vert q\vert B} \\
+\text{Period} & \displaystyle T = \frac{2\pi r}{v} = \frac{2\pi m}{\vert q\vert B} & \text{Frequency} & \displaystyle f = \frac{1}{T} = \frac{\vert q\vert B}{2\pi m}
+\end{array}
+$$
+If the velocity of a charged particle has a component parallel to the uniform magnetic field, the particle will move in a helical path. **速度分量分别平行和垂直电场，螺旋线运动。**
+
+<img src="./Images/Helical_Path_In_Magnetic_Field.jpg" style="zoom: 30%;" />
+
+The velocity’s parallel component determines the **pitch p** (**螺距**) of the helix。
+
+The perpendicular component determines the **radius** (**半径**)of the helix.
+$$
+p = v_{\parallel}T = (v\cos{\phi})\frac{2\pi m}{\vert q\vert B} \\
+r = \frac{m v_{\perp}}{\vert q\vert B} = \frac{m(v\sin\phi)}{\vert q\vert B}
+$$
+ **Cyclotrons and Synchrotrons** **回旋加速器，同步加速器**
+
+<img src="./Images/Cyclotrons_And_Synchrotrons.jpg" style="zoom: 30%;" />
+
+The frequency which the proton circulates in the field must be equal to that of the electrical oscillator: $f = f_{osc} = \vert q\vert B/2\pi m$ (resonance condition) 共振条件：质子回旋频率等于电势振荡频率. 
+
+When the proton is energized to above 50MeV, the conventional cyclotron begins **to fail**. 回旋加速有能量极限. 
+
+According to the relativity theory, the proton’s mass increases and the frequency of revolution decreases. 相对论效应，高速运动质子质量增加，回转频率会越来越慢。
+
+The synchrotron is designed to solve this difficulty. The magnetic field increases with the energy so that the resonance condition is satisfied. 磁场逐级增强，以匹配共振条件。
 
 ### Crossed fields
 
+Both **electric field** and **magnetic field** can produce a force on a charged particle. When the two fields are **perpendicular to** each other, they are said to be **crossed fields**. 正交场. 
+
+**Measurement of charge-to-mass ratio of an electron** **荷质比** $\displaystyle \frac{q}{m}$
+
+**The Hall effect** **霍尔效应**
+
+The direction of the **Hall electromotive force (**电动势 emf**)** can be used to differentiate the **sign** of charge **carriers**. 区分载流子的电性
+
+![](./Images/The_Hall_Effect.jpg)
+$$
+F_e = eE_H \\
+F_m = ev_dB \\
+F_e = F_m \Rightarrow E_H = v_dB \\
+\text{Electric Field: }v_d = \frac{J}{ne} = \frac{i}{neA} \text{ and } v_d = \frac{E_H}{B} \Rightarrow E_H = \frac{Bi}{neA} \\
+\text{Hall Potential Difference: }V_H = E_Hd = \frac{Bid}{neA} = \frac{Bi}{nel} \\
+\text{Number density: } n = \frac{Bi}{V_H le} \\
+\begin{array}{rl}
+&J:\text{the current density 电流密度} \\
+&A:\text{the cross-sectional area 横截面积} \\
+&n:\text{the number density of charge carriers 载流子数密度} \\
+&l:\text{thickness of the strip 样条厚度}
+\end{array}
+$$
+
 ### Magnetic force on current-carrying wire
+
+Consider a length L of the wire. The conduction electrons in wire will drift in a time $t = L/v_d$, thus a charge $q = iL/v_d$ will pass through the plane.
+
+Magnetic force on the section 
+$$
+F_B = qvB\sin\phi = i\frac{L}{v}vB\sin\phi = iLB\sin\phi \\
+\vec{F_B} = i\vec{L}\times\vec{B}
+$$
+If **the wire is not straight** or the **magnetic field is not uniform**, We can imagine breaking the wire into **small segments** and apply (**微分形式**)
+$$
+\text{d}\vec{F_B} = i\text{d}\vec{L}\times\vec{B}
+$$
+The total force on the wire 
+$$
+\vec{F_B} = \int\text{d}\vec{F_B}
+$$
 
 ## Chapter 29 Magnetic fields due to currents
 
+### Biot-Savart law*
+
+A moving charged particle produces a magnetic field. **动电荷产生磁场** 
+
+An electric current produces a magnetic field. **电流产生磁场**
+
+The magnetic field $B$ produced at point $P$ by length $\text{d}s$ of the wire with current $i$ is given by the **Biot-Savart law:**
+$$
+\text{d}\vec{B} = \frac{\mu_0}{4\pi}\frac{i\text{d}\vec{s}\times\hat{r}}{r^2} \\
+\hat{r} = \frac{\vec{r}}{r}
+$$
+**Permeability** **in vacuum** **真空磁导率** $\mu_0 = 4\pi\times10^{-7}TmA^{-1}$
+
+### Calculating Magnetic Fields by B-S Law*
+
 ### Calculating magnetic fields by Ampere's law
 
-### Solenoids
+和高斯定理类似，安培定理表明，在真空中载流导线所载有的稳恒电流，与磁感应强度沿着环绕导线的任意闭合环路的路径积分，两者之间的关系为
+
+$$
+\oint_C\vec{B}\cdot\text{d}\vec{l} = \mu_0i_{enc}
+$$
+其中 $C$ 是环绕着导线的闭合环路，$\text{d}\vec{l}$ 是微小线元矢量. 
+
+Magnetic field has a nonzero curl. 磁场是有旋场. 
+
+Derivation from the magnetic filed of an infinite current carrying wire. 以下是不同情况下无穷长导线的安培电流大小。
+
+- a. Circular loop with current enclosed 圆环包络电流
+  $$
+  \oint_L\vec{B}\cdot\text{d}\vec{l} = \oint_LB\text{d}l = 2B\pi R = \mu_0I
+  $$
+
+- b. Arbitrary loop with current enclosed 随机环包络电流
+  $$
+  \oint_L\vec{B}\cdot\text{d}\vec{l} = \oint_LB\cos\theta\text{d}l = \int Br\text{d}\phi = \int_0^{2\pi}\frac{\mu_0I}{2\pi r}r\text{d}\phi = \mu_0I
+  $$
+
+- c. Current wire is not enclosed 电流在环路之外
+  $$
+  \text{On }L_1: \vec{B}\cdot\text{d}\vec{l} = Br\text{d}\phi \\
+  \text{On }L_1: \vec{B}\cdot\text{d}\vec{l} = -Br\text{d}\phi \\
+  \oint_L\vec{B}\cdot\text{d}\vec{l} = \oint_{L_1}\vec{B}\cdot\text{d}\vec{l} + \oint_{L_2}\vec{B}\cdot\text{d}\vec{l} = \frac{\mu_0I}{2\pi}\oint_{L_1}\text{d}\phi - \frac{\mu_0I}{2\pi}\oint_{L_2}\text{d}\phi = \frac{\mu_0I}{2\pi}[\phi-\phi] = 0
+  $$
+
+- d. More current wires 多个导线
+
+  Superposition principle of magnetic fields. 叠加原理.
+
+**Right-hand rule**
+
+<img src="./Images/Right_Hand_Rule_2.png" style="zoom: 15%;" />
+
+安培电流的方向使用右手定则判断. 
+
+**Magnetic field of a long straight wire**
+
+<img src="./Images/Long_straight_Wire.jpg" style="zoom:50%;" />
+
+- Outside the wire 导线外
+  $$
+  \int_L\vec{B}\cdot\text{d}\vec{l} = \mu_0l\quad B\cdot 2\pi r = \mu_0 l \\
+  B = \frac{\mu_0I}{2\pi r} \\
+  $$
+- Inside the wire 导线内
+  $$
+  I_{in} = \frac{r^2}{R^2}I \\
+  B = \frac{\mu_0I}{2\pi}\frac{r}{R^2}
+  $$
+  
+- 
+
+因此磁感应强度的分布如下
+
+<img src="./Images/The_Distribution_Of_Magnetic_Field.jpg" style="zoom: 80%;" />
+
+### Solenoids 
+
+<img src="./Images/Solenoids_1.jpg" style="zoom:33%;" />
+
+A long highly wound helical coil “**长、直、密绕**”线圈成螺线管. 
+
+Outside: $B=0$.
+
+Inside: $B$ is uniform 匀强
+
+<img src="./Images/Solenoids_2.jpg" style="zoom:60%;" />
+
+对其进行分析，有
+$$
+\oint_L\vec{B}\cdot\text{d}\vec{l} = \int_a^{b}\vec{B}\cdot\text{d}\vec{l} + \int_b^{c}\vec{B}\cdot\text{d}\vec{l} + \int_c^{d}\vec{B}\cdot\text{d}\vec{l} + \int_d^{a}\vec{B}\cdot\text{d}\vec{l} = Bl_{ab} \\
+\mu_0i_{enc} = \mu_0\sum_{L}I_i = \mu_0nl_{ab}I
+$$
+其中 $n$ 是单位长度线圈匝数，应用安培定理可以得到
+$$
+Bl_{ab} = \mu_0nl_{ab}I \\
+B = \mu_0 nI
+$$
+The magnetic field magnitude B within a solenoid: 
+
+- Not depend on the diameter or the length of the solenoid. 
+
+- Uniform over the solenoidal cross section. 
 
 ## Chapter 30 Induction and Inductance
 
