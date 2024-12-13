@@ -3,7 +3,7 @@
 ## PREFACE
 
 - 请注意：本笔记仅仅包含 2024 年第二学期大学物理（Ⅲ）命题计划中的内容, 没有详细给出的部分并不代表不在教学范围内. 
-- 带 * 的章节是可能对整章学习有影响，但不在考纲中的内容。
+- 带 * 的章节是可能对整章学习有影响, 但不在考纲中的内容. 
 
 ## Chapter 18 Temperature, Heat and 1st Law
 
@@ -265,14 +265,14 @@ The same work is done by the field on a charged particle over any path connectin
 
 **Potential due to a point charge** **单点电荷的电势**
 
-在距离点电荷 $r$ 处，有
+在距离点电荷 $r$ 处, 有
 $$
 E(r) = \frac{q}{4\pi\epsilon_0r^2} \\
 V(r) = -\int E(r)\text{d}r = \frac{q}{4\pi\epsilon_0r}, V(\infty) = 0
 $$
 **Potential due to several point charges** **多点电荷的电势**
 
-简单来说，带电体系静电场中一点的电势等于每一点电荷单独存在时在该点的电势的代数和。也就是说
+简单来说, 带电体系静电场中一点的电势等于每一点电荷单独存在时在该点的电势的代数和. 也就是说
 $$
 V(r_1,r_2,\cdots,r_n) = \frac{1}{4\pi\epsilon_0}\sum_{i=1}^{N}\frac{q_i}{r_i}
 $$
@@ -289,7 +289,7 @@ The change of the **potential energy**
 $$
 \Delta{U} = -q_0\int_{i}\vec{E}\cdot\text{d}\vec{s}
 $$
-对于均匀的实心金属球而言(参考[此处](#Spherically symmetric charges))，其电势和电压如下
+对于均匀的实心金属球而言(参考[此处](#Spherically symmetric charges)), 其电势和电压如下
 
 ![](./Images/Potential_And_Intensity.jpg)
 $$
@@ -321,13 +321,13 @@ The capability of **how much charge** a capacitor can store is called **capacita
 $$
 C = \frac{q}{V_{ab}}
 $$
-电容的单位是法[拉]，有 $1F = 1C/V$，微法 $1\mu F = 10^{-6}F$，皮法 $1pF = 10^{-12}F$. 
+电容的单位是法[拉], 有 $1F = 1C/V$, 微法 $1\mu F = 10^{-6}F$, 皮法 $1pF = 10^{-12}F$. 
 
 ### Calculating Capacitance
 
-The **capacitance** of a capacitor does **not depend on** the potential difference **nor on** the charge of the capacitor. **电容是本征材料和结构决定的，与外加电压和充电电量无关。**
+The **capacitance** of a capacitor does **not depend on** the potential difference **nor on** the charge of the capacitor. **电容是本征材料和结构决定的, 与外加电压和充电电量无关. **
 
-- 对于**平行板电容器 Parallel-Plate Capacitor**，有
+- 对于**平行板电容器 Parallel-Plate Capacitor**, 有
 
   $$
   E = \frac{\sigma}{\epsilon_0} = \frac{1}{\epsilon_0}\frac{q}{A} \\
@@ -335,7 +335,7 @@ The **capacitance** of a capacitor does **not depend on** the potential differen
   C = \frac{q}{V} = \epsilon_0\frac{A}{d}
   $$
 
-- 对于**柱状电容器 Cylindrical Capacitor**，有
+- 对于**柱状电容器 Cylindrical Capacitor**, 有
 
   $$
   E(r) = \frac{q}{2\pi\epsilon_0 rL} \\
@@ -343,9 +343,9 @@ The **capacitance** of a capacitor does **not depend on** the potential differen
   C = \frac{q}{V} = 2\pi\epsilon_0\frac{L}{\ln(b/a)}
   $$
   
-  其中 $E(r)$ 的表达式可以参考[此处](#Cylindrically symmetric charges)。
+  其中 $E(r)$ 的表达式可以参考[此处](#Cylindrically symmetric charges). 
 
-- 对于**球状电容器 Spherical Capacitor**，有
+- 对于**球状电容器 Spherical Capacitor**, 有
   
   $$
   E(r) = \frac{q}{4\pi\epsilon_0 r^2} \\
@@ -353,7 +353,7 @@ The **capacitance** of a capacitor does **not depend on** the potential differen
   C = \frac{q}{V} = 4\pi\epsilon_0\frac{ab}{b-a}
   $$
   
-  其中 $E(r)$ 的表达式可以参考[此处](#Spherically symmetric charges)。
+  其中 $E(r)$ 的表达式可以参考[此处](#Spherically symmetric charges). 
 
 ### Capacitors in Parallel and in Series
 
@@ -361,7 +361,7 @@ The **capacitance** of a capacitor does **not depend on** the potential differen
 
   ![](./Images/Capacitors_In_Parallel.jpg)
 
-  此时分析电路，有 $V = V_1 = V_2 = V_3, q = q_1 + q_2 + q_3$, 可以得到
+  此时分析电路, 有 $V = V_1 = V_2 = V_3, q = q_1 + q_2 + q_3$, 可以得到
   $$
   C_{eq} = C_1+C_2+C_3
   $$
@@ -370,7 +370,7 @@ The **capacitance** of a capacitor does **not depend on** the potential differen
 
   <img src="./Images/Capacitors_In_Series.jpg" style="zoom:80%;" />
   
-  此时分析电路，有 $V = V_1+V_2+V_3, q = q_1=q_2=q_3$,  可以得到
+  此时分析电路, 有 $V = V_1+V_2+V_3, q = q_1=q_2=q_3$,  可以得到
   $$
   \frac{1}{C_{eq}} = \frac{1}{C_1}+\frac{1}{C_2}+\frac{1}{C_3} = \sum_{i}^{n}\frac{1}{C_i}
   $$
@@ -390,11 +390,11 @@ $$
 
 ### **Capacitor with a Dielectric* ** 
 
-When a dielectric is inserted into a capacitor, its capacitance is increased by a factor called dielectric constant $\kappa$ (kappa).**电介质插入双极板，电容以介电常数倍增加。**也就是说，在插入介质之后，电容变化是 $C\to\kappa C$。
+When a dielectric is inserted into a capacitor, its capacitance is increased by a factor called dielectric constant $\kappa$ (kappa).**电介质插入双极板, 电容以介电常数倍增加. **也就是说, 在插入介质之后, 电容变化是 $C\to\kappa C$. 
 
 **Dielectric strength** $E_{max}$ 介电强度: The maximum electric field of a dielectric it can tolerate without breakdown. 最大击穿场强. 
 
-In a region completely filled by a dielectric, all electrostatic equations containing permittivity constant $\epsilon_0$ are to be replaced with $\kappa\epsilon_0$. 在电介质完全填充的区域，需要将 $\epsilon_0$ 全部替换成 $\kappa\epsilon_0$. 也就是说，对于介质中的电场，其需要进行 $\displaystyle E\to\frac{E}{\kappa}$ 的变换。
+In a region completely filled by a dielectric, all electrostatic equations containing permittivity constant $\epsilon_0$ are to be replaced with $\kappa\epsilon_0$. 在电介质完全填充的区域, 需要将 $\epsilon_0$ 全部替换成 $\kappa\epsilon_0$. 也就是说, 对于介质中的电场, 其需要进行 $\displaystyle E\to\frac{E}{\kappa}$ 的变换. 
 
 ### **Gauss’ Law in Dielectric***
 
@@ -406,7 +406,7 @@ In a region completely filled by a dielectric, all electrostatic equations conta
 
 ### Magnet and Magnetic field 
 
-磁体主要可分为两种，**Permanent magnet** 永磁体和 **Electromagnet** 电磁体。
+磁体主要可分为两种, **Permanent magnet** 永磁体和 **Electromagnet** 电磁体. 
 
 An **electron** has an intrinsic magnetic field. **电子具有内禀磁场.** 
 
@@ -414,15 +414,15 @@ The vector sum gives a net magnetic field. **矢量和表现为净磁场. **
 
 Electric **current** (moving charged particles) produces magnetic fields. **运动的带电粒子产生磁场. **
 
-磁感应强度 **magnetic induction** 反应磁场的大小，其满足如下方程
+磁感应强度 **magnetic induction** 反应磁场的大小, 其满足如下方程
 $$
 \vec{F_B} = q\vec{v}\times\vec{B}
 $$
-磁场力的方向遵循右手定则。
+磁场力的方向遵循右手定则. 
 
 <img src="./Images/Right_Hand_Rule.png" style="zoom: 10%;" />
 
-磁感应强度的单位是 **Tesla 特斯拉** 和 **Gauss 高斯**。
+磁感应强度的单位是 **Tesla 特斯拉** 和 **Gauss 高斯**. 
 
 $1T = 1N\cdot s\cdot C^{-1}\cdot m^{-1} = 1N\cdot A^{-1}\cdot m^{-1}$
 
@@ -432,15 +432,15 @@ $1T = 10^4 G$
 
 磁感应强度的大小. The **number** of *lines per unit area* in a plane perpendicular to the magnetic field lines is proportional to the **magnitude** of the magnetic field. field.
 
-对于地磁场而言，地球的北极是地磁的南极，地球的南极是地磁的北极。
+对于地磁场而言, 地球的北极是地磁的南极, 地球的南极是地磁的北极. 
 
 ### Circular motion of a charged particle
 
-In a magnetic field, a charged particle moves in a circular path if the initial velocity is perpendicular to the magnetic field. 圆周运动。
+In a magnetic field, a charged particle moves in a circular path if the initial velocity is perpendicular to the magnetic field. 圆周运动. 
 
 <img src="./Images/Circular_Path_In_Magnetic_Field.png" style="zoom: 30%;" />
 
-对于此种情形，我们可以列出
+对于此种情形, 我们可以列出
 $$
 F_B = ma \\
 \vert q\vert vB = m\frac{v^2}{r} \\
@@ -452,18 +452,18 @@ $$
 \text{Period} & \displaystyle T = \frac{2\pi r}{v} = \frac{2\pi m}{\vert q\vert B} & \text{Frequency} & \displaystyle f = \frac{1}{T} = \frac{\vert q\vert B}{2\pi m}
 \end{array}
 $$
-If the velocity of a charged particle has a component parallel to the uniform magnetic field, the particle will move in a helical path. **速度分量分别平行和垂直电场，螺旋线运动。**
+If the velocity of a charged particle has a component parallel to the uniform magnetic field, the particle will move in a helical path. **速度分量分别平行和垂直电场, 螺旋线运动. **
 
 <img src="./Images/Helical_Path_In_Magnetic_Field.jpg" style="zoom: 30%;" />
 
-The velocity’s parallel component determines the **pitch p** (**螺距**) of the helix。
+The velocity’s parallel component determines the **pitch p** (**螺距**) of the helix. 
 
 The perpendicular component determines the **radius** (**半径**)of the helix.
 $$
 p = v_{\parallel}T = (v\cos{\phi})\frac{2\pi m}{\vert q\vert B} \\
 r = \frac{m v_{\perp}}{\vert q\vert B} = \frac{m(v\sin\phi)}{\vert q\vert B}
 $$
- **Cyclotrons and Synchrotrons** **回旋加速器，同步加速器**
+ **Cyclotrons and Synchrotrons** **回旋加速器, 同步加速器**
 
 <img src="./Images/Cyclotrons_And_Synchrotrons.jpg" style="zoom: 30%;" />
 
@@ -471,9 +471,9 @@ The frequency which the proton circulates in the field must be equal to that of 
 
 When the proton is energized to above 50MeV, the conventional cyclotron begins **to fail**. 回旋加速有能量极限. 
 
-According to the relativity theory, the proton’s mass increases and the frequency of revolution decreases. 相对论效应，高速运动质子质量增加，回转频率会越来越慢。
+According to the relativity theory, the proton’s mass increases and the frequency of revolution decreases. 相对论效应, 高速运动质子质量增加, 回转频率会越来越慢. 
 
-The synchrotron is designed to solve this difficulty. The magnetic field increases with the energy so that the resonance condition is satisfied. 磁场逐级增强，以匹配共振条件。
+The synchrotron is designed to solve this difficulty. The magnetic field increases with the energy so that the resonance condition is satisfied. 磁场逐级增强, 以匹配共振条件. 
 
 ### Crossed fields
 
@@ -538,16 +538,16 @@ $$
 
 ### Calculating magnetic fields by Ampere's law
 
-和高斯定理类似，安培定理表明，在真空中载流导线所载有的稳恒电流，与磁感应强度沿着环绕导线的任意闭合环路的路径积分，两者之间的关系为
+和高斯定理类似, 安培定理表明, 在真空中载流导线所载有的稳恒电流, 与磁感应强度沿着环绕导线的任意闭合环路的路径积分, 两者之间的关系为
 
 $$
 \oint_C\vec{B}\cdot\text{d}\vec{l} = \mu_0i_{enc}
 $$
-其中 $C$ 是环绕着导线的闭合环路，$\text{d}\vec{l}$ 是微小线元矢量. 
+其中 $C$ 是环绕着导线的闭合环路, $\text{d}\vec{l}$ 是微小线元矢量. 
 
 Magnetic field has a nonzero curl. 磁场是有旋场. 
 
-Derivation from the magnetic filed of an infinite current carrying wire. 以下是不同情况下无穷长导线的安培电流大小。
+Derivation from the magnetic filed of an infinite current carrying wire. 以下是不同情况下无穷长导线的安培电流大小. 
 
 - a. Circular loop with current enclosed 圆环包络电流
   $$
@@ -609,12 +609,12 @@ Inside: $B$ is uniform 匀强
 
 <img src="./Images/Solenoids_2.jpg" style="zoom:60%;" />
 
-对其进行分析，有
+对其进行分析, 有
 $$
 \oint_L\vec{B}\cdot\text{d}\vec{l} = \int_a^{b}\vec{B}\cdot\text{d}\vec{l} + \int_b^{c}\vec{B}\cdot\text{d}\vec{l} + \int_c^{d}\vec{B}\cdot\text{d}\vec{l} + \int_d^{a}\vec{B}\cdot\text{d}\vec{l} = Bl_{ab} \\
 \mu_0i_{enc} = \mu_0\sum_{L}I_i = \mu_0nl_{ab}I
 $$
-其中 $n$ 是单位长度线圈匝数，应用安培定理可以得到
+其中 $n$ 是单位长度上的线圈匝数, 应用安培定理可以得到<a name="Magnetic Field of a Solenoid"></a>
 $$
 Bl_{ab} = \mu_0nl_{ab}I \\
 B = \mu_0 nI
@@ -629,7 +629,96 @@ The magnetic field magnitude B within a solenoid:
 
 ### Faraday's Law of Induction
 
+An electromotive force (**emf** **电动势**) is induced in a loop when the **magnetic flux** is changing. 线圈磁通量变化产生电动势. 
+
+**Magnetic flux 磁通量**
+$$
+\Phi_B = \iint\vec{B}\cdot\text{d}\vec{A}
+$$
+磁通量单位是**韦伯 Wb**, $1Wb = 1T\cdot m^2$. 
+
+The magnitude of the **emf** induced in a conducting loop is equal to the **rate** at which the **magnetic flux** through that loop changes with time. 产生电动势正比于磁通量变化率. 
+
+法拉第电磁感应定律的表述如下
+$$
+E = -\frac{\text{d}\Phi_B}{\text{d}t}
+$$
+Magnetic flux through a coil of N turns 对于 $N$ 匝线圈, 其磁通量是 $\displaystyle -N\frac{\text{d}\Phi_B}{\text{d}t}$. 
+
+The **emf** tends to **oppose** the magnetic **flux change.** (Lenz’s law) **电动势的变化趋势与磁通量的变化趋势相反. **
+
+By **Lenz’s law**, whether you move the magnet *toward or away* from the loop, a **magnetic force resists the motion**, requiring your **applied force to do positive work**. The work is transferred to energy. 
+
+<img src="./Images/Energy_Transfer.png" style="zoom:25%;" />
+
+Consider a resistance circuit, we find magnetic field is uniform and perpendicular to the plane of the loop. 
+$$
+\Phi_B = BLx
+$$
+The flux through the loop is changing with time.
+$$
+E = \frac{\text{d}\Phi_B}{\text{d}t} = \frac{\text{d}}{\text{d}t}(BLx) = BLv \\
+i = \frac{E}{R} = \frac{BLv}{R}
+$$
+Magnetic force on a current-carrying wire and power. 
+$$
+F_{app} = F_1 = iBL \\
+P = F_{app}v = iLBv = \frac{B^2L^2v^2}{R}
+$$
+
 ### Inductor and Inductance
+
+An inductor is a device that can be used to produce a magnetic field in a specified region. 电感用于产生磁场（电生磁）. 
+
+An inductor is a circuit element that stores energy in the magnetic field, just as a capacitor stores energy in the electric field. 存储磁能. 
+
+If a current $i$ is established through each of the $N$ windings of an inductor, a magnetic flux $\Phi_B$ links those windings. The inductance $L$ of the inductor is
+$$
+L = \frac{N\Phi_B}{i}
+$$
+其中 $N$ 是线圈匝数, $N\Phi_B$ 是 magnetic flux linkage 磁通链. 
+
+电感的单位是**亨利(Henry)**, $1H = 1T\cdot m^2/A$. 
+
+**Inductance of a long solenoid**
+
+<img src="./Images/Inductance_Of_A_Long_Solenoid.png" style="zoom:25%;" />
+
+参考[此处](#Magnetic Field of a Solenoid), 有 
+$$
+B = \mu_0 ni \\
+\Phi_B = BA \\
+N\Phi_B = (nl)(\mu_0 ni)A = \mu_0n^2ilA \\
+$$
+那么就能得到 
+$$
+L = \frac{N\Phi_B}{i} = \mu_0 n^2lA \\
+\frac{L}{l} = \mu_0n^2 A
+$$
+**Self-Induced emf 自感电动势**
+
+![](./Images/Self_Induced_Emf.jpg)
+
+If we change the current, an induced **emf** will appear in the coil . This emf is called self-induced emf. 
+
+结合 $N\Phi_B = Li$ 和法拉第电磁感应定律 $\displaystyle \epsilon_L = -N\frac{\text{d}\Phi_B}{\text{d}t}$, 可以得到自感电动势的表达式
+$$
+\epsilon_L = -L\frac{\text{d}i}{\text{d}t}
+$$
+**自感电动势阻碍电流变化. **
+
+**Mutual Induction** **互感**
+
+<img src="./Images/Mutual_Induction.jpg" style="zoom: 33%;" />
+
+The current $i_1$ in coil 1 creates a magnetic field. Some of the magnetic field lines pass through coil 2, and the magnetic flux caused by the current in coil 1 and passing through coil 2 is $N_2\Phi_{21}$. 
+
+For coil1, we have $\displaystyle M_{12} = \frac{N_1\Phi_{12}}{i_2}$, and for coil 2, we have $\displaystyle M_{21} = \frac{N_2\Phi_{21}}{i_1}$. 
+
+那么互感系数就是
+$$
+M = M_{12} = M_{21}
+$$
 
 ## Chapter 31 Electromagnetic Oscillations and AC
 
