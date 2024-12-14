@@ -29,7 +29,7 @@ An intrinsic characteristic of the fundamental particles. 基本粒子的内禀�
 
 电荷是量子化的: A physical quantity has only discrete values. 分立值, 即 $q = ne,\ n \in\mathbb{Z}$.
 
-<img src="./Images/LEPTONS_AND_QUARKS.png" style="zoom: 30%;" />
+<img src="./Images/LEPTONS_AND_QUARKS.png" style="zoom: 25%;" />
 
 - 夸克带电 $\pm2/3$
 - 质子带电 $+1$
@@ -111,7 +111,7 @@ Flux through a surface: $\displaystyle \Phi = \iint\vec{E}\cdot\text{d}\vec{A}$
 
 For a closed surface, outward is positive: $\displaystyle \Phi = \oiint \vec{E}\cdot\text{d}\vec{A}$
 
-<img src="./Images/Electric_Flux.png" style="zoom: 25%;" />
+<img src="./Images/Electric_Flux.png" style="zoom: 20%;" />
 
 点电荷的电通量: A spherical **closed surface** with a point charge at its center: 
 $$
@@ -190,7 +190,7 @@ The Gaussian surface should match the symmetry of the charge so that to simplify
 
 - **Cylindrically symmetric charges 柱对称**<a name="Cylindrically symmetric charges"></a>
 
-  <img src="./Images/Cylindrical_Symmetric.jpg" style="zoom: 60%;" />
+  <img src="./Images/Cylindrical_Symmetric.jpg" style="zoom: 50%;" />
 
   对于半径为 $R$, 均匀的带电金属棍, 研究其附近的圆柱形区域电场强度. 
 
@@ -213,7 +213,7 @@ The Gaussian surface should match the symmetry of the charge so that to simplify
 
 - **Planar symmetric charges 平面对称**
 
-  ![](./Images/Planar_Symmetric.jpg)
+  <img src="./Images/Planar_Symmetric.jpg" style="zoom:40%;" />
 
   如图所示, 选取关于平面对称的圆柱体作为高斯面, 就有
   $$
@@ -291,7 +291,7 @@ $$
 $$
 对于均匀的实心金属球而言(参考[此处](#Spherically symmetric charges)), 其电势和电压如下
 
-![](./Images/Potential_And_Intensity.jpg)
+<img src="./Images/Potential_And_Intensity.jpg" style="zoom:50%;" />
 $$
 V(r) = 
 \begin{cases}
@@ -315,7 +315,7 @@ $$
 
 A **capacitor** is a device in which **electrical energy** is **stored**. It consists of two isolated conductors (plates) with insulating material between them. 
 
-<img src="./Images/Electric_Field_Of_Capacitance.jpg" style="zoom:80%;" />
+<img src="./Images/Electric_Field_Of_Capacitance.jpg" style="zoom:70%;" />
 
 The capability of **how much charge** a capacitor can store is called **capacitance**.
 $$
@@ -359,7 +359,7 @@ The **capacitance** of a capacitor does **not depend on** the potential differen
 
 - 并联 Parallel
 
-  ![](./Images/Capacitors_In_Parallel.jpg)
+  <img src="./Images/Capacitors_In_Parallel.jpg" style="zoom:80%;" />
 
   此时分析电路, 有 $V = V_1 = V_2 = V_3, q = q_1 + q_2 + q_3$, 可以得到
   $$
@@ -368,7 +368,7 @@ The **capacitance** of a capacitor does **not depend on** the potential differen
 
 - 串联 Capacitors in Series 
 
-  <img src="./Images/Capacitors_In_Series.jpg" style="zoom:80%;" />
+  <img src="./Images/Capacitors_In_Series.jpg" style="zoom:70%;" />
   
   此时分析电路, 有 $V = V_1+V_2+V_3, q = q_1=q_2=q_3$,  可以得到
   $$
@@ -454,7 +454,7 @@ $$
 $$
 If the velocity of a charged particle has a component parallel to the uniform magnetic field, the particle will move in a helical path. **速度分量分别平行和垂直电场, 螺旋线运动. **
 
-<img src="./Images/Helical_Path_In_Magnetic_Field.jpg" style="zoom: 30%;" />
+<img src="./Images/Helical_Path_In_Magnetic_Field.jpg" style="zoom: 25%;" />
 
 The velocity’s parallel component determines the **pitch p** (**螺距**) of the helix. 
 
@@ -485,7 +485,7 @@ Both **electric field** and **magnetic field** can produce a force on a charged 
 
 The direction of the **Hall electromotive force (**电动势 emf**)** can be used to differentiate the **sign** of charge **carriers**. 区分载流子的电性
 
-![](./Images/The_Hall_Effect.jpg)
+<img src="./Images/The_Hall_Effect.jpg" style="zoom:70%;" />
 $$
 F_e = eE_H \\
 F_m = ev_dB \\
@@ -538,7 +538,7 @@ $$
 
 ### Calculating magnetic fields by Ampere's law
 
-和高斯定理类似, 安培定理表明, 在真空中载流导线所载有的稳恒电流, 与磁感应强度沿着环绕导线的任意闭合环路的路径积分, 两者之间的关系为
+和高斯定理类似, 安培定理表明, 在真空中载流导线所载有的稳恒电流, 与磁感应强度沿着环绕导线的任意闭合环路的路径积分, 两者之间的关系为<a name="Ampere's law"></a>
 
 $$
 \oint_C\vec{B}\cdot\text{d}\vec{l} = \mu_0i_{enc}
@@ -576,7 +576,7 @@ Derivation from the magnetic filed of an infinite current carrying wire. 以下�
 
 安培电流的方向使用右手定则判断. 
 
-**Magnetic field of a long straight wire**
+**Magnetic field of a long straight wire**<a name="Magnetic field of a long straight wire"></a>
 
 <img src="./Images/Long_straight_Wire.jpg" style="zoom:50%;" />
 
@@ -585,13 +585,12 @@ Derivation from the magnetic filed of an infinite current carrying wire. 以下�
   \int_L\vec{B}\cdot\text{d}\vec{l} = \mu_0l\quad B\cdot 2\pi r = \mu_0 l \\
   B = \frac{\mu_0I}{2\pi r} \\
   $$
+  
 - Inside the wire 导线内
   $$
   I_{in} = \frac{r^2}{R^2}I \\
   B = \frac{\mu_0I}{2\pi}\frac{r}{R^2}
   $$
-  
-- 
 
 因此磁感应强度的分布如下
 
@@ -697,7 +696,7 @@ L = \frac{N\Phi_B}{i} = \mu_0 n^2lA \\
 $$
 **Self-Induced emf 自感电动势**
 
-![](./Images/Self_Induced_Emf.jpg)
+<img src="./Images/Self_Induced_Emf.jpg" style="zoom:80%;" />
 
 If we change the current, an induced **emf** will appear in the coil . This emf is called self-induced emf. 
 
@@ -726,13 +725,141 @@ $$
 
 ### Induced Magnetic Field
 
+**Maxwell’s law** of induction: A changing electric flux induces a magnetic field. 变化的电通量产生磁场。
+
+<img src="./Images/Parallel_Plate_Capacitor.png" style="zoom: 33%;" />
+$$
+q = CV,\ C = \epsilon_0\frac{A}{d},\ E = \frac{V}{d} \\
+i_c = \frac{\text{d}q}{\text{d}t} = \frac{\text{d}}{\text{d}t}[(\epsilon_0\frac{A}{d})(Ed)] = \frac{\text{d}}{\text{d}t}(\epsilon_0EA) \\
+\text{For a parallel plate capacitor }\Phi_E = \iint\vec{E}\cdot\text{d}\vec{A} = EA \\
+i_D = i_c = \epsilon_0\frac{\text{d}\Phi_E}{\text{d}t}
+$$
+From *Kirchhoff’s junction rule*, the same current enters the left plate as leaves the right plate. Although current is flowing through the capacitor, no actual charge is transported through the vacuum between its plates. Displacement current flows in the vacuum.
+
+尽管有电流流入电容，但是没有真实电荷通过真空。**位移电流 $i_D$ **通过真空. 
+
+根据[安培定律](#Ampere's law)，有
+$$
+\oint\vec{B}\cdot\text{d}\vec{l} =\mu_0i_D = \mu_0\epsilon_0\frac{\text{d}\Phi_E}{\text{d}t}
+$$
+对于 $r$ 范围内的电流 $I$，有
+$$
+\oint\vec{B}\cdot\text{d}\vec{l} =\mu_0I \\
+2\pi rB = \mu_0(\frac{\pi r^2}{\pi R^2}i_D) = \mu_0i_c\frac{r^2}{R^2} \\
+B = \frac{\mu_0i_cr}{2\pi R^2}
+$$
+参考[此处](#Magnetic field of a long straight wire)，可知 The magnetic field generated by the displacement current $i_D$ is exactly the magnetic field generated by a long, straight conductor carrying a current  $i_C$. 其产生的磁场与直导线产生的磁场相同。
+
+我们可以将安培定律和麦克斯韦电磁感应定律合成安培-麦克斯韦定律
+$$
+\begin{aligned}
+\text{Maxwell’s law of induction: } & \displaystyle \oint\vec{B}\cdot\text{d}\vec{l} =\mu_0i_D = \mu_0\epsilon_0\frac{\text{d}\Phi_E}{\text{d}t} \\
+\text{Ampere's law: } & \displaystyle \oint\vec{B}\cdot\text{d}\vec{l} = \mu_0i 
+\end{aligned}  \\
+$$
+
+$$
+\text{Ampere-Maxwell law} \\
+\oint\vec{B}\cdot\text{d}\vec{l} =\mu_0i + \mu_0\epsilon_0\frac{\text{d}\Phi_E}{\text{d}t} \\
+$$
+
 ### Displacement Current
 
+Maxwell found that **a varying electric field** will set up a **magnetic field** in exactly the same way as a conduction current. **变化电场产生的磁场与传导电流产生的磁场一致。**
+
+<img src="./Images/Field_Due_To_Current.jpg" style="zoom: 25%;" />
+
+根据安培-麦克斯韦定律和位移电流的表达式，我们可以进一步得到安培-麦克斯韦定律的新表达式
+$$
+\oint\vec{B}\cdot\text{d}\vec{l} =\mu_0i_d + \mu_0 i
+$$
+The Ampere-Maxwell law holds for any enclosed surface. 对于任何闭合面，Ampere-Maxwell定律成立。
+
+Magnetic field inside and outside a circular capacitor plates with displacement current.
+$$
+B = 
+\begin{cases}
+\displaystyle \frac{\mu_0i_dr}{2\pi R^2} & (r<R) \\
+\displaystyle \frac{\mu_0i_d}{2\pi r} & (r>R)
+\end{cases}
+$$
+<img src="./Images/Magnetic_Field_Of_A_Circular_Capacitor_Plate.png" style="zoom:25%;" />
+
 ### Maxwell’s Equations
+
+$$
+\begin{array}{lrcl}
+\text{Gauss' law for electricity:} & \displaystyle \oiint\vec{E}\cdot\text{d}\vec{A} = \frac{q}{\epsilon_0} & \text{or} & \displaystyle \nabla\cdot\vec{E} = \frac{\rho}{\epsilon_0}
+\\
+\text{Gauss' law for magnetism:} & \displaystyle \oiint\vec{B}\cdot\text{d}\vec{A} = 0 & \text{or} & \displaystyle \nabla\cdot\vec{B} = 0
+\\
+\text{Faraday's law:} & \displaystyle \oint\vec{E}\cdot\text{d}\vec{s} = -\frac{\text{d}\Phi_B}{\text{d}t} & \text{or} & \displaystyle \nabla\times\vec{E} = -\frac{\partial\vec{B}}{\partial t}  
+\\
+\text{Ampere-Maxwell law:} & \displaystyle \oint\vec{B}\cdot\text{d}\vec{s} = \mu_0i + \mu_0\epsilon_0\frac{\text{d}\Phi_E}{\text{d}t} & \text{or} & \displaystyle \nabla\times\vec{B} = \mu_0(\vec{j}+\vec{j_d}) ,\ \vec{j_d} = \epsilon_0\frac{\partial\vec{E}}{\partial t}  
+\end{array}
+$$
 
 ## Chapter 33 Electromagnetic Waves
 
 ### Electromagnetic Waves
+
+**Electromagnetic spectrum 电磁波谱**
+$$
+\text{Wave speed} = \text{wavelength} \times \text{frequency} = 299 792 458 \ m/s \\
+v = \lambda f
+$$
+<img src="./Images/Wavelengths.jpg" style="zoom: 50%;" />
+
+**Electromagnetic oscillations 电磁振荡**
+
+<img src="./Images/Electromagnetic_Oscillations.jpg" style="zoom:25%;" />
+
+Total Energy is constant
+$$
+U = U_B+U_E = \frac{1}{2}Li^2+\frac{1}{2}\frac{q^2}{C} \\
+\frac{\text{d}U}{\text{d}t} = Li\frac{\text{d}i}{\text{d}t}+\frac{q}{C}\frac{\text{d}q}{\text{d}t} = Li\frac{\text{d}^2q}{\text{d}t^2}+\frac{q}{C}i = 0 \\
+\frac{\text{d}^2q}{\text{d}t^2}+\frac{1}{LC}q = 0
+$$
+Charge and Current Oscillations
+$$
+\omega = \sqrt{\frac{1}{LC}} \\
+q = Q\cos(\omega t+\phi) \\
+i = -I\sin(\omega t+\phi),\ I = \omega Q
+$$
+Electric and Magnetic Energy Oscillations
+$$
+U_E = \frac{q^2}{2C} = \frac{Q^2}{2C}\cos^2(\omega t+\phi) \\
+U_B = \frac{1}{2}Li^2 = \frac{Q^2}{2C}\sin^2(\omega t+\phi)
+$$
+**Travelling electromagnetic waves 电磁行波**
+
+An LC oscillator causes currents to flow sinusoidally at frequency $\displaystyle \omega = \sqrt{\frac{1}{LC}}$, which in turn produces oscillating electric and magnetic fields, which then propagate through space as EM waves.
+
+<img src="./Images/Travelling_Electromagnetic_Waves.jpg" style="zoom: 15%;" />
+
+**Properties of EM waves** **性质**
+
+- The electric and magnetic fields $E$ and $B$ are always **perpendicular to** the direction of travel of the wave, thus the wave is a **transverse wave 横波**. 
+- The **electric field** and the **magnetic field** are always **perpendicular to each other.**
+- The cross production $E\times B$ gives the energy flow rate of travel of the wave.
+- The $E$ and $M$ fields vary sinusoidally with the **same frequency** and **in phase 同相** . 
+
+**Mathematical Description of EM Waves**
+$$
+\begin{aligned}
+\text{Electric Field: } & E = E_m\sin(kx-\omega t) \\
+\text{Magnetic Field: } & B = B_m\sin(kx-\omega t)
+\end{aligned}
+$$
+
+- 波数 Wave Numebr $\displaystyle k = \frac{2\pi}{\lambda}$
+- 角频率 Angular frequency $\displaystyle \omega = \frac{2\pi}{T}$
+- 真空介电常数 Vacuum Permittivity $\epsilon_0$
+- 真空磁导率 Vacuum Permeability $\mu_0$
+- 波速 Wave Speed $\displaystyle c = \frac{1}{\sqrt{\mu_0 \epsilon_0}}$
+- 振幅比 Amplitude Ratio $\displaystyle \frac{E_m}{B_m} = c$
+
+推导暂略。
 
 ### Energy Transport and Poynting Vector
 
@@ -740,19 +867,203 @@ $$
 
 ### The Relativity of Time
 
+- **Simultaneity** **同时性**
+
+  相对论中的**同时性**是爱因斯坦提出的狭义相对论的一个核心概念，它指出：**两个事件是否同时发生是相对的，取决于观察者的运动状态**。换句话说，在一个惯性参考系中被认为是同时发生的两件事，在另一个相对运动的惯性参考系中可能并非同时发生。
+
+- **Time dilation** **时间膨胀**
+
+  The time interval between two events depends on how far apart they occur in both space and time; that is, their spatial and temporal separations are entangled. 时空纠缠
+
+  注意: 时间膨胀只在相对运动的参考系之间显现，而在运动者自己的参考系中，时间流逝是正常的。
+
+  时间膨胀由洛伦兹因子描述：
+  $$
+  \Delta t' = \gamma \Delta t = \frac{\Delta t}{\sqrt{1 - \frac{v^2}{c^2}}} 
+  $$
+  其中：
+
+  - $ \Delta t $ 是静止参考系中的时间间隔
+  - $ \Delta t' $ 是相对运动参考系中的时间间隔
+  - $ v $ 是两参考系的相对速度
+  - $ c $ 是光速
+  - $ \gamma = \frac{1}{\sqrt{1 - \frac{v^2}{c^2}}} $ 是洛伦兹因子
+
+  ![](./Images/Time_Delation.jpg)
+
+  $\beta = v/c$ 是 Speed parameter. 
+
 ### The Relativity of Length
+
+长度收缩效应的根本原因是**高速运动中空间和时间的本质关联性**，以及光速恒定对物理规律施加的约束。狭义相对论表明，高速运动的物体在运动方向上的长度会在观察者参考系中被测量为缩短。这种效应不是物体的物理特性发生了变化，而是由于不同参考系对时空的测量方式不同所导致的现象。
+
+$$
+L = L_0\sqrt{1-\frac{v^2}{c^2}}
+$$
+
+- $L$ 是观察者参考系中测得的长度（收缩后的长度）
+- $L_0$ 是物体静止时的固有长度（原本的长度）
+- $v$ 是物体相对观察者的速度
+- $c$ 是光速
 
 ### The Lorentz Transformation
 
+为了满足光速不变原理，洛伦兹变换被引入，用于描述不同惯性参考系之间的坐标关系
+$$
+x' = \gamma(x-vt),\ t' = \gamma(t - \frac{vx}{c^2}) \\
+\gamma = \frac{1}{\sqrt{1-\frac{v^2}{c^2}}}
+$$
+
 ### Momentum and Energy
+
+**Relativistic momentum 相对论动量**
+
+A collision between two particles happens. The total momentum is not conserved for the observers in different inertial frames if we do not redefine the momentum in special theory of relativity.
+$$
+\begin{aligned}
+\text{Classical momentum: } & \vec{p} = m\vec{v} \\
+\text{Relativistic momentum: } & \vec{p} = \gamma m\vec{v}
+\end{aligned}
+$$
+物体在以极高速度运动时，其质量会发生变化
+$$
+m = \gamma m_0
+$$
+$m$ 是物体在相对论效应下的质量，而 $m_0$ 是物体在静止参考系下的质量。
+
+若一个粒子分裂成两个粒子，那么就有
+$$
+\vec{p} = m_0v_0 = \vec{p_1}+\vec{p_2} = \gamma_1m_1v_1+\gamma_2m_2v_2
+$$
+**Relativistic energy 相对论能量**
+
+Mass can be considered to be another form of energy. The law of conservation of energy is really the law of conservation of mass-energy.
+
+类似于动量，能量在相对论效应下也有相似的变化. 物体总能量的表达式为
+$$
+E = \gamma m_0 c^2
+$$
+物体的动能表达式为
+$$
+K = E - m_0c^2 = \gamma m_0c^2 - m_0c^2 = (\gamma-1)m_0c^2
+$$
+当 $v<<c$ 时，我们可以证明，物体的动能符合经典力学的表达式
+$$
+\sqrt{1-\frac{v^2}{c^2}} = 1-\frac{1}{2}\frac{v^2}{c^2}+O\left(\frac{v^4}{c^4}\right) \\
+\gamma = \frac{1}{1 - \frac{1}{2}\frac{v^2}{c^2}} = 1+\frac{1}{2}\frac{v^2}{c^2} \\
+K = (1+\frac{1}{2}\frac{v^2}{c^2}-1)m_0c^2 = \frac{1}{2}m_0v^2
+$$
+**Relation between momentum and energy**
+$$
+E^2 = (pc)^2+(m_0c^2)^2 \\
+p^2c^2 = K^2+2Km_0c^2
+$$
 
 ## Chapter 38 Photons and Matter Waves
 
 ### Photoelectronic effect
 
+The quantum (elementary amount) of energy of a light wave is called a photon.
+$$
+E = hf = h\frac{c}{\lambda} = \hbar\omega
+$$
+Plank constant $h = 6.626\times10^{-34}J\cdot s$
+
+约化普朗克常数 $\hbar = h / 2\pi$
+
+**注意: 也有写法将 $f$ 写为 $\nu$，貌似这种更多一些。**
+
+<img src="./Images/Energy_Of_Light.png" style="zoom: 15%;" />
+
+When an atom **absorbs** light, a photon vanishes. 当原子吸收光线时，光子就会消失。
+
+When an atom **emits** light, a photon appears. 当原子发光时，就会出现一个光子。
+
+When short-wavelength light illuminates a clean metal surface, electrons are ejected from the metal. These photoelectrons produce a photocurrent. 光电子，光电流。
+
+<img src="./Images/The_Photoelectric_Effect.png" style="zoom:50%;" />
+
+Adjust the potential difference $V$ so that collector is negative with respect to target. When $V$ reaches a certain value $V_{stop}$ 截止电压, the current just dropped to zero. The maximum kinetic energy of the ejected electrons is
+$$
+K_{max} = eV_{stop} = \frac{1}{2}mv_{max}^2
+$$
+即使光子的能量继续增加，电子受制于金属中其他粒子的相互作用，也无法继续增加动能。
+
+The maximum kinetic energy of photoelectrons does **not depend** on the intensity of the light.
+
+Photoelectric effect does not occur if the frequency is below the **cutoff frequency** $f_0$. 
+
+Photoelectric equation
+$$
+hf = K_{max} + \Phi
+$$
+$\Phi$ is work function 功函数，又叫做逸出功，指光电子逸出所需的最小能量。
+
 ### Compton scattering
 
+**Photons have momentum**
+
+$$
+p = \frac{h}{\lambda}
+$$
+
+高能光子（通常是X射线或伽马射线）与静止的电子发生碰撞，光子将部分能量传递给电子，导致光子的波长发生变化（即“康普顿位移”）。
+
+康普顿位移的变化量（即光子波长的变化）由以下公式给出
+
+$$
+\Delta \lambda = \lambda' - \lambda = \frac{h}{m_e c} (1 - \cos \theta)
+$$
+
+其中：
+- $\Delta \lambda = \lambda' - \lambda$ 是光子波长的变化量（即康普顿位移）
+- $\lambda$ 是入射光子的初始波长
+- $\lambda'$ 是散射光子的波长
+- $h$ 是普朗克常数（约为 $6.626 \times 10^{-34} \, \text{J·s}$）
+- $m_e$ 是电子的静质量（约为 $9.11 \times 10^{-31} \, \text{kg}$）
+- $c$ 是光速（约为 $3 \times 10^8 \, \text{m/s}$）
+- $\theta$ 是光子散射的角度，即散射光子与入射光子之间的夹角
+
+对于碰撞前后的能量，有
+$$
+hf = hf'+mc^2(\gamma-1) = hf'+K
+$$
+
+### Matter Wave: Electron as Wave*
+
+A particle (such as a moving electron) can be thought of as a **matter wave**. 
+
+粒子运动产生的波是物质波，也叫做德布罗意波 de Broglie wavelength
+$$
+\lambda = \frac{h}{p}
+$$
+
 ### Schrodinger's Equation
+
+A quantum state is represented by a wavefunction $\Psi(x,y,z,t)$ which satisfies the Schrodinger’s equation (1D).
+$$
+i\hbar\frac{\partial\Psi}{\partial t} = -\frac{\hbar^2}{2m}\frac{\partial^2\Psi}{\partial x^2}+U\Psi
+$$
+If the potential energy $U = U(x)$, the time and space functions are separable. The solutions have the form
+$$
+\Psi(x,t) = \psi(x)e^{-i\omega t}
+$$
+We need solve the time-independent (stationary state 定态) Schrodinger’s equation only.
+$$
+-\frac{\hbar^2}{2m}\frac{\text{d}^2\psi}{\text{d} x^2}+U\psi = E\psi \\
+\frac{\text{d}^2\psi}{\text{d} x^2} + \frac{2\pi^2 m}{h^2}[E-U(x)]\psi = 0
+$$
+Statistical interpretation for wavefunctions: The probability of finding the particle between $x$ and $x+\text{d}x$ at time $t$ is proportional to the modulus squared of the wavefunction.
+
+The probability density is 
+$$
+P(x,t) = \vert\Psi\vert^2
+$$
+The probability of finding the particle between $a$ and $b$ at time $t$ is
+$$
+P(a,b,t) = \int_{a}^{b}\vert\Psi\vert^2\text{d}x
+$$
+
 
 ## Chapter 39 More about Matter Waves
 
