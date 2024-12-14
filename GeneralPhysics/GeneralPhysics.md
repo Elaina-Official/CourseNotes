@@ -1063,13 +1063,77 @@ The probability of finding the particle between $a$ and $b$ at time $t$ is
 $$
 P(a,b,t) = \int_{a}^{b}\vert\Psi\vert^2\text{d}x
 $$
-
+波函数的模的平方表征粒子在这个位置这个时间出现的概率。
 
 ## Chapter 39 More about Matter Waves
 
 ### 1D Infinite Potential Well
 
-### Hydrogen Atom
+**一维无限深势阱**
+
+- **Bound States**
+
+  对于无限长度的弦，其能够产生行波，而对于有线长度的弦，其只能产生驻波，这些驻波的频率只能是离散的，量子化的值。
+  Matter Waves: confinement of a wave leads to quantization, discrete states and discrete energies. 分立能谱
+
+- **Solving Schrodinger’s equation**
+
+  <img src="./Images/Infinite_Potential_Well.png" style="zoom:25%;" />
+
+  对于一个粒子可能的分布，我们规定如图的深势阱。此时有
+  $$
+  U(x) = 
+  \begin{cases}
+  0 & 0<x<L \\
+  \infty & x<0\text{ or }x>L
+  \end{cases}
+  $$
+  代入薛定谔方程，就能得到
+  $$
+  \frac{\text{d}^2\psi}{\text{d} x^2} + k^2\psi(x) = 0\ (0<x<L) \\
+  k = \sqrt{\frac{2mE}{\hbar^2}}
+  $$
+  解该二阶常系数线性微分方程，得通解
+  $$
+  \psi(x) = A\sin kx+B\cos kx \\
+  \psi(0) = 0\Rightarrow B = 0 \\
+  \psi(L) = A\sin(kL) = 0 \Rightarrow k = \frac{n\pi}{L}, n = 1,2,3,\cdots
+  $$
+  此时可以求得一维无限深势阱的本征函数
+  $$
+  \psi_n(x) = A\sin(\frac{n\pi x}{L})
+  $$
+
+- **Energy levels 能级**
+
+  Discrete eigen energies 分立的本征能量
+  $$
+  k = \sqrt{\frac{2mE}{\hbar^2}} = \frac{n\pi}{L},\ n = 1,2,3,\cdots \\
+  E_n = \frac{\hbar^2k^2}{2m} = \frac{n^2\pi^2\hbar^2}{2mL^2}
+  $$
+  The lowest energy $E_1$ is called **ground state level**. 基态
+
+  Other energies are called **excited state levels**. 激发态
+
+- **Normalization of the wave functions 归一化**
+
+  由于在平面内的总概率为1，那么就有
+  $$
+  P = \int_0^L\vert \psi_n(x)\vert^2\text{d}x = A^2\int_0^{L}\sin^2(\frac{n\pi x}{L})\text{d}x = 1 \\
+  A = \pm\sqrt{\frac{2}{L}} 
+  $$
+  那么一维无限深势阱的本征函数就为
+  $$
+  \psi_n(x) = \sqrt{\frac{2}{L}}\sin(\frac{n\pi x}{L})
+  $$
+  At large enough quantum numbers (*n*), the predictions of quantum mechanics merge smoothly with those of classical physics.
+
+  Orthonormalization 正交归一化
+  $$
+  \int_0^{L}\psi_m\ast\psi_n\text{d}x = \delta_{mn}
+  $$
+
+### Spherically Symmetric Potential - Hydrogen Atom
 
 ## Chapter 40 All about Atoms
 
