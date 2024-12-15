@@ -1135,6 +1135,35 @@ $$
 
 ### Spherically Symmetric Potential - Hydrogen Atom
 
+- **Variables separation for Schrodinger’s equation**
+
+  略。
+
+- **Eigen energies**
+  氢原子的本征能量是
+  $$
+  E = E_n = -\frac{m_e e^4}{(4\pi\epsilon_0)^2 2\hbar^2}\frac{1}{n^2} = -\frac{13.6eV}{n^2}\ (n = 1,2,3,\cdots)
+  $$
+  $n$ 是主量子数 principal quantum number. 
+
+  A Hydrogen atom can absorb or emit light at only certain frequencies which satisfy the condition $hf = E_{high} - E_{low}$. 换句话说，氢原子跃迁需要吸收的能量必须恰好等于两个能级差。
+
+  According to the level that upward jumps start on, or the downward jumps end on, the lines can be grouped into **series of lines.** 族
+
+  <img src="./Images/Series_Of_Lines.jpg" style="zoom: 33%;" />
+
+- **Quantum numbers**
+
+  主量子数 Principal quantum number $n = 1,2,3,\cdots$ → the energy of the state. 
+
+  角量子数 Orbital quantum number $l=0,1,2,\cdots,n-1$ → the angular momentum. 
+
+  磁量子数 Orbital magnetic quantum number $m_l=-l,-(l-1),\cdots,(l-1),l$ → the orientation of the angular momentum.  
+
+- **Wave functions**
+
+  略。
+
 ## Chapter 40 All about Atoms
 
 ### Orbital Angular Momentum
