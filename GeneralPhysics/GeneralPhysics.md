@@ -1150,13 +1150,18 @@ $$
 ### Spherically Symmetric Potential - Hydrogen Atom
 
 氢原子的本征能量 Eigen energies
+
 $$
 E = E_n = -\frac{m_e e^4}{(4 \pi \varepsilon_0)^2 2 \hbar^2} \cdot \frac{1}{n^2} = -\frac{e^2}{4 \pi \varepsilon_0 2 a_0} \cdot \frac{1}{n^2} = -\frac{13.6 eV}{n^2}, \quad (n = 1, 2, 3, \ldots)
 $$
+
 氢原子必须吸收或释放特定大小的能量才能改变能级，因为能级的能量是分立的。进行能级跃迁跌落的能量为
+
 $$
 hf = E_{high} - E_{low}
 $$
+
+换句话说，氢原子跃迁需要吸收的能量必须恰好等于两个能级差。
 According to the level that upward jumps start on, or the downward jumps end on, the lines can be grouped into **series of lines.** 根据不同的到达能级，氢原子的跃迁能量划分为不同的谱线系。
 
 <img src="./Images/Series_Of_Lines.jpg" style="zoom:25%;" />
