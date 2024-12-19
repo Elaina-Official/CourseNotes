@@ -396,8 +396,6 @@ When a dielectric is inserted into a capacitor, its capacitance is increased by 
 
 In a region completely filled by a dielectric, all electrostatic equations containing permittivity constant $\epsilon_0$ are to be replaced with $\kappa\epsilon_0$. 在电介质完全填充的区域, 需要将 $\epsilon_0$ 全部替换成 $\kappa\epsilon_0$. 也就是说, 对于介质中的电场, 其需要进行 $\displaystyle E\to\frac{E}{\kappa}$ 的变换. 
 
-### **Gauss’ Law in Dielectric***
-
 ## Chapter 26 Current and Resistance
 
 ## Chapter 27 Circuits
@@ -519,6 +517,24 @@ $$
 \vec{F_B} = \int\text{d}\vec{F_B}
 $$
 
+### The magnetic dipole moment*<a name="The magnetic dipole moment"></a>
+
+对于线圈在磁场中的受力，我们引入磁偶极矩来描述，定义为
+$$
+\vec{\mu} = NiA
+$$
+$N$ 是线圈匝数，$i$ 是通过线圈的电流，$A$ 是线圈包围面积. The torque on the coil due to magnetic field is 那么磁场对线圈产生的力矩就是那么磁场对线圈产生的力矩就是
+$$
+\vec{\tau} = \vec{\mu}\times\vec{B} = \mu B\sin\theta = NiAB\sin\theta
+$$
+其与电场对电偶极子的力矩 $\vec{\tau} = \vec{p}\times\vec{E}$ 相似。
+
+在外磁场中，磁偶极子具有磁势能 **magnetic potential energy**。对于电偶极子，我们有 $U(\theta) = -\vec{p}\cdot\vec{E}$。因此，对于磁偶极子，我们就有
+$$
+U(\theta) = -\vec{\mu}\cdot\vec{B}
+$$
+<img src="./Images/Magnetic_Potential_Energy.jpg" style="zoom:25%;" />
+
 ## Chapter 29 Magnetic fields due to currents
 
 ### Biot-Savart law*
@@ -533,8 +549,6 @@ $$
 \hat{r} = \frac{\vec{r}}{r}
 $$
 **Permeability** **in vacuum** **真空磁导率** $\mu_0 = 4\pi\times10^{-7}TmA^{-1}$
-
-### Calculating Magnetic Fields by B-S Law*
 
 ### Calculating magnetic fields by Ampere's law
 
@@ -1033,7 +1047,7 @@ $$
 
 A particle (such as a moving electron) can be thought of as a **matter wave**. 
 
-粒子运动产生的波是物质波，也叫做德布罗意波 de Broglie wavelength
+粒子运动产生的波是物质波，也叫做德布罗意波 de Broglie wavelength。
 $$
 \lambda = \frac{h}{p}
 $$
@@ -1135,8 +1149,128 @@ $$
 
 ### Spherically Symmetric Potential - Hydrogen Atom
 
+氢原子的本征能量 Eigen energies
+$$
+E = E_n = -\frac{m_e e^4}{(4 \pi \varepsilon_0)^2 2 \hbar^2} \cdot \frac{1}{n^2} = -\frac{e^2}{4 \pi \varepsilon_0 2 a_0} \cdot \frac{1}{n^2} = -\frac{13.6 eV}{n^2}, \quad (n = 1, 2, 3, \ldots)
+$$
+氢原子必须吸收或释放特定大小的能量才能改变能级，因为能级的能量是分立的。进行能级跃迁跌落的能量为
+$$
+hf = E_{high} - E_{low}
+$$
+According to the level that upward jumps start on, or the downward jumps end on, the lines can be grouped into **series of lines.** 根据不同的到达能级，氢原子的跃迁能量划分为不同的谱线系。
+
+<img src="./Images/Series_Of_Lines.jpg" style="zoom:25%;" />
+
+**量子数的定义与取值**<a name="Quantum Numbers"></a>
+
+| 量子数 | 符号  | 可取值                     | 涉及                 |
+| ------ | ----- | -------------------------- | -------------------- |
+| 主     | $n$   | $1,2,3,\cdots$             | 离核的距离(能级)     |
+| 轨道   | $l$   | $0,1,2,\cdots,(n-1)$       | 轨道角动量           |
+| 轨道磁 | $m_l$ | $0,\pm1,\pm2,\cdots,\pm l$ | 轨道角动量($z$ 分量) |
+| 自旋磁 | $m_S$ | $\pm\frac{1}{2}$           | 自旋角动量($z$ 分量) |
+
+对 3D 薛定谔方程进行变量分离与计算，最终得到
+$$
+\frac{\text{d}^2\Phi}{\text{d}\phi^2}+m^2\Phi = 0
+$$
+解得
+$$
+\Phi_m(\phi) = Ae^{im\phi},\ m = 0,\pm1,\pm2,\cdots
+$$
+解 3D 薛定谔方程还可以得到氢原子的基态归一化波函数
+$$
+\psi(r) = \frac{1}{\sqrt{\pi}a^{3/2}}e^{-r/a}
+$$
+其中 $a$ 是玻尔半径，一个长度常量，约等于氢原子的有效半径，数值为
+$$
+a = \frac{h^2\epsilon_0}{\pi me^2} = 5.29\times 10^{-11}m = 52.9pm
+$$
+考虑氢原子径向概率密度，有
+$$
+P(r)\text{d}r = \psi^2(r)\text{d}V \\
+P(r) = \frac{4}{a^3}r^2e^{-2r/a}
+$$
+下图表示了空间中电子在原子核周围位置的概率。
+
+<img src="./Images/The_Radial_Probability_Density.jpg" style="zoom: 67%;" />
+
+因为
+$$
+\int_0^{\infty}P(r)\text{d}r = 1
+$$
+所以电子一定在原子核周围空间中的某处。
+
 ## Chapter 40 All about Atoms
 
 ### Orbital Angular Momentum
 
+“Orbital motion” of an electron can produce a magnetic moment. 磁矩
+
+将电子的运动轨迹看作是电流，那么其具有角动量和磁偶极矩。
+
+Classical angular momentum
+$$
+\vec{L} = \vec{r}\times m\vec{v}
+$$
+磁偶极矩 Magnetic dipole moment
+$$
+\vec{\mu_{orb}} = -\frac{e}{2m_e}\vec{L}
+$$
+Quantum angular momentum
+$$
+L = \sqrt{l(l+1)}\hbar
+$$
+原子中的一个电子的轨道角动量 $\vec{L}$ 的大小 $L$ 是量子化的，即它只能取一些分立的值，其中 $l$ 是轨道量子数。
+
+量子数的定义参考[此处](#Quantum Numbers)。
+
+The components of the orbital angular momentum are quantized. 
+$$
+L_Z = m_l \hbar
+$$
+The magnetic dipole moments are quantized. 
+$$
+\mu_{orb,z} = -m_l\mu_B
+$$
+波尔磁子 
+$$
+\mu_B = \displaystyle \frac{e\hbar}{2m_e} = 9.274\times 10^{-24}J/T
+$$
+The semi-classical angle between $L$ and the $z$ axis is 
+$$
+\cos\theta = L_Z/L
+$$
+
 ### Spin Angular Momentum
+
+The magnitude of the spin angular momentum has a single value for any electron.
+$$
+S = \sqrt{s(s+1)}\hbar = \sqrt{3}\hbar/2,\ h = 1/2
+$$
+The spin magnetic dipole moment is related to $S$ by
+$$
+\vec{\mu_S} = -\frac{e}{m_e}\vec{S}
+$$
+Components along $z$ axis
+$$
+S_Z = m_S\hbar,\ m_S = \pm 1/2
+$$
+The spin magnetic dipole moment
+$$
+\mu_{S,Z} = -2m_S\mu_B
+$$
+
+Stern-Gerlach Experiment 施特恩-格拉赫实验证明了自旋角动量是量子化的。银原子在电炉内蒸发射出，通过两条狭缝形成细束，经过一个抽成真空的不均匀的磁场区域（磁场垂直于射束方向），最后到达照相底片上。显像后的底片上出现了两条黑斑，表示银原子经过不均匀磁场区域时分成了两束。这证实了自旋角动量是量子化的。
+
+<img src="./Images/Stern-Gerlach_Experiment.jpg" style="zoom: 25%;" />
+
+**The magnetic deflecting** **磁偏转**: Silver atom beam splits into two smaller beams in a non-uniform magnetic field, forming two distinct spots on the glass detector plate. 磁偶极矩相关公式可参考[此处](#The magnetic dipole moment)。 
+
+<img src="./Images/Stern-Gerlach_Experiment.png" style="zoom:33%;" />
+$$
+U = -\vec{\mu}\cdot\vec{B} = -\mu_zB(z) \\
+F_z = -\frac{\text{d}U}{\text{d}z} = \mu_z\frac{\text{d}B(z)}{\text{d}z} \\
+$$
+$\text{d}B/\text{d}t$ is the **magnetic field gradient** along the z-axis. $\mu_z$ determines the direction and magnitude of the **deflecting force**.
+
