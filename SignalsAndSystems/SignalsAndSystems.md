@@ -1164,8 +1164,12 @@ $$
   - 若 $x(t)$ 是实函数，则 $X(j\omega)$ 实部为偶函数，虚部为奇函数
   - 若 $x(t)$ 是实函数，设 $X(j\omega) = \vert X(j\omega)\vert e^{j\theta(\omega)}$，则幅度谱 $\vert X(j\omega)\vert$ 是偶函数，$\theta(\omega)$ 是奇函数
 
-  > e.g. 若实因果信号 $x(t)$ 的傅里叶变换 $X(j\omega)$ 的实部是 $\displaystyle \text{Re}\{X(j\omega)\} = \frac{1}{\omega^2+1}$，求 $x(t)$
+- 时域与频域
 
+  对于傅里叶变换而言，时域越宽，则频域越窄，反之同理。
+  
+  > e.g. 若实因果信号 $x(t)$ 的傅里叶变换 $X(j\omega)$ 的实部是 $\displaystyle \text{Re}\{X(j\omega)\} = \frac{1}{\omega^2+1}$，求 $x(t)$
+  
   根据题意，有 $\displaystyle \frac{x(t)+x(-t)}{2}\xrightarrow{F}\frac{1}{\omega^2+1}$，根据公式 $\displaystyle e^{-a\vert t\vert}\xrightarrow{F}\frac{2a}{a^2+\omega^2}$，不难发现对于本题，有 $\displaystyle \frac{x(t)+x(-t)}{2} = \frac{1}{2}e^{-\vert t\vert}$。对于是 LTI 系统的因果系统，有 $x(t) = 0\ when\ t < 0$，因此 $x(t) = e^{-t}u(t)$。
 
 #### 理想低通滤波器
@@ -1296,6 +1300,42 @@ $$
 $$
 X(j\omega) = 2\pi\sum_{k=-\infty}^{+\infty}\frac{1}{T}\delta(\omega-k\omega_0)
 $$
+
+### 信号的调制与解调
+
+#### 调制
+
+$$
+y(t) = x(t)\cos(\omega_c t)
+$$
+
+其中 $\omega_c$ 叫做载波，此时频率为 $f_c = \frac{\omega_c}{2\pi}$。对于一个信号，若其频率在一定范围内存在，而在范围外的值为 $0$，则称其为带限信号。
+
+#### 解调
+
+$$
+W(t) = y(t)\cos(\omega_c t) = x(t)\cos^2(\omega_c t)
+$$
+
+考虑 $W(t)$ 的频域形式，也就是经过傅里叶变换得到的 $W(j\omega)$。此时我们将 $W(j\omega)$ 乘上一个低通滤波器，也就是在 $[-\omega_p,\omega_p]$ 上的方波即可还原成 $x(j\omega)$。而频域相乘等于时域卷积，因此只需将 $W(t)$ 卷积上述方波的傅里叶反变换得到的抽样函数即可将 $X(j\omega)$ 还原为 $x(t)$。
+
+#### 由多个波复合而成的信号的调制与解调
+
+对于多个波叠加而成的 $x(t)$，我们有
+$$
+y(t) = \sum_{i=1}^{N}x_i(t)\cos(\omega_{ci}t)
+$$
+其中 $x_i(t)$ 是在 $[-\omega_0,\omega_0]$ 上的带限信号，且 $i\in\mathbb{Z}$。
+
+那么相似地，对于信号的解调，就有
+$$
+x_i(t) = [y(t)\cos(\omega_{ci}t)]\ast\frac{2\sin(\omega_p t)}{\pi t}
+$$
+为了保证多个信号不会相互干扰，我们有如下限制条件
+$$
+\omega_0 < \omega_p < \omega_{ci}-\omega_{cj}-\omega_0
+$$
+
 
 ## 离散时间频域分析
 
@@ -1436,39 +1476,89 @@ $$
 
 在 $n=0$ 时，根据帕斯瓦尔定理，有 $\displaystyle \sum_{n=-\infty}^{+\infty}\vert x[n]\vert^2 = \frac{1}{2\pi}\int_{2\pi}\vert X(e^{j\omega})\vert^2\text{d}\omega = \frac{6\pi}{2\pi} = 3$。这意味着 $\vert x[-2]\vert^2 + \vert x[-1]\vert^2 + \vert x[0]\vert^2 = 1^2+1^2+\vert x[0]\vert^2 = 3$，也就是说 $\vert x[0]\vert^2 = 1$，根据题目，就有 $x[0] = 1$。所以 $x[n]$ 就为 $x:-2,-1,0$ 处 $y:-1,1,1$ 的冲激。
 
-## 第五章
+### 离散傅里叶级数(快速傅里叶变换)
 
-### 信号的调制与解调
+对于离散信号到离散信号的变换，我们有离散的傅里叶级数及其快速算法，快速傅里叶变换。离散傅里叶级数的定义如下
+$$
+a_k = \sum_{n=0}^{N-1}x[n]e^{-j\frac{2\pi}{N}nk} \\
+x[n] = \frac{1}{N}\sum_{k=0}^{N-1}a_ke^{j\frac{2\pi}{N}nk}
+$$
+其中 $a_k$ 和 $x[n]$ 均以 $N$ 为周期。
 
-#### 调制
+对于离散的傅里叶变换，我们有 $\displaystyle X(e^{j\omega}) = \sum_{n=0}^{N-1}x[n]e^{-j\omega n}$，在一个周期 $[0,2\pi)$ 内等间距取 $N-1$ 个点，那么就有 $\omega_k = \frac{2\pi}{N}k(k=0,1,2,\cdots,N-1)$，将其代入离散傅里叶变换的公式中，就会得到 $\displaystyle a_k = X(e^{j\omega}) = \sum_{n=0}^{N-1}x[n]e^{-j\frac{2\pi}{N} nk}$，这就是离散傅里叶级数的公式。
 
+**FFT: 暂略。**
+
+## 采样定理
+
+### 采样定理的定义
+
+**采样是沟通连续信号与离散信号的桥梁。**
+
+若连续信号 $x(t)$ 的傅里叶变换是带限信号 $X(e^{j\omega})$，其截止频率为 $\omega_M$，我们对 $x(t)$ 以采样周期 $T$ 进行采样，得到 $x[n] = x(nT)$，采样频率为 $\omega_s = \frac{2\pi}{T}$。
+
+若 $\omega_s>2\omega_M$，则可以由 $x[n] = x(nT)$ 完全恢复 $x(t)$。
+
+**采样定理：当 $x(t)$ 为带限信号，即 $X(j\omega) = 0$ 当 $\vert \omega\vert>\omega_M$ 时，若采样频率 $\displaystyle \omega_s>2\omega_M(\omega_s = \frac{2\pi}{T})$，则 $x(t)$ 可以由 $x[n] = x(nT)$ 唯一确定。**
+
+对于 $x(t)\xrightarrow{F}X(j\omega)$，且 $X(j\omega)$ 是在 $[-\omega_M,\omega_M]$ 上的带限信号，那么就有 $x(t)$ 的冲击采样函数及其傅里叶变换
 $$
-y(t) = x(t)\cos(\omega_c t)
+x_p(t) = \sum_{n=-\infty}^{+\infty}x(nT)\delta(t-nT) \\
+X_p(j\omega) = \frac{1}{T}\sum_{k=-\infty}^{+\infty}X(j(\omega-k\omega_s)), \omega_s = \frac{2\pi}{T} \\
+$$
+$X_p(j\omega)$ 是在 $X(j\omega)$ 基础上的周期函数，其在一个周期内的图像与 $X(j\omega)$ 相似，且以 $\omega_s$ 为周期。也就是说在 $[k\omega_s-\omega_M,k\omega_s+\omega_M]$ 上，有 $\displaystyle \frac{X(j\omega)}{T}$。
+
+同时，对于 $x(t)$ 以 $T$ 为采样周期采样而成的信号 $x[n]$，有
+$$
+x[n] = x(nT) \\
+X(e^{j\omega}) = X_p(e^{j\frac{\omega}{T}}) = \frac{1}{T}\sum_{k=-\infty}^{+\infty}X(j\frac{\omega-2k\pi}{T})
+$$
+那么对于带限信号的范围 $[-\omega_M,\omega_M]$，其将变成 $[-\omega_MT,\omega_MT]$，可以认为整个信号被延伸了 $T$ 倍。
+
+**奈奎斯特采样频率：对于某带限信号，将其截止频率 $\omega_M$ 的两倍叫做其奈奎斯特采样频率，也就是 $2\omega_M$。**
+
+**带限内插公式**
+
+在满足采样定理的情况下，可以使用带限内插公式将 $x[n] = x(nT)$ 恢复为 $x(t)$。不难发现 $X(j\omega) = X_p(j\omega)\cdot H(\omega)$，其中 $H(\omega)$ 是低通滤波器，在此公式中，其在 $[-\omega_0,\omega_0]$ 上高度为 $T$，且满足 $\omega_M<\omega_0<\omega_s-\omega_M$。那么对 $X(j\omega)$ 进行傅里叶反变换就能够得到 $x(t)$。
+$$
+\begin{aligned}
+x(t) &= x_p(t)\ast T\frac{\sin(\omega_0 t)}{\pi t} \\
+&= T\sum_{n=-\infty}^{+\infty}x(nT)\delta(t-nT)\ast\frac{\sin(\omega_0 t)}{\pi t} \\
+&= T\sum_{n=-\infty}^{+\infty}x(nT)\frac{\sin(\omega_0(t-nT))}{\pi(t-nT)} \\
+&= \frac{T}{\pi}\sum_{n=-\infty}^{+\infty}x[n]\frac{\sin(\omega_0(t-nT))}{(t-nT)} \\
+\end{aligned}
+$$
+以上是低通内插公式，使用的是低通滤波器进行还原。此外，还有带通内插公式，使用带通滤波器进行还原。
+
+带通内插公式
+$$
+\frac{T}{\pi}\sum_{n=-\infty}^{+\infty}x[n]\frac{\sin(\omega_0(t-nT))}{(t-nT)}\cos(\omega_s(t-nT))
 $$
 
-其中 $\omega_c$ 叫做载波，此时频率为 $f_c = \frac{\omega_c}{2\pi}$。对于一个信号，若其频率在一定范围内存在，而在范围外的值为 $0$，则称其为带限信号。
+### 零阶保持与一阶保持
 
-#### 解调
+#### 零阶保持
 
+对于零阶保持，我们希望在冲击采样函数的基础上将每一个冲激信号都保持一小段时间 $\tau$，也就有零阶保持采样 $x_0(t) = x_p(t)\ast h(t)$，其中 $h(t)$ 是在 $[0,\tau]$ 上高度为 $1$ 的方波。那么就有
 $$
-W(t) = y(t)\cos(\omega_c t) = x(t)\cos^2(\omega_c t)
+X_0(j\omega) = X_p(j\omega)\cdot \tau\text{Sa}(\frac{\tau}{2}\omega)e^{-j\frac{\tau}{2}\omega} \\
+X_p(j\omega) = \frac{X_0(j\omega)}{\tau\text{Sa}(\frac{\tau}{2}\omega)}e^{j\frac{\tau}{2}\omega} \\
+X(j\omega) = X_p(j\omega)\cdot K(j\omega) = \frac{X_0(j\omega)}{\tau\text{Sa}(\frac{\tau}{2}\omega)}K(j\omega)
 $$
+其中 $K(\omega)$ 是低通滤波器，在此公式中，其在 $[-\omega_0,\omega_0]$ 上高度为 $T$。
 
-考虑 $W(t)$ 的频域形式，也就是经过傅里叶变换得到的 $W(j\omega)$。此时我们将 $W(j\omega)$ 乘上一个低通滤波器，也就是在 $[-\omega_p,\omega_p]$ 上的方波即可还原成 $x(j\omega)$。而频域相乘等于时域卷积，因此只需将 $W(t)$ 卷积上述方波的傅里叶反变换得到的抽样函数即可将 $X(j\omega)$ 还原为 $x(t)$。
+#### 一阶保持
 
-#### 由多个波复合而成的信号的调制与解调
+对于一阶保持，其将相邻的采样点之间用直线连接，就有 $x_1(t) = x_p(t)\ast h(t)$，其中 $h(t)$ 是在 $[-T,T]$ 上最高为 $1$ 的三角波。那么就能得到
+$$
+X_1(j\omega) = X_p(j\omega)\cdot T\text{Sa}^2(\frac{\tau}{2}\omega) \\
+X_p(j\omega) = \frac{X_1(j\omega)}{T\text{Sa}^2(\frac{\tau}{2}\omega)} \\
+X(j\omega) = X_p(j\omega)\cdot K(j\omega) = \frac{X_1(j\omega)}{T\text{Sa}^2(\frac{\tau}{2}\omega)}K(j\omega)
+$$
+其中 $K(\omega)$ 是低通滤波器，在此公式中，其在 $[-\omega_0,\omega_0]$ 上高度为 $T$。
 
-对于多个波叠加而成的 $x(t)$，我们有
-$$
-y(t) = \sum_{i=1}^{N}x_i(t)\cos(\omega_{ci}t)
-$$
-其中 $x_i(t)$ 是在 $[-\omega_0,\omega_0]$ 上的带限信号，且 $i\in\mathbb{Z}$。
+> 若 $\displaystyle h[n] = \frac{\sin(\pi(n-\frac{1}{2}))}{\pi(n-\frac{1}{2})}$，求 $H(j\omega)$
 
-那么相似地，对于信号的解调，就有
-$$
-x_i(t) = [y(t)\cos(\omega_{ci}t)]\ast\frac{2\sin(\omega_p t)}{\pi t}
-$$
-为了保证多个信号不会相互干扰，我们有如下限制条件
-$$
-\omega_0 < \omega_p < \omega_{ci}-\omega_{cj}-\omega_0
-$$
+设 $\displaystyle h(t) = \frac{\sin(\pi(t-\frac{1}{2}))}{\pi(t-\frac{1}{2})}$，其傅里叶变换的结果就是 $K(j\omega)e^{-j\frac{1}{2}\omega}$，其中 $K(j\omega)$ 是在 $[-\pi,\pi]$ 上高度为 $1$ 的方波。
+
+根据采样定理，用 $T=1$ 对 $h(t)$ 采样，得 $\displaystyle h[n] = \frac{\sin(\pi(n-\frac{1}{2}))}{\pi(n-\frac{1}{2})}$。此时对于 $H(j\omega)$，其截止频率就是 $\omega_MT = \pi$，而信号高度 $E/T = 1$。因此 $H(j\omega) = K(j\omega)e^{-j\frac{1}{2}\omega}$。
