@@ -818,9 +818,11 @@ $$
 
 对于信号 $x(j\omega) = \vert x(j\omega)\vert e^{j\theta(\omega)}$，$\vert x(j\omega)\vert$ 叫做幅度谱(Amplitude)，$e^{j\theta(\omega)}$ 叫做相位谱。
 
+对于实函数 $x(t)$，有 $\displaystyle x(t) = \frac{x(t)+x(-t)}{2} + \frac{x(t)-x(-t)}{2}\xrightarrow{F}\text{Re}\{X(j\omega)\}+j\text{Im}\{X(j\omega)\}$，其中 $\displaystyle \frac{x(t)+x(-t)}{2}\xrightarrow{F}\text{Re}\{X(j\omega)\}, \frac{x(t)-x(-t)}{2}\xrightarrow{F}\text{Im}\{X(j\omega)\}$。
+
 1. $\displaystyle x(t)=e^{-at}u(t)$
 $$
-  \begin{aligned}
+\begin{aligned}
   x(j\omega) &= \int_{-\infty}^{+\infty}\left[e^{-at}u(t)\right]e^{-j\omega t}\text{d}t \\
   &= \int_{0}^{+\infty}e^{-(a+j\omega)t}\text{d}t \\
   &= -\frac{1}{a+j\omega}e^{-(a+j\omega)t}\Bigg|_{t=0}^{+\infty} \\
@@ -976,27 +978,31 @@ $$
 
 - 线性
 
-  若 $x_1(t)\xrightarrow{F}x_1(j\omega), x_2(t)\xrightarrow{F}x_2(j\omega)$，则 $ax_1(t)+bx_2(t)\xrightarrow{F}ax_1(j\omega)+bx_2(j\omega)$。
+  若 $x_1(t)\xrightarrow{F}X_1(j\omega), x_2(t)\xrightarrow{F}X_2(j\omega)$，则 $ax_1(t)+bx_2(t)\xrightarrow{F}aX_1(j\omega)+bX_2(j\omega)$。
 
 - 时移
 
-  若 $x(t)\xrightarrow{F}x(j\omega)$，则 $x(t-t_0) \xrightarrow{F}x(j\omega)e^{-j\omega t_0}$。
+  若 $x(t)\xrightarrow{F}X(j\omega)$，则 $x(t-t_0) \xrightarrow{F}X(j\omega)e^{-j\omega t_0}$。
 
 - <a name="frequency_shift">频移</a>
 
-  若 $x(t)\xrightarrow{F}x(j\omega)$，则 $x(t)e^{j\omega_0 t}\xrightarrow{F}x(j(\omega-\omega_0))$。
+  若 $x(t)\xrightarrow{F}X(j\omega)$，则 $x(t)e^{j\omega_0 t}\xrightarrow{F}X(j(\omega-\omega_0))$。
 
 - 时域微分
 
-  若 $x(t)\xrightarrow{F}x(j\omega)$，则 $\displaystyle \frac{\text{d}x(t)}{\text{d}t}\xrightarrow{F}j\omega x(j\omega)$，$\displaystyle \frac{\text{d}^nx(t)}{\text{d}t^n}\xrightarrow{F}(j\omega)^n x(j\omega)$。
+  若 $x(t)\xrightarrow{F}X(j\omega)$，则 $\displaystyle \frac{\text{d}x(t)}{\text{d}t}\xrightarrow{F}j\omega X(j\omega)$，$\displaystyle \frac{\text{d}^nx(t)}{\text{d}t^n}\xrightarrow{F}(j\omega)^n X(j\omega)$。
 
 - 频域微分
 
-  若 $x(t)\xrightarrow{F}x(j\omega)$，则 $tx(t)\xrightarrow{F}j\displaystyle \frac{\text{d}x(j\omega)}{\text{d}\omega}$，$\displaystyle t^nx(t)\xrightarrow{F}j^n\frac{\text{d}^nx(j\omega)}{\text{d}\omega^n}$。
+  若 $x(t)\xrightarrow{F}X(j\omega)$，则 $tx(t)\xrightarrow{F}j\displaystyle \frac{\text{d}X(j\omega)}{\text{d}\omega}$，$\displaystyle t^nx(t)\xrightarrow{F}j^n\frac{\text{d}^nX(j\omega)}{\text{d}\omega^n}$。
 
 - 时域卷积
 
-  若 $x(t)\xrightarrow{F}x(j\omega),h(t)\xrightarrow{F}H(j\omega)$，则 $x(t)\ast h(t)\xrightarrow{F}x(j\omega)H(j\omega)$。也就是说，**时域卷积等于频域相乘**。
+  若 $x(t)\xrightarrow{F}X(j\omega),h(t)\xrightarrow{F}H(j\omega)$，则 $x(t)\ast h(t)\xrightarrow{F}X(j\omega)H(j\omega)$。也就是说，**时域卷积等于频域相乘**。
+  
+- 调制
+
+  若 $x(t)\xrightarrow{F}X(j\omega), y(t)\xrightarrow{F}Y(j\omega)$，则 $\displaystyle x(t)y(t)\xrightarrow{F}\frac{1}{2\pi}X(j\omega)\ast Y(j\omega) = \frac{1}{2\pi}\int_{-\infty}^{+\infty}X(j\theta)Y(j(\omega-\theta))\text{d}\theta$。
 
 > e.g. 求在区间 $\left[-5,5\right]$ 上高度为 $2$ 的方波的傅里叶变换
 
@@ -1153,8 +1159,8 @@ $$
 
 - 共轭性与共轭对称性
 
-  - 若 $x(t)$ 是实偶函数，则 $X(j\omega)$ 只有 $\cos$ 分量
-  - 若 $x(t)$ 是实奇函数，则 $X(j\omega)$ 只有 $\sin$ 分量
+  - 若 $x(t)$ 是实偶函数，则 $X(j\omega)$ 只有 $\cos$ 分量（实偶对实偶）
+  - 若 $x(t)$ 是实奇函数，则 $X(j\omega)$ 只有 $\sin$ 分量（实奇对虚奇）
   - 若 $x(t)$ 是实函数，则 $X(j\omega)$ 实部为偶函数，虚部为奇函数
   - 若 $x(t)$ 是实函数，设 $X(j\omega) = \vert X(j\omega)\vert e^{j\theta(\omega)}$，则幅度谱 $\vert X(j\omega)\vert$ 是偶函数，$\theta(\omega)$ 是奇函数
 
@@ -1314,8 +1320,121 @@ $$
 4. $\displaystyle x[n] = 1(n\in\mathbb{Z}\text{ and }n\in[-N_1,N_1])\xrightarrow{F}\frac{\sin(N_1+\frac{1}{2})\omega}{\sin(\frac{1}{2}\omega)}$
 5. $\displaystyle \frac{\sin(\omega_0 n)}{\pi n}\xrightarrow{F}$ 在 $[-2\pi-\omega_0,-2\pi+\omega_0],[-\omega_0,\omega_0],[2\pi-\omega_0,2\pi+\omega_0](0<\omega_0<\pi)$ 上高度为 $1$ 的三个方波
 6. $\displaystyle u[n]\xrightarrow{F}\frac{1}{1-e^{-j\omega}}+\pi\sum_{k=-\infty}^{+\infty}\delta(\omega-2k\pi)$
-7. $\displaystyle \cos(\omega_0n)\xrightarrow{F} \pi\sum_{k=-\infty}^{+\infty}[\delta(\omega+\omega_0-2k\pi)+\delta(\omega-\omega_0-2k\pi)]$
-8. $\displaystyle \sin(\omega_0n)\xrightarrow{F}\frac{\pi}{j}\sum_{k=-\infty}^{+\infty}[\delta(\omega-\omega_0-2k\pi)-\delta(\omega+\omega_0-2k\pi)]$
+7. $\displaystyle \cos(\omega_0n)\xrightarrow{F} \pi\sum_{k=-\infty}^{+\infty}[\delta(\omega+\omega_0-2k\pi)+\delta(\omega-\omega_0-2k\pi)],\ \omega_0\in(0,\pi)$
+8. $\displaystyle \sin(\omega_0n)\xrightarrow{F}\frac{\pi}{j}\sum_{k=-\infty}^{+\infty}[\delta(\omega-\omega_0-2k\pi)-\delta(\omega+\omega_0-2k\pi)],\ \omega_0\in(0,\pi)$
+
+#### 离散傅里叶变换的性质
+
+- 线性
+
+  若 $x_1[n]\xrightarrow{F}X_1(e^{j\omega}), x_2[n]\xrightarrow{F}X_2(e^{j\omega})$，则 $ax_1[n]+bx_2[n]\xrightarrow{F}aX_1(e^{j\omega})+bX_2(e^{j\omega})$。
+
+- 时移
+
+  若 $x[n]\xrightarrow{F}X(e^{j\omega})$，则 $x[n-n_0] \xrightarrow{F}X(e^{j\omega})e^{-j\omega n_0}$。
+
+- 频移
+
+  若 $x[n]\xrightarrow{F}X(e^{j\omega})$，则 $x[n]e^{j\omega_0 n}\xrightarrow{F}X(e^{j(\omega-\omega_0)})$。
+
+- 时域差分
+
+  若 $x[n]\xrightarrow{F}X(e^{j\omega})$，则 $x[n]-x[n-1]\xrightarrow{F}(1-e^{-j\omega})X(e^{j\omega})$。
+
+- 时域扩展
+
+  若 $x[n]\xrightarrow{F}X(e^{j\omega})$，则 $x_{(k)}[n]\xrightarrow{F}X(e^{j\omega k})$。
+
+  $x_{(k)}[n] = \begin{cases}x[\frac{n}{k}] & n = mk \\ 0 & n\neq mk\end{cases},\ m\in\mathbb{Z}$。其相当于在频域上对 $x[n]$ 相邻下标之间插入 $k-1$ 个 $0$ 得到的信号。若 $X(e^{j\omega})$ 以 $2\pi$ 为周期，则 $X(e^{jk\omega})$ 以 $2\pi/k$ 为周期。
+
+- 频域微分
+
+  若 $x[n]\xrightarrow{F}X(e^{j\omega})$，则 $nx[n]\xrightarrow{F}j\displaystyle \frac{\text{d}X(e^{j\omega})}{\text{d}\omega}$，$\displaystyle n^nx[n]\xrightarrow{F}j^n\frac{\text{d}^nx(e^{j\omega})}{\text{d}\omega^n}$。
+  
+- 时域卷积
+  
+  若 $x[n]\xrightarrow{F}X(e^{j\omega}),h[n]\xrightarrow{F}H(e^{j\omega})$，则 $x[n]\ast h[n]\xrightarrow{F}X(e^{j\omega})H(e^{j\omega})$。也就是说，**时域卷积等于频域相乘**。
+  
+- 时域累加
+
+  若 $x[n]\xrightarrow{F}X(e^{j\omega})$，则 $\displaystyle y[n] = x[n]\ast u[n] = \sum_{k=-\infty}^{n}x[k]\xrightarrow{F}\frac{1}{1-e^{-j\omega}}+\pi X(e^{j0})\sum_{k=-\infty}^{+\infty}\delta(\omega-2k\pi)$。
+
+- 调制
+
+  若 $x(t)\xrightarrow{F}X(e^{j\omega}), y(t)\xrightarrow{F}Y(e^{j\omega})$，则 $\displaystyle x[n]y[n]\xrightarrow{F}\frac{1}{2\pi}X(e^{j\omega})\circledast Y(e^{j\omega}) = \frac{1}{2\pi}\int_{2\pi}X(e^{j\theta)})Y(e^{j(\omega-\theta)})\text{d}\theta$。
+
+- 帕斯瓦尔定理
+
+  若 $x[n]\xrightarrow{F}X(e^{j\omega})$，则 $\displaystyle \sum_{n=-\infty}^{+\infty}\vert x[n]\vert^2 = \frac{1}{2\pi}\int_{2\pi}\vert X(e^{j\omega})\vert^2\text{d}\omega	$。
+
+- 共轭对称
+
+  - 若 $x[n]$ 是实偶函数，则 $X(e^{j\omega})$ 只有 $\cos$ 分量（实偶对实偶）
+  - 若 $x[n]$ 是实奇函数，则 $X(e^{j\omega})$ 只有 $\sin$ 分量（实奇对虚奇）
+  - 若 $x[n]$ 是实函数，则 $X(e^{j\omega})$ 实部为偶函数，虚部为奇函数
+  - 若 $x[n]$ 是实函数，设 $X(e^{j\omega}) = \vert X(e^{j\omega})\vert e^{j\theta(\omega)}$，则幅度谱 $\vert X(e^{j\omega})\vert$ 是偶函数，$\theta(\omega)$ 是奇函数
+  
+  对于实函数 $x[n]$，有 $\displaystyle x[n] = \frac{x[n]+x[-n]}{2} + \frac{x[n]-x[-n]}{2}\xrightarrow{F}\text{Re}\{X(e^{j\omega})\}+j\text{Im}\{X(e^{j\omega})\}$，其中 $\displaystyle \frac{x[n]+x[-n]}{2}\xrightarrow{F}\text{Re}\{X(e^{j\omega})\}, \frac{x[n]-x[-n]}{2}\xrightarrow{F}\text{Im}\{X(e^{j\omega})\}$。
+
+> 求 $\cos(\pi n)$ 的离散傅里叶变换
+
+根据公式，在一个周期 $[-\pi,\pi]$ 内，$\cos(\pi n)$ 在 $-\pi$ 和 $\pi$ 处的值都为 $\pi$。而对于其前一个周期和后一个周期，也都各在 $-\pi$ 和 $\pi$ 处存在一个高度为 $\pi$ 的冲激，因此在 $\pm \omega_0+2k\pi$ 处，$\cos(\pi n)$ 的值均为 $2\pi$。也就是说，$\cos(\pi n)$ 的离散傅里叶变换是
+$$
+2\pi\sum_{k=-\infty}^{+\infty}\delta(\omega-(2k+1)\pi)
+$$
+注意，$\cos(\pi n) = e^{j\pi n} = e^{-j\pi n} = (-1)^n$，因此在实际应用中我们可以频繁替换。
+
+对于 $\sin(\pi n)$，如果我们进行同样的分析，可以得到在 $\omega = k\pi$ 处，都有 $\pi/j-\pi/j = 0$，因此其离散傅里叶变换的表达式就是 $0$。此外，直接对 $\sin(n\pi)$ 分析，可以得到 $\sin(n\pi)\equiv 0$，那么显然其离散傅里叶变换的表达式就是 $0$。
+
+> 求 $x[n]=(n+1)a^nu[n]$ 的傅里叶变换
+
+$$
+a^nu[n]\xrightarrow{F}\frac{1}{1-ae^{-j\omega}} \\
+na^nu[n]\xrightarrow{F}j\frac{\text{d}(\frac{1}{1-ae^{-j\omega}})}{\text{d}\omega} = \frac{ae^{-j\omega}}{(1-ae^{-j\omega})^2} \\
+(n+1)a^nu[n]\xrightarrow{F}\frac{1}{1-ae^{-j\omega}}+\frac{ae^{-j\omega}}{(1-ae^{-j\omega})^2} = \frac{1}{(1-ae^{-j\omega})^2}
+$$
+
+本题可以作为重要结论之一，此外，还有
+$$
+\frac{(n+r-1)!}{n!(r-1)!}a^nu[n]\xrightarrow{F}\frac{1}{(1-ae^{-j\omega})^r}
+$$
+
+> 若 $\displaystyle x[n] = (\frac{1}{2})^nu[n], y[n] = 3(\frac{1}{2})^nu[n] - 2(\frac{1}{3})^nu[n]$，求 $h[n]$
+
+$$
+H(e^{j\omega}) = \frac{Y(e^{j\omega})}{X(e^{j\omega})} = \frac{\frac{1}{(1-\frac{1}{2}e^{-j\omega})(1-\frac{1}{3}e^{-j\omega})}}{\frac{1}{1-\frac{1}{2}e^{-j\omega}}} = \frac{1}{1-\frac{1}{3}e^{-j\omega}} \\
+h[n] = (\frac{1}{3})^nu[n]
+$$
+
+> 计算 $\displaystyle \left[\frac{\sin(\frac{3}{4}\pi n)}{\pi n}\right]^2$ 的傅里叶变换
+
+可以使用调制特性来计算，令 $\displaystyle x[n] = \frac{\sin(\frac{3}{4}\pi n)}{\pi n}$ 有
+$$
+\left[\frac{\sin(\frac{3}{4}\pi n)}{\pi n}\right]^2 = x[n]\cdot x[n]\xrightarrow{F}\frac{1}{2\pi}X(e^{j\omega})\circledast X(e^{j\omega}) \\
+$$
+$X(e^{j\omega})$ 是在 $[-\frac{3}{4}\pi, \frac{3}{4}\pi]$ 上高度为 $1$ 的方波，那么在一个周期内 $X(e^{j\omega})\circledast X(e^{j\omega})$ 就是在 $[-\frac{3}{2}\pi,\frac{3}{2}\pi]$ 上最高位 $\frac{3}{2}\pi$ 的三角波。注意此时其有效范围已经超出一个周期 $[-\pi,\pi]$，因此需要进行多个周期的叠加。经过叠加可以得到在一个周期内，傅里叶变换的结果是在 $[-\pi,-\frac{1}{2}\pi]$ 和 $[\frac{1}{2}\pi,\pi]$ 上恒为 $1$ 的信号，以及在 $[-\frac{1}{2}\pi,\frac{1}{2}\pi]$ 上最高为 $\frac{3}{4}$，两端为 $1$ 的信号。
+
+还能够通过对原式进行变换再计算。$\displaystyle \left[\frac{\sin(\frac{3}{4}\pi n)}{\pi n}\right]^2 = \left[\frac{\sin(\frac{1}{4}\pi n)}{\pi n}\right]^2 + \frac{1}{2}\delta[n]$，此时单个周期内的傅里叶变换不会超出 $[-\pi,\pi]$ 的范围，可以直接计算，此处具体过程不再赘述。
+
+> 设 $x[n]\xrightarrow{F}X(e^{j\omega})$ 满足以下条件，求 $x[n]$
+>
+> - $x[n] = 0,\ n > 0$
+> - $x[0]>0$
+> - $\text{Im}\{X(e^{j\omega)}\} = \sin(\omega)-\sin(2\omega)$
+> - $\displaystyle \int_{-\pi}^{\pi}\vert X(e^{j\omega})\vert^2\text{d}\omega = 6\pi$
+
+首先关注到条件三，虚部可以进行如下转换
+$$
+\begin{aligned}
+\frac{x[n]-x[-n]}{2} &\xrightarrow{F} j\text{Im}\{X(e^{j\omega)}\} \\
+&= j(\sin(\omega) - \sin(2\omega)) \\
+&= \frac{e^{j\omega}-e^{-j\omega}}{2} - \frac{e^{j2\omega}-e^{-j2\omega}}{2} \\
+&= \frac{1}{2}e^{j\omega} - \frac{1}{2}e^{-j\omega} - \frac{1}{2}e^{j2\omega} + \frac{1}{2}e^{-j2\omega}
+\end{aligned}
+$$
+意味着 $\displaystyle \frac{x[n]-x[-n]}{2}$ 在图像上是在 $x:-2,-1,1,2$ 处有 $y:-\frac{1}{2},\frac{1}{2},-\frac{1}{2},\frac{1}{2}$ 的四个冲激。不难发现 $x[n]$ 为 $x:-2,-1$ 处 $y:-1,1$ 的冲激。
+
+在 $n=0$ 时，根据帕斯瓦尔定理，有 $\displaystyle \sum_{n=-\infty}^{+\infty}\vert x[n]\vert^2 = \frac{1}{2\pi}\int_{2\pi}\vert X(e^{j\omega})\vert^2\text{d}\omega = \frac{6\pi}{2\pi} = 3$。这意味着 $\vert x[-2]\vert^2 + \vert x[-1]\vert^2 + \vert x[0]\vert^2 = 1^2+1^2+\vert x[0]\vert^2 = 3$，也就是说 $\vert x[0]\vert^2 = 1$，根据题目，就有 $x[0] = 1$。所以 $x[n]$ 就为 $x:-2,-1,0$ 处 $y:-1,1,1$ 的冲激。
 
 ## 第五章
 
