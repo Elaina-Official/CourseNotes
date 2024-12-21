@@ -1535,6 +1535,14 @@ $$
 \frac{T}{\pi}\sum_{n=-\infty}^{+\infty}x[n]\frac{\sin(\omega_0(t-nT))}{(t-nT)}\cos(\omega_s(t-nT))
 $$
 
+> 若存在系统 $\displaystyle x(t)\to\text{Time Domain Sampling}\xrightarrow{x_s(t)}H(j\omega)\to y(t)\\\uparrow\\\delta_T(t)$，其中 $H(j\omega)$ 是在 $[-2,2]$ 上高度为 $1$ 的方波，已知 $\displaystyle x(t) = 1+\cos(t),\delta_T(t) = \sum_{n=-\infty}^{+\infty}\delta(t-\frac{\pi}{3}n)$ 进行采样。
+>
+> 1) 求 $x_s(t)$ 的频谱图。
+> 2) 若 $x[n] = x(nT)$，求 $x[n]$ 的频谱图
+
+1. 显然 $\displaystyle T = \frac{\pi}{3}$，$x(t)$ 的傅里叶变换是 $2\pi\delta(\omega)+\pi(\delta(\omega+1)+\delta(\omega-1))$，也就是 $x:-1,0,1$ 时 $y:\pi,2\pi,\pi$。根据 $\displaystyle X_s(j\omega) = \frac{1}{T}\sum_{k=-\infty}^{+\infty}X(j(\omega-k\omega_s))$ 和 $\displaystyle \omega_s = \frac{2\pi}{T} = 6$ 可以得到 $X_s(j\omega)$ 在 $x:-1,0,1$ 时 $y:3,6,3$，且以 $6$ 为周期无限延伸。
+2. 根据 $\displaystyle X(e^{j\omega}) = X_s(e^{j\frac{\omega}{T}}) = \frac{1}{T}\sum_{k=-\infty}^{+\infty}X(j\frac{\omega-2k\pi}{T})$ 可以得到，$X(e^{j\omega})$ 是在 $\displaystyle x:-\frac{\pi}{3},0,\frac{\pi}{3}$ 时 $y:\pi,2\pi,\pi$，且以 $2\pi$ 为周期无限延伸。
+
 ### 零阶保持与一阶保持
 
 #### 零阶保持
@@ -1545,7 +1553,7 @@ X_0(j\omega) = X_p(j\omega)\cdot \tau\text{Sa}(\frac{\tau}{2}\omega)e^{-j\frac{\
 X_p(j\omega) = \frac{X_0(j\omega)}{\tau\text{Sa}(\frac{\tau}{2}\omega)}e^{j\frac{\tau}{2}\omega} \\
 X(j\omega) = X_p(j\omega)\cdot K(j\omega) = \frac{X_0(j\omega)}{\tau\text{Sa}(\frac{\tau}{2}\omega)}K(j\omega)
 $$
-其中 $K(\omega)$ 是低通滤波器，在此公式中，其在 $[-\omega_0,\omega_0]$ 上高度为 $T$。
+其中 $K(j\omega)$ 是低通滤波器，在此公式中，其在 $[-\omega_0,\omega_0]$ 上高度为 $T$。
 
 #### 一阶保持
 
@@ -1555,10 +1563,27 @@ X_1(j\omega) = X_p(j\omega)\cdot T\text{Sa}^2(\frac{\tau}{2}\omega) \\
 X_p(j\omega) = \frac{X_1(j\omega)}{T\text{Sa}^2(\frac{\tau}{2}\omega)} \\
 X(j\omega) = X_p(j\omega)\cdot K(j\omega) = \frac{X_1(j\omega)}{T\text{Sa}^2(\frac{\tau}{2}\omega)}K(j\omega)
 $$
-其中 $K(\omega)$ 是低通滤波器，在此公式中，其在 $[-\omega_0,\omega_0]$ 上高度为 $T$。
+其中 $K(j\omega)$ 是低通滤波器，在此公式中，其在 $[-\omega_0,\omega_0]$ 上高度为 $T$。
 
 > 若 $\displaystyle h[n] = \frac{\sin(\pi(n-\frac{1}{2}))}{\pi(n-\frac{1}{2})}$，求 $H(j\omega)$
 
 设 $\displaystyle h(t) = \frac{\sin(\pi(t-\frac{1}{2}))}{\pi(t-\frac{1}{2})}$，其傅里叶变换的结果就是 $K(j\omega)e^{-j\frac{1}{2}\omega}$，其中 $K(j\omega)$ 是在 $[-\pi,\pi]$ 上高度为 $1$ 的方波。
 
 根据采样定理，用 $T=1$ 对 $h(t)$ 采样，得 $\displaystyle h[n] = \frac{\sin(\pi(n-\frac{1}{2}))}{\pi(n-\frac{1}{2})}$。此时对于 $H(j\omega)$，其截止频率就是 $\omega_MT = \pi$，而信号高度 $E/T = 1$。因此 $H(j\omega) = K(j\omega)e^{-j\frac{1}{2}\omega}$。
+
+### 连续时间系统的离散实现
+
+对于连续的 LTI 系统，我们有
+$$
+x(t)\to h(t)\to y(t) = x(t)\ast h(t)
+$$
+对于离散的 LTI 系统，如果我们也想输入 $x(t)$ 且输出 $y(t)$，那么就有
+$$
+x(t)\to \text{Sampling}\xrightarrow{x[n] = x(nT)} h_d[n]\xrightarrow{y[n] = y(nT)}\text{Zero-Order Hold}\xrightarrow{y_0(t)}\frac{\omega e^{j\omega\frac{\tau}{2}}}{2\sin(\omega\frac{\tau}{2})}H(j\omega)\to y(t)
+$$
+其中 $H(j\omega)$ 是低通滤波器，在此公式中，其在 $[-\omega_0,\omega_0]$ 上高度为 $T$。
+
+若 $x(t),y(t),h(t)$ 满足采样定理，则 
+$$
+h_d[n] = Th(nT)
+$$
